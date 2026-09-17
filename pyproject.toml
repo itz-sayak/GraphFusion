@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphfusion"
+version = "0.1.0"
+description = "Conversational multi-format dataset integration with graph-based schema matching, entity resolution and provenance-tracked merging."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+embeddings = ["sentence-transformers>=3.0"]
+postgres = ["psycopg[binary]>=3.1"]
+
+[tool.setuptools.packages.find]
+include = ["backend*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+  "e2e: end-to-end pipeline tests",
+  "network: tests that require internet access",
+]
+filterwarnings = ["ignore::DeprecationWarning"]

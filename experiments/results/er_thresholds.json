@@ -1,0 +1,148 @@
+{
+  "rows": [
+    {
+      "scenario": "default",
+      "seeds": "tuning (7, 11, 23)",
+      "setting": "old prior, old balanced",
+      "threshold": 0.9,
+      "precision": 0.9985333333333334,
+      "recall": 0.9971333333333333,
+      "f1": 0.9978333333333333
+    },
+    {
+      "scenario": "default",
+      "seeds": "tuning (7, 11, 23)",
+      "setting": "calibrated, strict",
+      "threshold": 0.9,
+      "precision": 1.0,
+      "recall": 0.9767333333333333,
+      "f1": 0.9882333333333334
+    },
+    {
+      "scenario": "default",
+      "seeds": "tuning (7, 11, 23)",
+      "setting": "calibrated, balanced",
+      "threshold": 0.5,
+      "precision": 0.9985333333333334,
+      "recall": 0.9956999999999999,
+      "f1": 0.9971000000000001
+    },
+    {
+      "scenario": "default",
+      "seeds": "tuning (7, 11, 23)",
+      "setting": "calibrated, permissive",
+      "threshold": 0.35,
+      "precision": 0.9985333333333334,
+      "recall": 0.9971333333333333,
+      "f1": 0.9978333333333333
+    },
+    {
+      "scenario": "default",
+      "seeds": "held-out (101, 202, 303)",
+      "setting": "old prior, old balanced",
+      "threshold": 0.9,
+      "precision": 0.9985666666666667,
+      "recall": 0.9985666666666667,
+      "f1": 0.9985666666666667
+    },
+    {
+      "scenario": "default",
+      "seeds": "held-out (101, 202, 303)",
+      "setting": "calibrated, strict",
+      "threshold": 0.9,
+      "precision": 1.0,
+      "recall": 0.9786999999999999,
+      "f1": 0.9892
+    },
+    {
+      "scenario": "default",
+      "seeds": "held-out (101, 202, 303)",
+      "setting": "calibrated, balanced",
+      "threshold": 0.5,
+      "precision": 0.9985666666666667,
+      "recall": 0.9985666666666667,
+      "f1": 0.9985666666666667
+    },
+    {
+      "scenario": "default",
+      "seeds": "held-out (101, 202, 303)",
+      "setting": "calibrated, permissive",
+      "threshold": 0.35,
+      "precision": 0.9985666666666667,
+      "recall": 0.9985666666666667,
+      "f1": 0.9985666666666667
+    },
+    {
+      "scenario": "hard",
+      "seeds": "tuning (7, 11, 23)",
+      "setting": "old prior, old balanced",
+      "threshold": 0.9,
+      "precision": 0.7767666666666666,
+      "recall": 0.9585666666666667,
+      "f1": 0.8560666666666666
+    },
+    {
+      "scenario": "hard",
+      "seeds": "tuning (7, 11, 23)",
+      "setting": "calibrated, strict",
+      "threshold": 0.9,
+      "precision": 1.0,
+      "recall": 0.3256666666666667,
+      "f1": 0.4901333333333333
+    },
+    {
+      "scenario": "hard",
+      "seeds": "tuning (7, 11, 23)",
+      "setting": "calibrated, balanced",
+      "threshold": 0.5,
+      "precision": 0.9221333333333334,
+      "recall": 0.8975000000000001,
+      "f1": 0.9089666666666667
+    },
+    {
+      "scenario": "hard",
+      "seeds": "tuning (7, 11, 23)",
+      "setting": "calibrated, permissive",
+      "threshold": 0.35,
+      "precision": 0.9150333333333333,
+      "recall": 0.9339333333333334,
+      "f1": 0.9243
+    },
+    {
+      "scenario": "hard",
+      "seeds": "held-out (101, 202, 303)",
+      "setting": "old prior, old balanced",
+      "threshold": 0.9,
+      "precision": 0.8344999999999999,
+      "recall": 0.9679000000000001,
+      "f1": 0.8949666666666666
+    },
+    {
+      "scenario": "hard",
+      "seeds": "held-out (101, 202, 303)",
+      "setting": "calibrated, strict",
+      "threshold": 0.9,
+      "precision": 1.0,
+      "recall": 0.35800000000000004,
+      "f1": 0.5261333333333333
+    },
+    {
+      "scenario": "hard",
+      "seeds": "held-out (101, 202, 303)",
+      "setting": "calibrated, balanced",
+      "threshold": 0.5,
+      "precision": 0.9362666666666667,
+      "recall": 0.9480333333333334,
+      "f1": 0.9418000000000001
+    },
+    {
+      "scenario": "hard",
+      "seeds": "held-out (101, 202, 303)",
+      "setting": "calibrated, permissive",
+      "threshold": 0.35,
+      "precision": 0.9324333333333333,
+      "recall": 0.9488,
+      "f1": 0.9401666666666667
+    }
+  ]
+}

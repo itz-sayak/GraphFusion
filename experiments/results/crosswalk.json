@@ -1,0 +1,140 @@
+{
+  "rows": [
+    {
+      "scenario": "us_states",
+      "crosswalk": "off",
+      "truth": 1,
+      "predicted": 0,
+      "tp": 0,
+      "recall": 0.0,
+      "false_links": 0,
+      "crosswalks_proposed": 0,
+      "crosswalks_verified": 0,
+      "relationship": "none",
+      "details": []
+    },
+    {
+      "scenario": "us_states",
+      "crosswalk": "on",
+      "truth": 1,
+      "predicted": 1,
+      "tp": 1,
+      "recall": 1.0,
+      "false_links": 0,
+      "crosswalks_proposed": 1,
+      "crosswalks_verified": 1,
+      "relationship": "lookup 0.78",
+      "details": [
+        {
+          "left": "us_states_facts::region_code",
+          "right": "us_states_reference::state",
+          "accepted": true,
+          "reason": "verified",
+          "coverage": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": "countries",
+      "crosswalk": "off",
+      "truth": 1,
+      "predicted": 0,
+      "tp": 0,
+      "recall": 0.0,
+      "false_links": 0,
+      "crosswalks_proposed": 0,
+      "crosswalks_verified": 0,
+      "relationship": "none",
+      "details": []
+    },
+    {
+      "scenario": "countries",
+      "crosswalk": "on",
+      "truth": 1,
+      "predicted": 1,
+      "tp": 1,
+      "recall": 1.0,
+      "false_links": 0,
+      "crosswalks_proposed": 1,
+      "crosswalks_verified": 1,
+      "relationship": "lookup 0.74",
+      "details": [
+        {
+          "left": "countries_facts::market",
+          "right": "countries_reference::country",
+          "accepted": true,
+          "reason": "verified",
+          "coverage": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": "months",
+      "crosswalk": "off",
+      "truth": 1,
+      "predicted": 0,
+      "tp": 0,
+      "recall": 0.0,
+      "false_links": 0,
+      "crosswalks_proposed": 0,
+      "crosswalks_verified": 0,
+      "relationship": "none",
+      "details": []
+    },
+    {
+      "scenario": "months",
+      "crosswalk": "on",
+      "truth": 1,
+      "predicted": 1,
+      "tp": 1,
+      "recall": 1.0,
+      "false_links": 0,
+      "crosswalks_proposed": 1,
+      "crosswalks_verified": 1,
+      "relationship": "lookup 0.76",
+      "details": [
+        {
+          "left": "months_facts::period",
+          "right": "months_reference::month",
+          "accepted": true,
+          "reason": "verified",
+          "coverage": 1.0
+        }
+      ]
+    },
+    {
+      "scenario": "negative_control",
+      "crosswalk": "off",
+      "truth": 0,
+      "predicted": 0,
+      "tp": 0,
+      "recall": null,
+      "false_links": 0,
+      "crosswalks_proposed": 0,
+      "crosswalks_verified": 0,
+      "relationship": "none",
+      "details": []
+    },
+    {
+      "scenario": "negative_control",
+      "crosswalk": "on",
+      "truth": 0,
+      "predicted": 0,
+      "tp": 0,
+      "recall": null,
+      "false_links": 0,
+      "crosswalks_proposed": 1,
+      "crosswalks_verified": 0,
+      "relationship": "none",
+      "details": [
+        {
+          "left": "shifts::shift_day",
+          "right": "orders::product_line",
+          "accepted": false,
+          "reason": "no mapping between different values (nothing a crosswalk would add)",
+          "coverage": 0.0
+        }
+      ]
+    }
+  ]
+}

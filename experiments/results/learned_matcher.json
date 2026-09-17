@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "training_seed": 7777,
+    "scenarios": 36,
+    "per_level": 12,
+    "features": [
+      "name_similarity",
+      "datatype_similarity",
+      "semantic_similarity",
+      "value_overlap",
+      "distribution_similarity",
+      "pattern_similarity",
+      "cardinality_similarity",
+      "jaccard",
+      "containment_max",
+      "containment_min",
+      "base_score",
+      "transitive_support",
+      "structural_support",
+      "exclusivity",
+      "semantic_type_compat",
+      "uniqueness_max",
+      "uniqueness_min",
+      "distinct_ratio",
+      "both_numeric",
+      "same_semantic_type"
+    ],
+    "examples": 5249,
+    "positives": 442,
+    "cv": "GroupKFold(5) by scenario",
+    "oof_auc": 0.9998,
+    "oof_brier": 0.0021
+  },
+  "permutation_importance_auc": [
+    {
+      "feature": "value_overlap",
+      "importance": 0.0001
+    },
+    {
+      "feature": "exclusivity",
+      "importance": 0.0001
+    },
+    {
+      "feature": "name_similarity",
+      "importance": 0.0
+    },
+    {
+      "feature": "datatype_similarity",
+      "importance": 0.0
+    },
+    {
+      "feature": "semantic_similarity",
+      "importance": 0.0
+    },
+    {
+      "feature": "distribution_similarity",
+      "importance": 0.0
+    },
+    {
+      "feature": "pattern_similarity",
+      "importance": -0.0
+    },
+    {
+      "feature": "cardinality_similarity",
+      "importance": 0.0
+    },
+    {
+      "feature": "jaccard",
+      "importance": 0.0
+    },
+    {
+      "feature": "containment_max",
+      "importance": 0.0
+    },
+    {
+      "feature": "containment_min",
+      "importance": 0.0
+    },
+    {
+      "feature": "base_score",
+      "importance": 0.0
+    },
+    {
+      "feature": "transitive_support",
+      "importance": 0.0
+    },
+    {
+      "feature": "structural_support",
+      "importance": 0.0
+    },
+    {
+      "feature": "semantic_type_compat",
+      "importance": 0.0
+    },
+    {
+      "feature": "uniqueness_max",
+      "importance": 0.0
+    },
+    {
+      "feature": "uniqueness_min",
+      "importance": 0.0
+    },
+    {
+      "feature": "distinct_ratio",
+      "importance": 0.0
+    },
+    {
+      "feature": "both_numeric",
+      "importance": 0.0
+    },
+    {
+      "feature": "same_semantic_type",
+      "importance": 0.0
+    }
+  ]
+}

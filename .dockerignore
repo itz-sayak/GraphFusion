@@ -1,0 +1,10 @@
+.venv
+.git
+workspace
+frontend
+data/raw
+data/processed
+**/__pycache__
+.pytest_cache
+experiments/results/_*.log
+.env

@@ -1,0 +1,108 @@
+{
+  "relationships_discovered": [
+    {
+      "left": "accounts",
+      "right": "contacts",
+      "join_kind": "entity_key_merge",
+      "confidence": 0.9036
+    },
+    {
+      "left": "accounts",
+      "right": "orders",
+      "join_kind": "lookup",
+      "confidence": 0.7942
+    }
+  ],
+  "dijkstra_route_neglog": {
+    "path": [
+      "orders",
+      "accounts",
+      "contacts"
+    ],
+    "reliability": 0.7176,
+    "total_cost": 0.3318,
+    "direct_confidence": null,
+    "alternatives": [
+      {
+        "path": [
+          "orders",
+          "accounts",
+          "contacts"
+        ],
+        "cost": 0.3318,
+        "reliability": 0.7176
+      }
+    ]
+  },
+  "dijkstra_route_linear": {
+    "path": [
+      "orders",
+      "accounts",
+      "contacts"
+    ],
+    "reliability": 0.7176,
+    "total_cost": 0.3022,
+    "direct_confidence": null
+  },
+  "graph_assisted": {
+    "linkable_orders": 3576,
+    "linked": 3402,
+    "correct": 3402,
+    "wrong": 0,
+    "precision": 1.0,
+    "recall": 0.9513
+  },
+  "direct_matching": {
+    "linkable_orders": 3576,
+    "linked": 4000,
+    "correct": 0,
+    "wrong": 4000,
+    "precision": 0.0,
+    "recall": 0.0,
+    "direct_relationship_found": []
+  },
+  "merge_plan_excluded": [],
+  "nyc_route": {
+    "path": [
+      "yellow_tripdata_sample",
+      "taxi_zone_lookup",
+      "nta_demographics",
+      "census_acs_nyc_counties"
+    ],
+    "reliability": 0.4909,
+    "direct_confidence": null,
+    "hops": [
+      {
+        "from": "yellow_tripdata_sample",
+        "to": "taxi_zone_lookup",
+        "confidence": 0.8726,
+        "cost": 0.1363,
+        "join_kind": "lookup",
+        "keys": [
+          "taxi_zone_lookup::LocationID \u2194 yellow_tripdata_sample::DOLocationID",
+          "taxi_zone_lookup::LocationID \u2194 yellow_tripdata_sample::PULocationID"
+        ]
+      },
+      {
+        "from": "taxi_zone_lookup",
+        "to": "nta_demographics",
+        "confidence": 0.736,
+        "cost": 0.3065,
+        "join_kind": "aggregate_lookup",
+        "keys": [
+          "nta_demographics::geographic_area_borough \u2194 taxi_zone_lookup::Borough"
+        ]
+      },
+      {
+        "from": "nta_demographics",
+        "to": "census_acs_nyc_counties",
+        "confidence": 0.7643,
+        "cost": 0.2688,
+        "join_kind": "lookup",
+        "keys": [
+          "census_acs_nyc_counties::county \u2194 nta_demographics::geographic_area_2010_census_fips_county_code"
+        ]
+      }
+    ]
+  }
+}

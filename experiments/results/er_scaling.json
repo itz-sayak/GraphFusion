@@ -1,0 +1,53 @@
+{
+  "refine_block_size": 150,
+  "rows": [
+    {
+      "entities": 2000,
+      "records": 3337,
+      "candidate_pairs": 22083,
+      "seconds": 0.8225383999997575,
+      "peak_rss_mb": 210.5,
+      "records_per_second": 4056.9534504419294,
+      "f1": 0.9929,
+      "blocking_ms": 64.2,
+      "scoring_ms": 607.6,
+      "clustering_ms": 103.1
+    },
+    {
+      "entities": 10000,
+      "records": 16569,
+      "candidate_pairs": 416738,
+      "seconds": 11.018627700001161,
+      "peak_rss_mb": 707.3,
+      "records_per_second": 1503.726276185759,
+      "f1": 0.9884,
+      "blocking_ms": 253.5,
+      "scoring_ms": 8598.3,
+      "clustering_ms": 1834.0
+    },
+    {
+      "entities": 40000,
+      "records": 66028,
+      "candidate_pairs": 1791335,
+      "seconds": 53.779857899999115,
+      "peak_rss_mb": 2504.7,
+      "records_per_second": 1227.7458992691218,
+      "f1": 0.9807,
+      "blocking_ms": 1545.7,
+      "scoring_ms": 40253.6,
+      "clustering_ms": 10700.0
+    },
+    {
+      "entities": 100000,
+      "records": 164985,
+      "candidate_pairs": 5109474,
+      "seconds": 170.2650766000006,
+      "peak_rss_mb": 7026.2,
+      "records_per_second": 968.9890804066358,
+      "f1": 0.9783,
+      "blocking_ms": 4418.6,
+      "scoring_ms": 125337.7,
+      "clustering_ms": 35223.6
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# Static reference FX rates to USD (documented as static, dated snapshot).
+# Used only to normalise mixed-currency amounts; the original amount and
+# currency are always preserved alongside the converted value.
+as_of: "2026-01-02"
+to_usd:
+  USD: 1.0
+  INR: 0.0117
+  EUR: 1.08
+  GBP: 1.27
+  JPY: 0.0068
+  AED: 0.2723
+symbols:
+  "$": USD
+  "₹": INR
+  "Rs": INR
+  "Rs.": INR
+  "€": EUR
+  "£": GBP
+  "¥": JPY

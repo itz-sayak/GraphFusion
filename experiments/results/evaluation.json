@@ -1,0 +1,420 @@
+{
+  "entity_resolution": {
+    "per_seed": [
+      {
+        "method": "exact_email",
+        "seed": 7,
+        "precision": 1.0,
+        "recall": 0.8462,
+        "f1": 0.9167,
+        "tp": 385,
+        "predicted": 385,
+        "truth": 455,
+        "seconds": 0.003
+      },
+      {
+        "method": "fuzzy_name_city",
+        "seed": 7,
+        "precision": 0.7888,
+        "recall": 0.8374,
+        "f1": 0.8124,
+        "tp": 381,
+        "predicted": 483,
+        "truth": 455,
+        "seconds": 0.008
+      },
+      {
+        "method": "fs_correlation_oldprior",
+        "seed": 7,
+        "precision": 0.9956,
+        "recall": 0.9978,
+        "f1": 0.9967,
+        "tp": 454,
+        "predicted": 456,
+        "truth": 455,
+        "seconds": 0.146,
+        "reduction_ratio": 0.991297,
+        "candidate_pairs": 4391
+      },
+      {
+        "method": "fs_components",
+        "seed": 7,
+        "precision": 1.0,
+        "recall": 0.978,
+        "f1": 0.9889,
+        "tp": 445,
+        "predicted": 445,
+        "truth": 455,
+        "seconds": 0.117,
+        "reduction_ratio": 0.991297,
+        "candidate_pairs": 4391
+      },
+      {
+        "method": "fs_correlation",
+        "seed": 7,
+        "precision": 1.0,
+        "recall": 0.978,
+        "f1": 0.9889,
+        "tp": 445,
+        "predicted": 445,
+        "truth": 455,
+        "seconds": 0.127,
+        "reduction_ratio": 0.991297,
+        "candidate_pairs": 4391
+      },
+      {
+        "method": "fs_components@0.5",
+        "seed": 7,
+        "precision": 0.9913,
+        "recall": 1.0,
+        "f1": 0.9956,
+        "tp": 455,
+        "predicted": 459,
+        "truth": 455,
+        "seconds": 0.139,
+        "reduction_ratio": 0.991297,
+        "candidate_pairs": 4391
+      },
+      {
+        "method": "fs_correlation@0.5",
+        "seed": 7,
+        "precision": 0.9956,
+        "recall": 0.9978,
+        "f1": 0.9967,
+        "tp": 454,
+        "predicted": 456,
+        "truth": 455,
+        "seconds": 0.126,
+        "reduction_ratio": 0.991297,
+        "candidate_pairs": 4391
+      },
+      {
+        "method": "exact_email",
+        "seed": 11,
+        "precision": 1.0,
+        "recall": 0.8909,
+        "f1": 0.9423,
+        "tp": 392,
+        "predicted": 392,
+        "truth": 440,
+        "seconds": 0.003
+      },
+      {
+        "method": "fuzzy_name_city",
+        "seed": 11,
+        "precision": 0.8009,
+        "recall": 0.8227,
+        "f1": 0.8117,
+        "tp": 362,
+        "predicted": 452,
+        "truth": 440,
+        "seconds": 0.006
+      },
+      {
+        "method": "fs_correlation_oldprior",
+        "seed": 11,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 440,
+        "predicted": 440,
+        "truth": 440,
+        "seconds": 0.227,
+        "reduction_ratio": 0.991164,
+        "candidate_pairs": 4204
+      },
+      {
+        "method": "fs_components",
+        "seed": 11,
+        "precision": 1.0,
+        "recall": 0.9886,
+        "f1": 0.9943,
+        "tp": 435,
+        "predicted": 435,
+        "truth": 440,
+        "seconds": 0.146,
+        "reduction_ratio": 0.991164,
+        "candidate_pairs": 4204
+      },
+      {
+        "method": "fs_correlation",
+        "seed": 11,
+        "precision": 1.0,
+        "recall": 0.9886,
+        "f1": 0.9943,
+        "tp": 435,
+        "predicted": 435,
+        "truth": 440,
+        "seconds": 0.153,
+        "reduction_ratio": 0.991164,
+        "candidate_pairs": 4204
+      },
+      {
+        "method": "fs_components@0.5",
+        "seed": 11,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 440,
+        "predicted": 440,
+        "truth": 440,
+        "seconds": 0.169,
+        "reduction_ratio": 0.991164,
+        "candidate_pairs": 4204
+      },
+      {
+        "method": "fs_correlation@0.5",
+        "seed": 11,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 440,
+        "predicted": 440,
+        "truth": 440,
+        "seconds": 0.167,
+        "reduction_ratio": 0.991164,
+        "candidate_pairs": 4204
+      },
+      {
+        "method": "exact_email",
+        "seed": 23,
+        "precision": 1.0,
+        "recall": 0.8801,
+        "f1": 0.9362,
+        "tp": 411,
+        "predicted": 411,
+        "truth": 467,
+        "seconds": 0.003
+      },
+      {
+        "method": "fuzzy_name_city",
+        "seed": 23,
+        "precision": 0.7966,
+        "recall": 0.8051,
+        "f1": 0.8009,
+        "tp": 376,
+        "predicted": 472,
+        "truth": 467,
+        "seconds": 0.006
+      },
+      {
+        "method": "fs_correlation_oldprior",
+        "seed": 23,
+        "precision": 1.0,
+        "recall": 0.9936,
+        "f1": 0.9968,
+        "tp": 464,
+        "predicted": 464,
+        "truth": 467,
+        "seconds": 0.139,
+        "reduction_ratio": 0.991372,
+        "candidate_pairs": 4449
+      },
+      {
+        "method": "fs_components",
+        "seed": 23,
+        "precision": 1.0,
+        "recall": 0.9679,
+        "f1": 0.9837,
+        "tp": 452,
+        "predicted": 452,
+        "truth": 467,
+        "seconds": 0.181,
+        "reduction_ratio": 0.991372,
+        "candidate_pairs": 4449
+      },
+      {
+        "method": "fs_correlation",
+        "seed": 23,
+        "precision": 1.0,
+        "recall": 0.9636,
+        "f1": 0.9815,
+        "tp": 450,
+        "predicted": 450,
+        "truth": 467,
+        "seconds": 0.136,
+        "reduction_ratio": 0.991372,
+        "candidate_pairs": 4449
+      },
+      {
+        "method": "fs_components@0.5",
+        "seed": 23,
+        "precision": 0.9957,
+        "recall": 0.9936,
+        "f1": 0.9946,
+        "tp": 464,
+        "predicted": 466,
+        "truth": 467,
+        "seconds": 0.147,
+        "reduction_ratio": 0.991372,
+        "candidate_pairs": 4449
+      },
+      {
+        "method": "fs_correlation@0.5",
+        "seed": 23,
+        "precision": 1.0,
+        "recall": 0.9893,
+        "f1": 0.9946,
+        "tp": 462,
+        "predicted": 462,
+        "truth": 467,
+        "seconds": 0.135,
+        "reduction_ratio": 0.991372,
+        "candidate_pairs": 4449
+      }
+    ],
+    "summary": [
+      {
+        "method": "exact_email",
+        "precision": 1.0,
+        "recall": 0.8724,
+        "f1": 0.9317,
+        "seconds": 0.003
+      },
+      {
+        "method": "fuzzy_name_city",
+        "precision": 0.7954,
+        "recall": 0.8217,
+        "f1": 0.8083,
+        "seconds": 0.0067
+      },
+      {
+        "method": "fs_correlation_oldprior",
+        "precision": 0.9985,
+        "recall": 0.9971,
+        "f1": 0.9978,
+        "seconds": 0.1707
+      },
+      {
+        "method": "fs_components",
+        "precision": 1.0,
+        "recall": 0.9782,
+        "f1": 0.989,
+        "seconds": 0.148
+      },
+      {
+        "method": "fs_correlation",
+        "precision": 1.0,
+        "recall": 0.9767,
+        "f1": 0.9882,
+        "seconds": 0.1387
+      },
+      {
+        "method": "fs_components@0.5",
+        "precision": 0.9957,
+        "recall": 0.9979,
+        "f1": 0.9967,
+        "seconds": 0.1517
+      },
+      {
+        "method": "fs_correlation@0.5",
+        "precision": 0.9985,
+        "recall": 0.9957,
+        "f1": 0.9971,
+        "seconds": 0.1427
+      }
+    ]
+  },
+  "integration": {
+    "per_seed": [
+      {
+        "system": {
+          "seed": 7,
+          "system": "DataFusionGraph",
+          "match_coverage": 0.9024,
+          "row_match_rate": 0.98,
+          "unmatched_ratio": 0.02,
+          "conflict_rate": 0.013,
+          "duplicate_reduction": 1.0,
+          "integration_accuracy": 0.9986,
+          "true_orphan_rate": 0.02,
+          "runtime_s": 2.08,
+          "peak_rss_mb": 257.3
+        },
+        "naive": {
+          "seed": 7,
+          "system": "naive exact-name join",
+          "match_coverage": 0.0,
+          "row_match_rate": 0.0,
+          "unmatched_ratio": 1.0,
+          "conflict_rate": 0.0,
+          "duplicate_reduction": 0.0,
+          "integration_accuracy": 0.0,
+          "true_orphan_rate": 0.02,
+          "runtime_s": 0.0,
+          "peak_rss_mb": null,
+          "note": "shared column names between sales and customers: none"
+        }
+      },
+      {
+        "system": {
+          "seed": 11,
+          "system": "DataFusionGraph",
+          "match_coverage": 0.8845,
+          "row_match_rate": 0.979,
+          "unmatched_ratio": 0.021,
+          "conflict_rate": 0.0131,
+          "duplicate_reduction": 1.0,
+          "integration_accuracy": 1.0,
+          "true_orphan_rate": 0.021,
+          "runtime_s": 2.0,
+          "peak_rss_mb": 277.9
+        },
+        "naive": {
+          "seed": 11,
+          "system": "naive exact-name join",
+          "match_coverage": 0.0,
+          "row_match_rate": 0.0,
+          "unmatched_ratio": 1.0,
+          "conflict_rate": 0.0,
+          "duplicate_reduction": 0.0,
+          "integration_accuracy": 0.0,
+          "true_orphan_rate": 0.021,
+          "runtime_s": 0.0,
+          "peak_rss_mb": null,
+          "note": "shared column names between sales and customers: none"
+        }
+      },
+      {
+        "system": {
+          "seed": 23,
+          "system": "DataFusionGraph",
+          "match_coverage": 0.8929,
+          "row_match_rate": 0.9787,
+          "unmatched_ratio": 0.0213,
+          "conflict_rate": 0.0115,
+          "duplicate_reduction": 1.0,
+          "integration_accuracy": 1.0,
+          "true_orphan_rate": 0.0213,
+          "runtime_s": 2.11,
+          "peak_rss_mb": 289.3
+        },
+        "naive": {
+          "seed": 23,
+          "system": "naive exact-name join",
+          "match_coverage": 0.0,
+          "row_match_rate": 0.0,
+          "unmatched_ratio": 1.0,
+          "conflict_rate": 0.0,
+          "duplicate_reduction": 0.0,
+          "integration_accuracy": 0.0,
+          "true_orphan_rate": 0.0213,
+          "runtime_s": 0.0,
+          "peak_rss_mb": null,
+          "note": "shared column names between sales and customers: none"
+        }
+      }
+    ],
+    "summary": {
+      "match_coverage": 0.8933,
+      "row_match_rate": 0.9792,
+      "unmatched_ratio": 0.0208,
+      "conflict_rate": 0.0125,
+      "duplicate_reduction": 1.0,
+      "integration_accuracy": 0.9995,
+      "true_orphan_rate": 0.0208,
+      "runtime_s": 2.0633,
+      "peak_rss_mb": 274.8333
+    }
+  }
+}

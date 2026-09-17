@@ -1,0 +1,138 @@
+{
+  "lift": [
+    {
+      "fields": "name \u00d7 city",
+      "basis": "true matches",
+      "weight": 1379,
+      "p1": 0.6446700507614214,
+      "p2": 0.9361856417693981,
+      "joint": 0.6011602610587382,
+      "lift": 0.9960721408662027
+    },
+    {
+      "fields": "name \u00d7 city",
+      "basis": "posterior-weighted",
+      "weight": 1168.2156835526143,
+      "p1": 0.6734551254832682,
+      "p2": 0.9645838779576777,
+      "joint": 0.6478805001924317,
+      "lift": 0.9973469121312066
+    },
+    {
+      "fields": "name \u00d7 email",
+      "basis": "true matches",
+      "weight": 275,
+      "p1": 0.6218181818181818,
+      "p2": 1.0,
+      "joint": 0.6218181818181818,
+      "lift": 1.0
+    },
+    {
+      "fields": "name \u00d7 email",
+      "basis": "posterior-weighted",
+      "weight": 274.7962035109125,
+      "p1": 0.6231193231677206,
+      "p2": 0.9958504756864648,
+      "joint": 0.6200418046815587,
+      "lift": 0.9992073440576283
+    },
+    {
+      "fields": "name \u00d7 phone",
+      "basis": "true matches",
+      "weight": 246,
+      "p1": 0.6951219512195121,
+      "p2": 1.0,
+      "joint": 0.6951219512195121,
+      "lift": 1.0
+    },
+    {
+      "fields": "name \u00d7 phone",
+      "basis": "posterior-weighted",
+      "weight": 245.84417223712765,
+      "p1": 0.6965764040892122,
+      "p2": 0.993019430183821,
+      "joint": 0.6913874886356506,
+      "lift": 0.9995281065904724
+    },
+    {
+      "fields": "city \u00d7 email",
+      "basis": "true matches",
+      "weight": 275,
+      "p1": 0.96,
+      "p2": 1.0,
+      "joint": 0.96,
+      "lift": 1.0
+    },
+    {
+      "fields": "city \u00d7 email",
+      "basis": "posterior-weighted",
+      "weight": 274.7962035109125,
+      "p1": 0.9638262353202556,
+      "p2": 0.9958504756864648,
+      "joint": 0.9598953048397846,
+      "lift": 1.0000713565363548
+    },
+    {
+      "fields": "city \u00d7 phone",
+      "basis": "true matches",
+      "weight": 246,
+      "p1": 0.9552845528455285,
+      "p2": 1.0,
+      "joint": 0.9552845528455285,
+      "lift": 1.0
+    },
+    {
+      "fields": "city \u00d7 phone",
+      "basis": "posterior-weighted",
+      "weight": 245.84417223712765,
+      "p1": 0.9615523307883278,
+      "p2": 0.993019430183821,
+      "joint": 0.954915224203015,
+      "lift": 1.0000786273931324
+    },
+    {
+      "fields": "email \u00d7 phone",
+      "basis": "true matches",
+      "weight": 67,
+      "p1": 1.0,
+      "p2": 1.0,
+      "joint": 1.0,
+      "lift": 1.0
+    },
+    {
+      "fields": "email \u00d7 phone",
+      "basis": "posterior-weighted",
+      "weight": 67.00602327715171,
+      "p1": 0.999881153371193,
+      "p2": 0.999881153371193,
+      "joint": 0.999881153371193,
+      "lift": 1.000118860755007
+    }
+  ],
+  "mid_band_patterns": [
+    {
+      "pattern": "exact / exact / null / null",
+      "pairs": 615,
+      "predicted": 0.757851881940177,
+      "observed": 0.8780487804878049
+    },
+    {
+      "pattern": "high / exact / null / null",
+      "pairs": 244,
+      "predicted": 0.6416628583022068,
+      "observed": 0.8975409836065574
+    },
+    {
+      "pattern": "medium / exact / null / null",
+      "pairs": 71,
+      "predicted": 0.511320303883508,
+      "observed": 0.5915492957746479
+    },
+    {
+      "pattern": "exact / different / null / exact",
+      "pairs": 5,
+      "predicted": 0.8570995133517917,
+      "observed": 1.0
+    }
+  ]
+}

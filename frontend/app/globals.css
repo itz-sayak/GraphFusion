@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  background: #0b1020;
+  color: #e8ebf8;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3a4577 transparent;
+}
+
+.prose-chat p {
+  margin: 0.35rem 0;
+}
+.prose-chat ul,
+.prose-chat ol {
+  margin: 0.35rem 0 0.35rem 1.25rem;
+}
+.prose-chat ul {
+  list-style: disc;
+}
+.prose-chat ol {
+  list-style: decimal;
+}
+.prose-chat li {
+  margin: 0.1rem 0;
+}
+.prose-chat strong {
+  color: #ffffff;
+}
+.prose-chat code {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.82em;
+  background: rgba(91, 140, 255, 0.14);
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+}
+.prose-chat pre {
+  background: #0b1020;
+  border: 1px solid #26305a;
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+.prose-chat pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.prose-chat table {
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+  display: block;
+  overflow-x: auto;
+}
+.prose-chat th,
+.prose-chat td {
+  border: 1px solid #26305a;
+  padding: 0.25rem 0.5rem;
+  text-align: left;
+  white-space: nowrap;
+}
+.prose-chat th {
+  background: #1a2342;
+}
+
+.react-flow__attribution {
+  display: none;
+}
+.react-flow__edge-textbg {
+  fill: #111831;
+}
+.react-flow__edge-text {
+  fill: #b5bce3;
+  font-size: 11px;
+}
+.react-flow__controls-button {
+  background: #1a2342 !important;
+  border-bottom-color: #26305a !important;
+  fill: #e8ebf8 !important;
+}

@@ -1,0 +1,138 @@
+# GraphFusion configuration. Every weight and threshold used by the
+# pipeline lives here; nothing in the algorithms is hard-coded to a scenario.
+
+# Execution engine (DuckDB). Intermediates are lazy views; the final result is
+# streamed to Parquet. Beyond memory_limit DuckDB spills to temp_directory.
+engine:
+  memory_limit: "2GB"
+  temp_directory: null      # null = <workspace>/_duckdb_tmp
+  threads: null             # null = all cores
+
+schema_matching:
+  # S(ci,cj) = sum_k w_k * signal_k   (weights are renormalised to sum to 1)
+  weights:
+    name: 0.20
+    datatype: 0.10
+    semantic: 0.20
+    value_overlap: 0.25
+    distribution: 0.05
+    pattern: 0.10
+    cardinality: 0.10
+  # weighted: hand-set weights (S above) | learned: calibrated classifier P(match | evidence)
+  # | blend: mean of both. See backend/matching/learned.py and experiments/train_matcher.py.
+  scorer: weighted
+  learned_model: models/column_matcher.joblib
+  # Pairs whose combined score is below this are never added to the graph.
+  min_candidate_score: 0.35
+  # Use MinHash-LSH + name-token blocking once a session has more column
+  # pairs than this; below it exhaustive scoring is cheaper.
+  lsh_pair_threshold: 5000
+  lsh_threshold: 0.3
+  minhash_permutations: 128
+  max_distinct_sample: 20000
+  # Similarity flooding (graph refinement)
+  flooding:
+    enabled: true
+    max_iterations: 10
+    epsilon: 0.001
+    transitive_alpha: 0.5      # weight of 2-hop path support
+    structural_beta: 0.15      # weight of sibling-column (table coherence) support
+    structural_center: 0.6
+    exclusivity_gamma: 0.35    # competition penalty exponent
+  alignment:
+    one_to_one: true
+    # a non-assigned pair is re-admitted when it references a unique key
+    allow_fk_many_to_one: true
+    fk_min_containment: 0.9
+    # two identifier columns sharing fewer values than this are different identifier systems (never accepted)
+    identifier_min_overlap: 0.05
+  # LLM-proposed value crosswalks (codes vs names, abbreviations), verified on the data before use
+  crosswalk:
+    enabled: true
+    max_pairs: 6            # LLM calls per discovery at most (cached by value lists)
+    max_values_small: 80    # the smaller vocabulary is shown in full
+    max_values_large: 400
+    min_coverage: 0.5
+    min_injectivity: 0.8
+    max_hallucinated: 0.2
+
+entity_resolution:
+  max_block_size: 2000
+  refine_block_size: 150   # token blocks larger than this are split by location/category, then full first name
+  blocking: [standard, sorted_neighborhood, token]
+  sorted_neighborhood_window: 5
+  em_iterations: 25
+  prior_match_rate: 0.01
+  # calibration of the unsupervised posterior (experiments/run_uncertainty.py decides the defaults)
+  prior_population: all_pairs    # all_pairs (default: prior over the same population as u → calibrated) | candidates (old, overconfident)
+  term_frequency: false          # Winkler term-frequency adjustment of u for exact agreements (measured: no gain with all_pairs)
+  clustering: correlation     # correlation | connected_components
+  cluster_link_threshold: 0.5
+  label_weight: 0.0          # pseudo-pairs per user-labelled match in m estimation (0: actively chosen labels are a biased sample and distort m; see docs/evaluation.md)
+  # label-driven recalibration of match weights uses only randomly sampled labels by default:
+  # calibrating on uncertainty-sampled labels (a biased sample) collapsed recall in experiments/run_active_learning.py
+  label_calibration: random_only   # off | random_only | all
+  calibration_label_weight: 20.0  # weight of each user label vs. each model soft target in semi-supervised calibration
+
+graph:
+  # cost used for shortest-path reasoning: neglog (−log c, max-reliability)
+  # or linear (1 − c, as in the original specification)
+  path_cost: neglog
+  min_edge_confidence: 0.30
+
+thresholds:
+  high: 0.90
+  medium: 0.70
+
+merge_modes:
+  # auto_merge / review / min_edge: schema-level confidences (relationships, column matches)
+  # entity_merge / entity_review: calibrated record-link probabilities P(same entity) — a record pair is merged
+  #   automatically at >= entity_merge and shown for review between entity_review and entity_merge.
+  #   strict: near-certain only; balanced: more likely than not; permissive: recall-oriented (README §7.6)
+  strict:     { auto_merge: 0.95, review: 0.90, min_edge: 0.85, entity_merge: 0.90, entity_review: 0.50 }
+  balanced:   { auto_merge: 0.90, review: 0.70, min_edge: 0.55, entity_merge: 0.50, entity_review: 0.20 }
+  permissive: { auto_merge: 0.75, review: 0.55, min_edge: 0.40, entity_merge: 0.35, entity_review: 0.15 }
+
+merge:
+  default_mode: balanced
+  default_conflict_strategy: majority_vote
+  key_uniqueness: 0.98
+  # a 1:1 entity merge needs both keys (almost) strictly unique; a key with repeats is a many-to-one reference
+  entity_merge_uniqueness: 0.999
+  # attribute correspondences between key-joined tables must agree on the joined rows
+  attribute_min_agreement: 0.5
+  attribute_verify_sample: 20000
+  lookup_min_containment: 0.80
+  entity_min_overlap: 0.30
+  vendor_prefixes: [tpep, lpep]
+  base_currency: USD
+
+embeddings:
+  backend: tfidf        # tfidf | sentence_transformers
+  model: sentence-transformers/all-MiniLM-L6-v2
+
+llm:
+  # Groq free-tier limits per model (console.groq.com/settings/limits). Only TPM and RPD are
+  # reported in response headers; RPM and TPD must be tracked client-side (backend/llm/rate_limit.py).
+  rate_limits:
+    safety_margin: 0.9        # never plan to use more than 90% of any limit
+    max_wait_seconds: 20      # wait this long for a per-minute window at most; beyond that, fail over
+    models:
+      default: {rpm: 30, rpd: 1000, tpm: 8000, tpd: 200000}
+      qwen/qwen3.8-27b: {rpm: 30, rpd: 1000, tpm: 8000, tpd: 200000}
+      openai/gpt-oss-120b: {rpm: 30, rpd: 1000, tpm: 8000, tpd: 200000}
+      openai/gpt-oss-20b: {rpm: 30, rpd: 1000, tpm: 8000, tpd: 200000}
+  # per-model request parameters (override DFG_GROQ_REASONING_EFFORT for that model)
+  model_params:
+    # temperature 0.2 rather than the provider sample's 0.6: tool routing must be repeatable (0.6 skipped tool calls in live runs)
+    qwen/qwen3.8-27b: {reasoning_effort: default, temperature: 0.2, top_p: 0.95}
+    openai/gpt-oss-120b: {reasoning_effort: medium}
+    openai/gpt-oss-20b: {reasoning_effort: medium}
+  agent:
+    max_rounds: 3             # tool rounds per turn
+    history_turns: 3          # previous user/assistant turns sent to the model
+    history_chars: 400        # per previous message (rendered tool output is already shown to the user)
+    tool_result_chars: 1500   # tool output sent back to the model
+    max_tools: 12             # tool schemas sent per request, selected by relevance (0 = all)
+    commentary: auto          # auto: follow-up commentary round only if it fits the budget without waiting
+

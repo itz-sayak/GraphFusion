@@ -1,0 +1,99 @@
+{
+  "machine": {
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_cpus": 28,
+    "ram_gb": 16.9,
+    "os": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9"
+  },
+  "results": [
+    {
+      "rows": 100000,
+      "memory_limit": "2GB",
+      "output_rows": 100000,
+      "validation_passed": true,
+      "ingestion": 0.33,
+      "profiling": 1.7,
+      "matching_and_graph": 2.64,
+      "planning": 0.0,
+      "merge_validate_export": 0.55,
+      "total": 5.22,
+      "peak_rss_mb": 457.3,
+      "rows_per_second": 19155,
+      "merge_stage_ms": {
+        "transform_views": 2.6,
+        "joins_and_fusion": 131.4,
+        "projection": 5.7,
+        "total": 141.5,
+        "materialize": 266.8,
+        "validation": 96.8
+      }
+    },
+    {
+      "rows": 500000,
+      "memory_limit": "2GB",
+      "output_rows": 500000,
+      "validation_passed": true,
+      "ingestion": 0.35,
+      "profiling": 2.66,
+      "matching_and_graph": 2.67,
+      "planning": 0.0,
+      "merge_validate_export": 0.93,
+      "total": 6.61,
+      "peak_rss_mb": 1016.9,
+      "rows_per_second": 75615,
+      "merge_stage_ms": {
+        "transform_views": 2.5,
+        "joins_and_fusion": 155.1,
+        "projection": 8.9,
+        "total": 167.2,
+        "materialize": 623.0,
+        "validation": 101.0
+      }
+    },
+    {
+      "rows": 1000000,
+      "memory_limit": "2GB",
+      "output_rows": 1000000,
+      "validation_passed": true,
+      "ingestion": 0.37,
+      "profiling": 3.79,
+      "matching_and_graph": 2.61,
+      "planning": 0.0,
+      "merge_validate_export": 1.51,
+      "total": 8.28,
+      "peak_rss_mb": 1488.0,
+      "rows_per_second": 120739,
+      "merge_stage_ms": {
+        "transform_views": 2.4,
+        "joins_and_fusion": 169.7,
+        "projection": 6.6,
+        "total": 179.2,
+        "materialize": 1076.1,
+        "validation": 156.6
+      }
+    },
+    {
+      "rows": 1000000,
+      "memory_limit": "512MB",
+      "output_rows": 1000000,
+      "validation_passed": true,
+      "ingestion": 0.37,
+      "profiling": 4.0,
+      "matching_and_graph": 2.65,
+      "planning": 0.0,
+      "merge_validate_export": 3.01,
+      "total": 10.03,
+      "peak_rss_mb": 899.3,
+      "rows_per_second": 99667,
+      "merge_stage_ms": {
+        "transform_views": 2.5,
+        "joins_and_fusion": 139.2,
+        "projection": 6.3,
+        "total": 148.6,
+        "materialize": 2620.0,
+        "validation": 160.9
+      }
+    }
+  ]
+}

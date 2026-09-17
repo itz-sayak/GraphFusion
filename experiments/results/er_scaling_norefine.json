@@ -1,0 +1,41 @@
+{
+  "refine_block_size": null,
+  "rows": [
+    {
+      "entities": 2000,
+      "records": 3337,
+      "candidate_pairs": 22083,
+      "seconds": 0.8265585999997711,
+      "peak_rss_mb": 210.7,
+      "records_per_second": 4037.2213174007557,
+      "f1": 0.9929,
+      "blocking_ms": 78.0,
+      "scoring_ms": 590.9,
+      "clustering_ms": 115.5
+    },
+    {
+      "entities": 10000,
+      "records": 16569,
+      "candidate_pairs": 416738,
+      "seconds": 8.387250499999936,
+      "peak_rss_mb": 707.2,
+      "records_per_second": 1975.4984067782555,
+      "f1": 0.9884,
+      "blocking_ms": 246.7,
+      "scoring_ms": 6413.1,
+      "clustering_ms": 1534.8
+    },
+    {
+      "entities": 40000,
+      "records": 66028,
+      "candidate_pairs": 6512936,
+      "seconds": 188.91946670000107,
+      "peak_rss_mb": 7517.2,
+      "records_per_second": 349.5034215020872,
+      "f1": 0.9858,
+      "blocking_ms": 2701.9,
+      "scoring_ms": 142827.1,
+      "clustering_ms": 38249.5
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Business glossary: opaque source column codes → descriptive attribute names.
+# Used for name matching, semantic typing and output naming. Lineage always
+# records the original source column. Extend with your organisation's codes.
+columns:
+  # US Census ACS 5-year detailed tables (https://api.census.gov/data/2023/acs/acs5/variables.html)
+  B01003_001E: total_population
+  B19013_001E: median_household_income
+  B25064_001E: median_gross_rent
+  B17001_002E: population_below_poverty
+  B17001_001E: poverty_status_population
+  B08301_001E: total_workers
+  B08301_010E: workers_public_transit_commute
+  NAME: geography_name

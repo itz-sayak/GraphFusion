@@ -1,0 +1,4236 @@
+{
+ "source": "customer-master-data-service",
+ "exported_at": "2026-01-15T09:00:00",
+ "records": [
+  {
+   "cust_no": "C-50005",
+   "full_name": "John S Nair",
+   "location": "Bangalore",
+   "email_address": "john.nair405@gmail.com",
+   "phone_number": "+91-98159-08301",
+   "last_updated": "2025-09-13T23:04:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50009",
+   "full_name": "Daniel Patel",
+   "location": "San Francisco",
+   "email_address": "Daniel.patel247@gmail.com",
+   "phone_number": "(460) 913-9099",
+   "last_updated": "2025-04-16T10:51:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50016",
+   "full_name": "Sneha Rao",
+   "location": "Hyderabad",
+   "email_address": "Sneha.rao48@yahoo.com",
+   "phone_number": "9628194821",
+   "last_updated": "2025-01-20T14:05:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50025",
+   "full_name": "Harish V Miller",
+   "location": "Bengaluru",
+   "email_address": "harish.miller193@outlook.com",
+   "phone_number": null,
+   "last_updated": "2025-06-20T05:41:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50029",
+   "full_name": "Olivia Brown",
+   "location": "hyderabad",
+   "email_address": "olivia.brown946@corp.example",
+   "phone_number": "+91-94323-19487",
+   "last_updated": "2025-11-06T07:16:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50040",
+   "full_name": "James Kapoor",
+   "location": "BANGALORE",
+   "email_address": "James.kapoor624@gmail.com",
+   "phone_number": "9862527601",
+   "last_updated": "2025-11-09T23:33:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50045",
+   "full_name": "Harish Anderson",
+   "location": "hyderabad",
+   "email_address": "Harish.anderson897@outlook.com",
+   "phone_number": "9597971147",
+   "last_updated": "2025-09-24T11:20:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50055",
+   "full_name": "Sneha Wilson",
+   "location": "london",
+   "email_address": "sneha.wilson719@outlook.com",
+   "phone_number": "+1 474 650 7529",
+   "last_updated": "2025-09-26T11:05:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50057",
+   "full_name": "Anjali Iyer",
+   "location": "New Delhi",
+   "email_address": "anjali.iyer224@outlook.com",
+   "phone_number": "9366712768",
+   "last_updated": "2025-10-29T05:37:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50069",
+   "full_name": "Rohan Bose",
+   "location": "Kolkata",
+   "email_address": "rohan.bose885@outlook.com",
+   "phone_number": "9563212233",
+   "last_updated": "2025-05-18T01:02:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50072",
+   "full_name": "Anjali Brown",
+   "location": "Pune",
+   "email_address": "Anjali.brown187@outlook.com",
+   "phone_number": "+91-90268-59952",
+   "last_updated": "2025-05-22T01:29:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50080",
+   "full_name": "Ritu Miller",
+   "location": "NYC",
+   "email_address": "ritu.miller693@gmail.com",
+   "phone_number": "(486) 666-1760",
+   "last_updated": "2025-06-20T23:46:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50085",
+   "full_name": "A. Mehta",
+   "location": "BANGALORE",
+   "email_address": "arjun.mehta452@yahoo.com",
+   "phone_number": "9590109281",
+   "last_updated": "2025-03-31T09:43:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50101",
+   "full_name": "Olivia Chopra",
+   "location": "Bangalore",
+   "email_address": "Olivia.chopra496@outlook.com",
+   "phone_number": "9215472803",
+   "last_updated": "2025-08-24T02:13:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50109",
+   "full_name": "Sarah Nair",
+   "location": "San Fran",
+   "email_address": "sarah.nair707@gmail.com",
+   "phone_number": "(441) 485-2538",
+   "last_updated": "2025-07-16T11:20:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50115",
+   "full_name": "N. Joshi",
+   "location": "London",
+   "email_address": "nikhil.joshi652@yahoo.com",
+   "phone_number": "+1 433 633 8750",
+   "last_updated": "2025-03-12T04:09:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50122",
+   "full_name": "Divya Chopra",
+   "location": "London",
+   "email_address": "divya.chopra266@yahoo.com",
+   "phone_number": "(457) 551-3137",
+   "last_updated": "2025-02-15T17:52:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50130",
+   "full_name": "Emily M Mehta",
+   "location": "San Francisco",
+   "email_address": "emily.mehta495@gmail.com",
+   "phone_number": "+1 451 163 7265",
+   "last_updated": "2025-06-18T03:11:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50137",
+   "full_name": "JESSICA KULKARNI",
+   "location": "Delhi",
+   "email_address": "Jessica.kulkarni412@gmail.com",
+   "phone_number": "9220297299",
+   "last_updated": "2025-10-29T19:22:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50145",
+   "full_name": "Michael Nair",
+   "location": "Mumbai",
+   "email_address": "michael.nair562@yahoo.com",
+   "phone_number": "9018263304",
+   "last_updated": "2025-04-13T17:06:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50151",
+   "full_name": "Suresh Smith",
+   "location": "Poona",
+   "email_address": "suresh.smith247@outlook.com",
+   "phone_number": "9862057986",
+   "last_updated": "2025-05-30T16:15:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50160",
+   "full_name": "R. Johnson",
+   "location": "New York City",
+   "email_address": "Rohan.johnson156@gmail.com",
+   "phone_number": "(429) 022-2791",
+   "last_updated": "2025-04-20T10:35:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50172",
+   "full_name": "PRIYA TAYLOR",
+   "location": "London",
+   "email_address": "Priya.taylor916@gmail.com",
+   "phone_number": "+1 459 898 3478",
+   "last_updated": "2025-02-07T20:05:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50188",
+   "full_name": "Arjun Davis",
+   "location": "Bangalore",
+   "email_address": "arjun.davis247@corp.example",
+   "phone_number": "+91-93412-52427",
+   "last_updated": "2025-03-11T14:28:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50189",
+   "full_name": "Vikram Das",
+   "location": "New Delhi",
+   "email_address": null,
+   "phone_number": "+91-93268-65635",
+   "last_updated": "2025-09-16T12:34:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50196",
+   "full_name": "Kavya Wilson",
+   "location": "hyderabad",
+   "email_address": "Kavya.wilson375@gmail.com",
+   "phone_number": "+91-98770-65894",
+   "last_updated": "2025-07-16T23:57:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50209",
+   "full_name": "ARJUN REDDY",
+   "location": "Bangalore",
+   "email_address": "Arjun.reddy941@yahoo.com",
+   "phone_number": "+91-91440-24264",
+   "last_updated": "2025-09-29T02:45:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50213",
+   "full_name": "M. Johnson",
+   "location": "hyderabad",
+   "email_address": "meera.johnson942@corp.example",
+   "phone_number": "9140261401",
+   "last_updated": "2025-12-02T15:34:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50219",
+   "full_name": "Kavya A Williams",
+   "location": "BANGALORE",
+   "email_address": "Kavya.williams877@yahoo.com",
+   "phone_number": "9417058649",
+   "last_updated": "2025-01-12T04:54:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50227",
+   "full_name": "Amit Smith",
+   "location": "Bangalore",
+   "email_address": null,
+   "phone_number": "9240234483",
+   "last_updated": "2025-10-30T14:15:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50236",
+   "full_name": "James Smith",
+   "location": "Poona",
+   "email_address": "james.smith689@yahoo.com",
+   "phone_number": "9504000883",
+   "last_updated": "2025-02-21T04:25:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50242",
+   "full_name": "RAVI RAO",
+   "location": "Bengaluru",
+   "email_address": "Ravi.rao958@corp.example",
+   "phone_number": "+91-96786-84335",
+   "last_updated": "2025-10-14T04:21:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50254",
+   "full_name": "Gaurav Rao",
+   "location": "Mumbai",
+   "email_address": null,
+   "phone_number": "+91-97224-70455",
+   "last_updated": "2025-06-17T21:09:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50262",
+   "full_name": "John Rao",
+   "location": "Madras",
+   "email_address": null,
+   "phone_number": "+91-95205-61748",
+   "last_updated": "2025-09-18T23:21:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50276",
+   "full_name": "Siddharth Patel",
+   "location": "London",
+   "email_address": "siddharth.patel600@yahoo.com",
+   "phone_number": "+1 465 724 9208",
+   "last_updated": "2025-02-12T00:43:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50297",
+   "full_name": "Manish Anderson",
+   "location": "Chennai",
+   "email_address": "Manish.anderson77@outlook.com",
+   "phone_number": "+91-93377-61740",
+   "last_updated": "2025-08-01T13:02:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50312",
+   "full_name": "P. Davis",
+   "location": "San Francisco",
+   "email_address": "Pooja.davis502@outlook.com",
+   "phone_number": "(447) 771-8341",
+   "last_updated": "2025-11-07T02:49:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50321",
+   "full_name": "Priya Kapoor",
+   "location": "San Francisco",
+   "email_address": "priya.kapoor470@gmail.com",
+   "phone_number": "(474) 633-1912",
+   "last_updated": "2025-10-02T06:16:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50327",
+   "full_name": "MANISH MENON",
+   "location": "Bangalore",
+   "email_address": "manish.menon136@outlook.com",
+   "phone_number": "9537760207",
+   "last_updated": "2025-04-14T20:46:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50331",
+   "full_name": "Jessica V Kapoor",
+   "location": "Calcutta",
+   "email_address": "jessica.kapoor745@yahoo.com",
+   "phone_number": "+91-95651-50556",
+   "last_updated": "2025-08-05T19:13:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50336",
+   "full_name": "Aditya A Garcia",
+   "location": "Pune",
+   "email_address": "Aditya.garcia13@outlook.com",
+   "phone_number": "+91-95166-91564",
+   "last_updated": "2025-10-31T05:22:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50343",
+   "full_name": "Divya Reddy",
+   "location": "New Delhi",
+   "email_address": "divya.reddy53@outlook.com",
+   "phone_number": "+91-93468-53560",
+   "last_updated": "2025-04-01T23:18:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50358",
+   "full_name": "Ravi Bose",
+   "location": "Pune",
+   "email_address": "ravi.bose352@outlook.com",
+   "phone_number": "9446347861",
+   "last_updated": "2025-05-05T01:10:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50366",
+   "full_name": "Karan Patel",
+   "location": "San Francisco",
+   "email_address": "karan.patel213@corp.example",
+   "phone_number": "(437) 576-2833",
+   "last_updated": "2025-02-12T22:20:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50397",
+   "full_name": "Jessica Smith",
+   "location": "NYC",
+   "email_address": "jessica.smith876@corp.example",
+   "phone_number": "(431) 322-8171",
+   "last_updated": "2025-03-08T14:15:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50401",
+   "full_name": "Amit Sharma",
+   "location": "Chennai",
+   "email_address": "amit.sharma802@yahoo.com",
+   "phone_number": "9904248611",
+   "last_updated": "2025-08-12T09:26:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50417",
+   "full_name": "NEHA CHOPRA",
+   "location": "San Fran",
+   "email_address": "neha.chopra539@yahoo.com",
+   "phone_number": "(430) 640-0376",
+   "last_updated": "2025-06-21T07:59:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50420",
+   "full_name": "Manish V Rao",
+   "location": "Hyderabad",
+   "email_address": "Manish.rao684@corp.example",
+   "phone_number": "+91-93705-65630",
+   "last_updated": "2025-05-22T05:31:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50433",
+   "full_name": "NIKHIL PATEL",
+   "location": "Chennai",
+   "email_address": "Nikhil.patel211@corp.example",
+   "phone_number": "+91-94337-34419",
+   "last_updated": "2025-10-19T23:29:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50437",
+   "full_name": "RITU GUPTA",
+   "location": "New York City",
+   "email_address": "ritu.gupta918@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-01-15T12:59:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50447",
+   "full_name": "Daniel Iyer",
+   "location": "delhi",
+   "email_address": "daniel.iyer727@gmail.com",
+   "phone_number": "9675112532",
+   "last_updated": "2025-10-24T09:43:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50453",
+   "full_name": "Olivia A Iyer",
+   "location": "hyderabad",
+   "email_address": null,
+   "phone_number": "+91-95721-01415",
+   "last_updated": "2025-12-02T21:37:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50458",
+   "full_name": "Ananya Johnson",
+   "location": "Calcutta",
+   "email_address": "ananya.johnson988@yahoo.com",
+   "phone_number": "9546107358",
+   "last_updated": "2025-02-20T13:34:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50462",
+   "full_name": "Aditya Joshi",
+   "location": "mumbai",
+   "email_address": "aditya.joshi373@corp.example",
+   "phone_number": "+91-96360-60710",
+   "last_updated": "2025-04-26T14:11:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50475",
+   "full_name": "Aditya K Wilson",
+   "location": "Hyderabad",
+   "email_address": "aditya.wilson65@outlook.com",
+   "phone_number": "+91-94590-45440",
+   "last_updated": "2025-04-01T15:13:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50477",
+   "full_name": "Priya N Rao",
+   "location": "New York City",
+   "email_address": "priya.rao110@corp.example",
+   "phone_number": "+1 464 672 7204",
+   "last_updated": "2025-04-14T20:45:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50486",
+   "full_name": "Gaurav A Rao",
+   "location": "NYC",
+   "email_address": "gaurav.rao336@outlook.com",
+   "phone_number": "+1 459 183 6236",
+   "last_updated": "2025-08-31T10:58:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50494",
+   "full_name": "Amit Chopra",
+   "location": "Delhi",
+   "email_address": "amit.chopra566@outlook.com",
+   "phone_number": "+91-96114-91316",
+   "last_updated": "2025-12-10T09:14:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50498",
+   "full_name": "James V Gupta",
+   "location": "Kolkata",
+   "email_address": "James.gupta240@yahoo.com",
+   "phone_number": "9793814449",
+   "last_updated": "2025-10-07T03:38:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50511",
+   "full_name": "Arjun Das",
+   "location": "San Fran",
+   "email_address": "Arjun.das258@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-07-04T15:01:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50529",
+   "full_name": "James Williams",
+   "location": "Bengaluru",
+   "email_address": "james.williams267@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-04-11T21:04:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50535",
+   "full_name": "Manish D Iyer",
+   "location": "mumbai",
+   "email_address": "manish.iyer614@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-04-15T06:17:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50550",
+   "full_name": "Lakshmi M Bose",
+   "location": "Delhi",
+   "email_address": "lakshmi.bose977@gmail.com",
+   "phone_number": "9956605366",
+   "last_updated": "2025-11-15T01:28:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50554",
+   "full_name": "Rahul Bose",
+   "location": "Pune",
+   "email_address": "Rahul.bose924@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-11-12T03:13:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50566",
+   "full_name": "Tanvi Nair",
+   "location": "Bangalore",
+   "email_address": null,
+   "phone_number": "9995822542",
+   "last_updated": "2025-10-09T08:49:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50577",
+   "full_name": "Ritu Garcia",
+   "location": "Madras",
+   "email_address": "ritu.garcia845@yahoo.com",
+   "phone_number": "9969372930",
+   "last_updated": "2025-11-27T13:28:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50585",
+   "full_name": "S. Gupta",
+   "location": "Bangalore",
+   "email_address": "Shreya.gupta393@outlook.com",
+   "phone_number": "+91-92330-80516",
+   "last_updated": "2025-11-27T17:07:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50605",
+   "full_name": "MICHAEL BOSE",
+   "location": "New York",
+   "email_address": "michael.bose375@gmail.com",
+   "phone_number": "+1 488 002 1581",
+   "last_updated": "2025-04-24T02:58:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50609",
+   "full_name": "Nikhil Das",
+   "location": "Mumbai",
+   "email_address": "Nikhil.das669@yahoo.com",
+   "phone_number": "9191327423",
+   "last_updated": "2025-10-21T13:49:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50616",
+   "full_name": "MICHAEL WILLIAMS",
+   "location": "Delhi",
+   "email_address": "michael.williams775@outlook.com",
+   "phone_number": "+91-95947-24873",
+   "last_updated": "2025-11-27T21:15:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50629",
+   "full_name": "RITU SMITH",
+   "location": "New York",
+   "email_address": "ritu.smith244@outlook.com",
+   "phone_number": "+91-90326-24562",
+   "last_updated": "2025-11-18T18:24:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50634",
+   "full_name": "Ananya Taylor",
+   "location": "Hyderabad",
+   "email_address": null,
+   "phone_number": "+91-97889-14865",
+   "last_updated": "2025-09-24T10:03:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50639",
+   "full_name": "David Menon",
+   "location": "hyderabad",
+   "email_address": "david.menon592@yahoo.com",
+   "phone_number": "+91-95173-29048",
+   "last_updated": "2025-04-13T14:21:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50648",
+   "full_name": "Lakshmi Miller",
+   "location": "Mumbai",
+   "email_address": "lakshmi.miller990@outlook.com",
+   "phone_number": "+91-90324-96685",
+   "last_updated": "2025-04-15T10:50:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50657",
+   "full_name": "Rohan Chopra",
+   "location": "Mumbai",
+   "email_address": "rohan.chopra233@gmail.com",
+   "phone_number": "+91-90095-41858",
+   "last_updated": "2025-01-17T08:46:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50658",
+   "full_name": "D. Brown",
+   "location": "Madras",
+   "email_address": "daniel.brown309@yahoo.com",
+   "phone_number": "+91-95972-20327",
+   "last_updated": "2025-09-03T13:48:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50666",
+   "full_name": "Arjun Miller",
+   "location": "Kolkata",
+   "email_address": "arjun.miller149@outlook.com",
+   "phone_number": "+91-94008-59979",
+   "last_updated": "2025-03-10T16:49:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50678",
+   "full_name": "Anjali Rao",
+   "location": "Mumbai",
+   "email_address": "anjali.rao170@gmail.com",
+   "phone_number": "+91-90806-23201",
+   "last_updated": "2025-03-18T15:14:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50684",
+   "full_name": "Ritu Johnson",
+   "location": "delhi",
+   "email_address": "ritu.johnson673@yahoo.com",
+   "phone_number": "9638986928",
+   "last_updated": "2025-06-17T00:56:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50687",
+   "full_name": "Arjun Kapoor",
+   "location": "New York",
+   "email_address": "arjun.kapoor641@gmail.com",
+   "phone_number": "+1 480 667 1723",
+   "last_updated": "2025-05-06T10:40:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50697",
+   "full_name": "Manish N Rao",
+   "location": "BANGALORE",
+   "email_address": "manish.rao660@gmail.com",
+   "phone_number": "+91-95404-86844",
+   "last_updated": "2025-06-10T03:46:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50705",
+   "full_name": "K. Smith",
+   "location": "Pune",
+   "email_address": "kavya.smith16@yahoo.com",
+   "phone_number": "+91-93325-36593",
+   "last_updated": "2025-06-21T08:02:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50712",
+   "full_name": "Varun Chopra",
+   "location": "Mumbai",
+   "email_address": "varun.chopra484@gmail.com",
+   "phone_number": "9639436991",
+   "last_updated": "2025-03-24T09:07:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50716",
+   "full_name": "Karan M Nair",
+   "location": "Bangalore",
+   "email_address": null,
+   "phone_number": "+91-91925-20002",
+   "last_updated": "2025-05-26T14:29:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50726",
+   "full_name": "Arjun Wilson",
+   "location": "San Francisco",
+   "email_address": "arjun.wilson48@gmail.com",
+   "phone_number": "+1 453 816 1333",
+   "last_updated": "2025-05-06T04:36:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50732",
+   "full_name": "A. Iyer",
+   "location": "Pune",
+   "email_address": null,
+   "phone_number": null,
+   "last_updated": "2025-11-12T23:44:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50741",
+   "full_name": "Priya Menon",
+   "location": "Mumbai",
+   "email_address": "Priya.menon263@outlook.com",
+   "phone_number": null,
+   "last_updated": "2025-07-09T14:36:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50751",
+   "full_name": "Rahul Smith",
+   "location": "Mumbai",
+   "email_address": "rahul.smith207@outlook.com",
+   "phone_number": "9057172795",
+   "last_updated": "2025-02-27T00:09:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50770",
+   "full_name": "D. Miller",
+   "location": "Delhi",
+   "email_address": "david.miller240@corp.example",
+   "phone_number": "+91-98990-59582",
+   "last_updated": "2025-01-24T10:10:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50777",
+   "full_name": "Tanvi Wilson",
+   "location": "New York City",
+   "email_address": "tanvi.wilson332@yahoo.com",
+   "phone_number": "(474) 932-5738",
+   "last_updated": "2025-01-19T08:26:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50785",
+   "full_name": "Divya Kapoor",
+   "location": "delhi",
+   "email_address": "Divya.kapoor773@yahoo.com",
+   "phone_number": "9359852353",
+   "last_updated": "2025-10-22T15:55:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50797",
+   "full_name": "V. Gupta",
+   "location": "Madras",
+   "email_address": "Vikram.gupta986@gmail.com",
+   "phone_number": "+91-96224-46431",
+   "last_updated": "2025-01-20T21:56:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50803",
+   "full_name": "Divya Mehta",
+   "location": "NYC",
+   "email_address": "Divya.mehta907@corp.example",
+   "phone_number": "+1 400 663 8470",
+   "last_updated": "2025-12-07T03:19:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50819",
+   "full_name": "S. Davis",
+   "location": "Hyderabad",
+   "email_address": "shreya.davis677@yahoo.com",
+   "phone_number": "+91-90671-04832",
+   "last_updated": "2025-07-20T01:28:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50826",
+   "full_name": "Shreya R Menon",
+   "location": "San Francisco",
+   "email_address": "Shreya.menon104@corp.example",
+   "phone_number": "(437) 805-8567",
+   "last_updated": "2025-04-23T21:36:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50833",
+   "full_name": "Isha Das",
+   "location": "Bangalore",
+   "email_address": null,
+   "phone_number": "+1 450 446 6001",
+   "last_updated": "2025-01-14T04:58:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50851",
+   "full_name": "Karan Nair",
+   "location": "Madras",
+   "email_address": "karan.nair952@gmail.com",
+   "phone_number": "9783256748",
+   "last_updated": "2025-09-17T20:11:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50854",
+   "full_name": "Ravi Menon",
+   "location": "Pune",
+   "email_address": "ravi.menon803@yahoo.com",
+   "phone_number": "+91-96462-70453",
+   "last_updated": "2025-12-13T19:53:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50865",
+   "full_name": "JOHN CHOPRA",
+   "location": "London",
+   "email_address": "John.chopra497@corp.example",
+   "phone_number": "+1 415 246 0195",
+   "last_updated": "2025-09-05T08:38:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50873",
+   "full_name": "Shreya Menon",
+   "location": "Mumbai",
+   "email_address": "Shreya.menon649@gmail.com",
+   "phone_number": "+91-93144-91923",
+   "last_updated": "2025-03-24T07:11:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50881",
+   "full_name": "James P Menon",
+   "location": "Madras",
+   "email_address": "james.menon804@yahoo.com",
+   "phone_number": "9682991843",
+   "last_updated": "2025-07-31T04:00:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50885",
+   "full_name": "Pooja Smith",
+   "location": "Bengaluru",
+   "email_address": "Pooja.smith81@corp.example",
+   "phone_number": "9814632778",
+   "last_updated": "2025-05-16T03:55:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50889",
+   "full_name": "Ravi Kulkarni",
+   "location": "New York",
+   "email_address": "Ravi.kulkarni928@yahoo.com",
+   "phone_number": "+1 437 289 0257",
+   "last_updated": "2025-02-13T13:45:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50900",
+   "full_name": "Anjali Davis",
+   "location": "Hyderabad",
+   "email_address": "anjali.davis304@corp.example",
+   "phone_number": "9661250090",
+   "last_updated": "2025-01-28T01:06:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50905",
+   "full_name": "V. Smith",
+   "location": "New Delhi",
+   "email_address": "vikram.smith496@corp.example",
+   "phone_number": "9036251557",
+   "last_updated": "2025-02-18T15:19:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50912",
+   "full_name": "Tanvi Taylor",
+   "location": "Pune",
+   "email_address": "tanvi.taylor935@yahoo.com",
+   "phone_number": "9656480445",
+   "last_updated": "2025-10-20T02:08:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50920",
+   "full_name": "Jessica R Joshi",
+   "location": "San Fran",
+   "email_address": null,
+   "phone_number": "(453) 715-3542",
+   "last_updated": "2025-09-03T10:34:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50926",
+   "full_name": "Amit Das",
+   "location": "San Francisco",
+   "email_address": "amit.das741@corp.example",
+   "phone_number": "(490) 641-0037",
+   "last_updated": "2025-05-01T05:52:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50933",
+   "full_name": "Nikhil P Johnson",
+   "location": "london",
+   "email_address": "nikhil.johnson627@corp.example",
+   "phone_number": null,
+   "last_updated": "2025-07-02T13:58:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50945",
+   "full_name": "Laura Brown",
+   "location": "New York",
+   "email_address": "laura.brown658@gmail.com",
+   "phone_number": "+1 498 016 9671",
+   "last_updated": "2025-12-12T07:26:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-50955",
+   "full_name": "David S Williams",
+   "location": "New York",
+   "email_address": "david.williams607@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-09-14T05:47:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-50963",
+   "full_name": "Rahul Davis",
+   "location": "BANGALORE",
+   "email_address": "rahul.davis686@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-06-13T22:38:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50971",
+   "full_name": "Sneha Menon",
+   "location": "Bangalore",
+   "email_address": "Sneha.menon793@yahoo.com",
+   "phone_number": "9487740000",
+   "last_updated": "2025-03-14T05:32:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-50979",
+   "full_name": "Ritu Patel",
+   "location": "Pune",
+   "email_address": "Ritu.patel399@outlook.com",
+   "phone_number": "9927905597",
+   "last_updated": "2025-07-04T08:34:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51001",
+   "full_name": "Meera Anderson",
+   "location": "Pune",
+   "email_address": "meera.anderson912@yahoo.com",
+   "phone_number": "9875818876",
+   "last_updated": "2025-09-29T15:42:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51008",
+   "full_name": "SIDDHARTH KAPOOR",
+   "location": "Calcutta",
+   "email_address": "siddharth.kapoor622@gmail.com",
+   "phone_number": "+91-97349-06781",
+   "last_updated": "2025-03-17T15:34:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51018",
+   "full_name": "MICHAEL TAYLOR",
+   "location": "Kolkata",
+   "email_address": "michael.taylor65@yahoo.com",
+   "phone_number": "9984857893",
+   "last_updated": "2025-02-12T03:21:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51027",
+   "full_name": "Pooja Mehta",
+   "location": "Pune",
+   "email_address": "pooja.mehta95@yahoo.com",
+   "phone_number": "9599568230",
+   "last_updated": "2025-09-22T09:33:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51033",
+   "full_name": "Sarah Reddy",
+   "location": "Bangalore",
+   "email_address": "sarah.reddy381@corp.example",
+   "phone_number": "9259054890",
+   "last_updated": "2025-03-12T13:12:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51037",
+   "full_name": "Amit Mehta",
+   "location": "london",
+   "email_address": "amit.mehta892@corp.example",
+   "phone_number": "+1 493 446 1799",
+   "last_updated": "2025-11-20T11:49:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51054",
+   "full_name": "Gaurav Miller",
+   "location": "Bangalore",
+   "email_address": "gaurav.miller407@gmail.com",
+   "phone_number": "+91-94593-18627",
+   "last_updated": "2025-05-14T13:30:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51060",
+   "full_name": "Sarah Rao",
+   "location": "Delhi",
+   "email_address": "sarah.rao739@yahoo.com",
+   "phone_number": "+91-90450-80048",
+   "last_updated": "2025-07-31T18:49:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51066",
+   "full_name": "Sneha Reddy",
+   "location": "mumbai",
+   "email_address": "Sneha.reddy149@outlook.com",
+   "phone_number": "+91-93499-71755",
+   "last_updated": "2025-11-13T20:29:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51071",
+   "full_name": "David Reddy",
+   "location": "Calcutta",
+   "email_address": "david.reddy384@corp.example",
+   "phone_number": null,
+   "last_updated": "2025-08-25T08:24:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51079",
+   "full_name": "Arjun Williams",
+   "location": "New Delhi",
+   "email_address": "arjun.williams888@outlook.com",
+   "phone_number": "9716017553",
+   "last_updated": "2025-09-25T23:13:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51087",
+   "full_name": "Ananya K Miller",
+   "location": "hyderabad",
+   "email_address": "Ananya.miller375@yahoo.com",
+   "phone_number": "+91-93027-82724",
+   "last_updated": "2025-10-15T11:34:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51105",
+   "full_name": "Ananya Nair",
+   "location": "New York",
+   "email_address": "ananya.nair526@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-11-18T00:00:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51108",
+   "full_name": "Neha Reddy",
+   "location": "Kolkata",
+   "email_address": "neha.reddy400@outlook.com",
+   "phone_number": null,
+   "last_updated": "2025-03-19T17:22:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51124",
+   "full_name": "Shreya Taylor",
+   "location": "Madras",
+   "email_address": "shreya.taylor236@yahoo.com",
+   "phone_number": "9911974232",
+   "last_updated": "2025-03-11T19:14:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51127",
+   "full_name": "N. Kapoor",
+   "location": "Bangalore",
+   "email_address": "nisha.kapoor208@gmail.com",
+   "phone_number": "+91-98608-55471",
+   "last_updated": "2025-09-21T06:13:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51142",
+   "full_name": "Michael Smith",
+   "location": "SF",
+   "email_address": "michael.smith955@corp.example",
+   "phone_number": "+1 411 535 6904",
+   "last_updated": "2025-09-03T12:03:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51149",
+   "full_name": "Anjali Kulkarni",
+   "location": "San Francisco",
+   "email_address": "anjali.kulkarni526@gmail.com",
+   "phone_number": "(482) 031-3922",
+   "last_updated": "2025-02-12T18:55:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51161",
+   "full_name": "LAKSHMI SINGH",
+   "location": "Mumbai",
+   "email_address": "lakshmi.singh569@gmail.com",
+   "phone_number": "9134099783",
+   "last_updated": "2025-07-23T02:58:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51165",
+   "full_name": "Vikram Menon",
+   "location": "Delhi",
+   "email_address": "vikram.menon891@gmail.com",
+   "phone_number": "+91-90417-79841",
+   "last_updated": "2025-08-03T17:22:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51174",
+   "full_name": "Ananya P Das",
+   "location": "SF",
+   "email_address": "ananya.das906@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-01-09T13:33:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51187",
+   "full_name": "Tanvi A Iyer",
+   "location": "Hyderabad",
+   "email_address": "tanvi.iyer333@yahoo.com",
+   "phone_number": "+91-93605-18215",
+   "last_updated": "2025-03-23T07:14:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51194",
+   "full_name": "A. Smith",
+   "location": "Chennai",
+   "email_address": "Aditya.smith686@gmail.com",
+   "phone_number": "9266700094",
+   "last_updated": "2025-07-14T05:47:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51203",
+   "full_name": "Varun V Anderson",
+   "location": "Pune",
+   "email_address": "varun.anderson947@gmail.com",
+   "phone_number": "+1 414 180 6304",
+   "last_updated": "2025-11-05T07:30:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51207",
+   "full_name": "Lakshmi S Menon",
+   "location": "Bangalore",
+   "email_address": "lakshmi.menon664@yahoo.com",
+   "phone_number": "+91-90984-17982",
+   "last_updated": "2025-12-13T16:13:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51212",
+   "full_name": "Ananya Smith",
+   "location": "Calcutta",
+   "email_address": "ananya.smith135@outlook.com",
+   "phone_number": "+91-99443-18479",
+   "last_updated": "2025-10-28T18:16:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51220",
+   "full_name": "Siddharth Miller",
+   "location": "San Francisco",
+   "email_address": "siddharth.miller396@yahoo.com",
+   "phone_number": "+1 457 849 7740",
+   "last_updated": "2025-02-14T18:02:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51233",
+   "full_name": "Suresh Mehta",
+   "location": "Bombay",
+   "email_address": "suresh.mehta303@gmail.com",
+   "phone_number": "+91-92819-57086",
+   "last_updated": "2025-01-21T02:33:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51252",
+   "full_name": "Shreya P Reddy",
+   "location": "Poona",
+   "email_address": "Shreya.reddy757@corp.example",
+   "phone_number": "+91-92610-68917",
+   "last_updated": "2025-11-02T22:22:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51254",
+   "full_name": "Harish Nair",
+   "location": "london",
+   "email_address": "Harish.nair428@outlook.com",
+   "phone_number": "(491) 677-4545",
+   "last_updated": "2025-08-09T11:44:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51261",
+   "full_name": "Shreya V Johnson",
+   "location": "Hyderabad",
+   "email_address": "shreya.johnson610@corp.example",
+   "phone_number": "9076742842",
+   "last_updated": "2025-01-11T20:54:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51278",
+   "full_name": "Manish Brown",
+   "location": "Poona",
+   "email_address": "Manish.brown918@corp.example",
+   "phone_number": "9848968866",
+   "last_updated": "2025-06-11T06:52:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51284",
+   "full_name": "Michael D Iyer",
+   "location": "New York City",
+   "email_address": "michael.iyer609@outlook.com",
+   "phone_number": "+1 401 831 6586",
+   "last_updated": "2025-06-08T23:00:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51293",
+   "full_name": "Harish Nair",
+   "location": "Kolkata",
+   "email_address": "Harish.nair901@yahoo.com",
+   "phone_number": "+91-97679-95812",
+   "last_updated": "2025-08-29T18:54:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51301",
+   "full_name": "John Menon",
+   "location": "San Francisco",
+   "email_address": null,
+   "phone_number": "+1 421 458 6284",
+   "last_updated": "2025-11-02T11:38:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51305",
+   "full_name": "Pooja Smith",
+   "location": "Calcutta",
+   "email_address": "pooja.smith915@yahoo.com",
+   "phone_number": "+91-92099-15906",
+   "last_updated": "2025-02-13T07:02:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51312",
+   "full_name": "Rahul Kapoor",
+   "location": "Poona",
+   "email_address": "rahul.kapoor728@gmail.com",
+   "phone_number": "9619003278",
+   "last_updated": "2025-04-13T16:57:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51320",
+   "full_name": "Divya Miller",
+   "location": "london",
+   "email_address": "divya.miller918@yahoo.com",
+   "phone_number": "(436) 912-2881",
+   "last_updated": "2025-10-30T13:43:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51344",
+   "full_name": "Rahul K Kulkarni",
+   "location": "London",
+   "email_address": "Rahul.kulkarni311@corp.example",
+   "phone_number": "+1 447 136 9364",
+   "last_updated": "2025-12-04T01:43:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51356",
+   "full_name": "Anjali Sharma",
+   "location": "BANGALORE",
+   "email_address": "Anjali.sharma812@yahoo.com",
+   "phone_number": "9225620468",
+   "last_updated": "2025-10-17T08:13:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51359",
+   "full_name": "Ananya Joshi",
+   "location": "hyderabad",
+   "email_address": "Ananya.joshi547@corp.example",
+   "phone_number": "9611658363",
+   "last_updated": "2025-12-04T21:18:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51372",
+   "full_name": "R. Johnson",
+   "location": "Madras",
+   "email_address": "Rohan.johnson454@corp.example",
+   "phone_number": "+91-92553-66934",
+   "last_updated": "2025-01-19T14:56:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51379",
+   "full_name": "Nikhil N Mehta",
+   "location": "Hyderabad",
+   "email_address": "nikhil.mehta233@corp.example",
+   "phone_number": "9497958369",
+   "last_updated": "2025-07-10T22:22:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51389",
+   "full_name": "Pooja N Nair",
+   "location": "San Francisco",
+   "email_address": "Pooja.nair894@gmail.com",
+   "phone_number": "+1 418 460 9240",
+   "last_updated": "2025-09-04T22:39:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51393",
+   "full_name": "Kavya A Garcia",
+   "location": "hyderabad",
+   "email_address": "Kavya.garcia182@yahoo.com",
+   "phone_number": "+91-93118-58431",
+   "last_updated": "2025-03-27T01:34:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51408",
+   "full_name": "D. Sharma",
+   "location": "Chennai",
+   "email_address": "Daniel.sharma675@corp.example",
+   "phone_number": null,
+   "last_updated": "2025-06-02T21:31:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51415",
+   "full_name": "Jessica Iyer",
+   "location": "Calcutta",
+   "email_address": "jessica.iyer624@yahoo.com",
+   "phone_number": "+91-93426-08429",
+   "last_updated": "2025-05-28T17:17:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51430",
+   "full_name": "Ananya Iyer",
+   "location": "Chennai",
+   "email_address": "Ananya.iyer811@outlook.com",
+   "phone_number": "9516693481",
+   "last_updated": "2025-10-03T00:00:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51441",
+   "full_name": "Laura Kulkarni",
+   "location": "San Fran",
+   "email_address": "Laura.kulkarni953@outlook.com",
+   "phone_number": "(478) 036-8273",
+   "last_updated": "2025-05-17T00:29:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51445",
+   "full_name": "T. Singh",
+   "location": "Chennai",
+   "email_address": "tanvi.singh179@yahoo.com",
+   "phone_number": "9843025561",
+   "last_updated": "2025-10-27T13:28:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51462",
+   "full_name": "NISHA BROWN",
+   "location": "Bengaluru",
+   "email_address": "nisha.brown247@outlook.com",
+   "phone_number": "+91-98622-97631",
+   "last_updated": "2025-11-28T23:55:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51466",
+   "full_name": "Rahul Menon",
+   "location": "Bombay",
+   "email_address": "rahul.menon499@yahoo.com",
+   "phone_number": "+91-90443-14712",
+   "last_updated": "2025-07-23T17:55:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51481",
+   "full_name": "Manish S Reddy",
+   "location": "Calcutta",
+   "email_address": "Manish.reddy661@corp.example",
+   "phone_number": "9738505149",
+   "last_updated": "2025-06-27T21:49:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51486",
+   "full_name": "N. Patel",
+   "location": "Mumbai",
+   "email_address": "neha.patel142@gmail.com",
+   "phone_number": "9624528214",
+   "last_updated": "2025-08-07T23:56:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51491",
+   "full_name": "David M Gupta",
+   "location": "Hyderabad",
+   "email_address": null,
+   "phone_number": null,
+   "last_updated": "2025-10-13T19:22:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51503",
+   "full_name": "Harish Anderson",
+   "location": "Mumbai",
+   "email_address": "harish.anderson644@corp.example",
+   "phone_number": "9376724991",
+   "last_updated": "2025-07-16T20:14:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51511",
+   "full_name": "S. Gupta",
+   "location": "Kolkata",
+   "email_address": "Siddharth.gupta142@corp.example",
+   "phone_number": "9107733500",
+   "last_updated": "2025-04-18T05:44:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51518",
+   "full_name": "Laura Nair",
+   "location": "Mumbai",
+   "email_address": "laura.nair291@gmail.com",
+   "phone_number": "+91-98651-70226",
+   "last_updated": "2025-10-06T04:12:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51525",
+   "full_name": "Rahul Kulkarni",
+   "location": "London",
+   "email_address": "Rahul.kulkarni824@outlook.com",
+   "phone_number": "(437) 185-8768",
+   "last_updated": "2025-01-12T00:34:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51534",
+   "full_name": "Emily Smith",
+   "location": "Chennai",
+   "email_address": "emily.smith907@gmail.com",
+   "phone_number": "9371295896",
+   "last_updated": "2025-11-05T23:37:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51540",
+   "full_name": "Shreya Rao",
+   "location": "Calcutta",
+   "email_address": "shreya.rao579@corp.example",
+   "phone_number": "9413238134",
+   "last_updated": "2025-06-23T09:58:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51550",
+   "full_name": "Aditya N Smith",
+   "location": "New York City",
+   "email_address": null,
+   "phone_number": "(438) 738-9189",
+   "last_updated": "2025-07-21T04:50:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51559",
+   "full_name": "Kavya Bose",
+   "location": "New York",
+   "email_address": "kavya.bose696@gmail.com",
+   "phone_number": "(428) 881-8176",
+   "last_updated": "2025-02-02T12:21:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51574",
+   "full_name": "Gaurav Mehta",
+   "location": "Bangalore",
+   "email_address": "Gaurav.mehta471@outlook.com",
+   "phone_number": "+91-92619-39152",
+   "last_updated": "2025-01-06T04:09:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51575",
+   "full_name": "Emily Anderson",
+   "location": "Poona",
+   "email_address": "emily.anderson782@gmail.com",
+   "phone_number": "9135885709",
+   "last_updated": "2025-11-09T18:12:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51587",
+   "full_name": "Vikram Menon",
+   "location": "London",
+   "email_address": "vikram.menon563@outlook.com",
+   "phone_number": "(410) 345-3709",
+   "last_updated": "2025-02-14T02:19:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51595",
+   "full_name": "ANANYA ANDERSON",
+   "location": "Bangalore",
+   "email_address": "ananya.anderson22@corp.example",
+   "phone_number": "+91-91422-84629",
+   "last_updated": "2025-04-04T02:51:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51599",
+   "full_name": "V. Garcia",
+   "location": "New York",
+   "email_address": "varun.garcia780@outlook.com",
+   "phone_number": "+1 400 527 8700",
+   "last_updated": "2025-05-19T23:00:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51603",
+   "full_name": "Isha Williams",
+   "location": "New York",
+   "email_address": "Isha.williams838@corp.example",
+   "phone_number": "(427) 639-8155",
+   "last_updated": "2025-12-13T21:21:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51615",
+   "full_name": "Pooja R Kapoor",
+   "location": "London",
+   "email_address": "pooja.kapoor916@yahoo.com",
+   "phone_number": "(490) 325-7597",
+   "last_updated": "2025-10-28T03:06:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51618",
+   "full_name": "Michael S Joshi",
+   "location": "london",
+   "email_address": null,
+   "phone_number": "+1 475 303 7902",
+   "last_updated": "2025-11-22T12:59:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51625",
+   "full_name": "Divya Das",
+   "location": "San Francisco",
+   "email_address": "Divya.das280@gmail.com",
+   "phone_number": "+1 445 998 9208",
+   "last_updated": "2025-10-22T06:54:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51632",
+   "full_name": "Aditya Taylor",
+   "location": "Hyderabad",
+   "email_address": null,
+   "phone_number": "+91-94321-45583",
+   "last_updated": "2025-08-02T03:15:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51642",
+   "full_name": "Tanvi Garcia",
+   "location": "Mumbai",
+   "email_address": "tanvi.garcia416@outlook.com",
+   "phone_number": "9557853352",
+   "last_updated": "2025-09-16T15:45:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51649",
+   "full_name": "Pooja Sharma",
+   "location": "Kolkata",
+   "email_address": null,
+   "phone_number": "9769429124",
+   "last_updated": "2025-01-17T23:10:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51653",
+   "full_name": "Manish Wilson",
+   "location": "Bangalore",
+   "email_address": "manish.wilson586@outlook.com",
+   "phone_number": "+91-93919-24957",
+   "last_updated": "2025-11-21T19:46:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51665",
+   "full_name": "Laura Wilson",
+   "location": "NYC",
+   "email_address": "laura.wilson890@gmail.com",
+   "phone_number": "+1 452 448 0243",
+   "last_updated": "2025-08-25T02:42:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51669",
+   "full_name": "Pooja Iyer",
+   "location": "Madras",
+   "email_address": "Pooja.iyer410@corp.example",
+   "phone_number": "9948133029",
+   "last_updated": "2025-08-14T01:08:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51673",
+   "full_name": "KAVYA PATEL",
+   "location": "New Delhi",
+   "email_address": "kavya.patel829@outlook.com",
+   "phone_number": "+91-90348-05035",
+   "last_updated": "2025-07-10T11:27:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51682",
+   "full_name": "Priya V Miller",
+   "location": "london",
+   "email_address": "priya.miller498@corp.example",
+   "phone_number": "(452) 060-1957",
+   "last_updated": "2025-01-15T01:06:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51695",
+   "full_name": "Meera Mehta",
+   "location": "Hyderabad",
+   "email_address": "meera.mehta147@gmail.com",
+   "phone_number": "+91-95658-98299",
+   "last_updated": "2025-03-22T05:21:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51707",
+   "full_name": "Siddharth Wilson",
+   "location": "NYC",
+   "email_address": "Siddharth.wilson634@outlook.com",
+   "phone_number": "(404) 878-4588",
+   "last_updated": "2025-06-16T07:42:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51712",
+   "full_name": "R. Singh",
+   "location": "BANGALORE",
+   "email_address": "Rohan.singh10@corp.example",
+   "phone_number": "9523610921",
+   "last_updated": "2025-01-05T13:37:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51716",
+   "full_name": "Varun K Smith",
+   "location": "Poona",
+   "email_address": "varun.smith210@yahoo.com",
+   "phone_number": "+91-99522-28053",
+   "last_updated": "2025-08-13T07:31:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51727",
+   "full_name": "ANJALI MEHTA",
+   "location": "Kolkata",
+   "email_address": "anjali.mehta652@outlook.com",
+   "phone_number": "+91-97350-10165",
+   "last_updated": "2025-09-19T07:34:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51732",
+   "full_name": "Siddharth Brown",
+   "location": "Calcutta",
+   "email_address": null,
+   "phone_number": "+91-93040-46335",
+   "last_updated": "2025-07-29T19:41:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51739",
+   "full_name": "John N Taylor",
+   "location": "Poona",
+   "email_address": "john.taylor436@outlook.com",
+   "phone_number": "+91-97392-74244",
+   "last_updated": "2025-03-16T14:30:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51743",
+   "full_name": "Emily Sharma",
+   "location": "Delhi",
+   "email_address": "emily.sharma498@yahoo.com",
+   "phone_number": "+91-95997-39035",
+   "last_updated": "2025-08-25T11:29:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51755",
+   "full_name": "James Gupta",
+   "location": "Pune",
+   "email_address": "James.gupta446@yahoo.com",
+   "phone_number": "9012024285",
+   "last_updated": "2025-09-23T22:09:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51767",
+   "full_name": "Rohan Smith",
+   "location": "London",
+   "email_address": "Rohan.smith610@yahoo.com",
+   "phone_number": "(461) 005-1117",
+   "last_updated": "2025-08-06T19:00:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51779",
+   "full_name": "Pooja V Rao",
+   "location": "Pune",
+   "email_address": null,
+   "phone_number": "9204410380",
+   "last_updated": "2025-04-05T18:56:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51785",
+   "full_name": "Tanvi Menon",
+   "location": "San Francisco",
+   "email_address": "Tanvi.menon274@gmail.com",
+   "phone_number": "+91-90784-85646",
+   "last_updated": "2025-09-13T05:14:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51802",
+   "full_name": "Neha Mehta",
+   "location": "Bangalore",
+   "email_address": "neha.mehta680@gmail.com",
+   "phone_number": "9900685785",
+   "last_updated": "2025-04-01T21:51:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51808",
+   "full_name": "Harish Sharma",
+   "location": "San Francisco",
+   "email_address": "harish.sharma485@corp.example",
+   "phone_number": "+1 459 863 6516",
+   "last_updated": "2025-03-18T23:08:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51834",
+   "full_name": "Michael P Davis",
+   "location": "New York City",
+   "email_address": "michael.davis823@outlook.com",
+   "phone_number": "(414) 647-1772",
+   "last_updated": "2025-03-01T06:47:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51841",
+   "full_name": "Meera Sharma",
+   "location": "Hyderabad",
+   "email_address": "meera.sharma697@yahoo.com",
+   "phone_number": "9783958564",
+   "last_updated": "2025-02-16T09:49:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51853",
+   "full_name": "Tanvi Mehta",
+   "location": "Mumbai",
+   "email_address": "tanvi.mehta1@outlook.com",
+   "phone_number": "+91-99248-45434",
+   "last_updated": "2025-07-11T21:32:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51860",
+   "full_name": "KAVYA SMITH",
+   "location": "Delhi",
+   "email_address": "kavya.smith652@corp.example",
+   "phone_number": "9326495076",
+   "last_updated": "2025-10-06T03:18:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51881",
+   "full_name": "Nisha Brown",
+   "location": "New York",
+   "email_address": null,
+   "phone_number": "9672176728",
+   "last_updated": "2025-06-04T16:21:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51886",
+   "full_name": "Siddharth Wilson",
+   "location": "San Francisco",
+   "email_address": "Siddharth.wilson206@corp.example",
+   "phone_number": "+1 404 856 7113",
+   "last_updated": "2025-04-11T14:22:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51891",
+   "full_name": "Harish Sharma",
+   "location": "Bengaluru",
+   "email_address": "Harish.sharma105@corp.example",
+   "phone_number": "9397035708",
+   "last_updated": "2025-06-04T20:25:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51900",
+   "full_name": "Nisha Nair",
+   "location": "New Delhi",
+   "email_address": "nisha.nair417@gmail.com",
+   "phone_number": "9553802848",
+   "last_updated": "2025-09-30T23:06:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51906",
+   "full_name": "Kavya N Joshi",
+   "location": "Poona",
+   "email_address": "kavya.joshi393@outlook.com",
+   "phone_number": "9868604436",
+   "last_updated": "2025-11-16T16:10:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51916",
+   "full_name": "Varun J Singh",
+   "location": "delhi",
+   "email_address": "Varun.singh313@yahoo.com",
+   "phone_number": "+91-90385-77925",
+   "last_updated": "2025-10-23T00:34:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51920",
+   "full_name": "ADITYA KULKARNI",
+   "location": "Hyderabad",
+   "email_address": "aditya.kulkarni942@gmail.com",
+   "phone_number": "+91-90816-95043",
+   "last_updated": "2025-01-24T04:38:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51929",
+   "full_name": "SURESH MEHTA",
+   "location": "london",
+   "email_address": "suresh.mehta728@yahoo.com",
+   "phone_number": "(497) 673-3026",
+   "last_updated": "2025-03-03T15:52:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51939",
+   "full_name": "K. Nair",
+   "location": "San Fran",
+   "email_address": "Karan.nair797@yahoo.com",
+   "phone_number": "(417) 131-0634",
+   "last_updated": "2025-10-11T10:49:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-51947",
+   "full_name": "Laura Nair",
+   "location": "Delhi",
+   "email_address": "laura.nair890@gmail.com",
+   "phone_number": "9027439582",
+   "last_updated": "2025-07-29T09:05:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51953",
+   "full_name": "Manish K Joshi",
+   "location": "New Delhi",
+   "email_address": "manish.joshi562@yahoo.com",
+   "phone_number": "+91-93605-62438",
+   "last_updated": "2025-08-31T05:44:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51962",
+   "full_name": "Aditya Kulkarni",
+   "location": "Chennai",
+   "email_address": "aditya.kulkarni153@yahoo.com",
+   "phone_number": "9561051388",
+   "last_updated": "2025-07-19T10:53:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51967",
+   "full_name": "S. Chopra",
+   "location": "NYC",
+   "email_address": "suresh.chopra357@gmail.com",
+   "phone_number": "(413) 744-9981",
+   "last_updated": "2025-08-19T00:51:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-51978",
+   "full_name": "Rohan A Chopra",
+   "location": "London",
+   "email_address": "Rohan.chopra278@yahoo.com",
+   "phone_number": "(440) 991-0532",
+   "last_updated": "2025-02-05T19:59:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-51989",
+   "full_name": "Vikram R Wilson",
+   "location": "Delhi",
+   "email_address": null,
+   "phone_number": "+91-99670-00891",
+   "last_updated": "2025-01-29T01:00:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52001",
+   "full_name": "Rohan Bose",
+   "location": "Bangalore",
+   "email_address": "rohan.bose592@outlook.com",
+   "phone_number": "9525215074",
+   "last_updated": "2025-07-22T10:39:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52003",
+   "full_name": "Manish P Reddy",
+   "location": "Bengaluru",
+   "email_address": "manish.reddy110@yahoo.com",
+   "phone_number": "9274881573",
+   "last_updated": "2025-05-02T01:53:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52011",
+   "full_name": "Harish Johnson",
+   "location": "hyderabad",
+   "email_address": "harish.johnson44@outlook.com",
+   "phone_number": "+91-93468-32388",
+   "last_updated": "2025-01-28T02:02:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52021",
+   "full_name": "Vikram Sharma",
+   "location": "New York",
+   "email_address": "vikram.sharma109@gmail.com",
+   "phone_number": "(493) 312-2406",
+   "last_updated": "2025-02-12T02:40:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52036",
+   "full_name": "Arjun Williams",
+   "location": "Mumbai",
+   "email_address": "arjun.williams346@gmail.com",
+   "phone_number": "9392451792",
+   "last_updated": "2025-07-27T23:30:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52046",
+   "full_name": "S. Davis",
+   "location": "Mumbai",
+   "email_address": "siddharth.davis340@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-02-25T17:28:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52053",
+   "full_name": "Sarah Anderson",
+   "location": "Hyderabad",
+   "email_address": null,
+   "phone_number": "9927724407",
+   "last_updated": "2025-04-07T04:58:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52061",
+   "full_name": "Laura Das",
+   "location": "London",
+   "email_address": "Laura.das845@outlook.com",
+   "phone_number": "(481) 143-3397",
+   "last_updated": "2025-07-03T21:00:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52075",
+   "full_name": "Rahul Kapoor",
+   "location": "Bengaluru",
+   "email_address": "rahul.kapoor501@gmail.com",
+   "phone_number": "+91-97669-47258",
+   "last_updated": "2025-04-28T03:50:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52098",
+   "full_name": "Lakshmi S Chopra",
+   "location": "Delhi",
+   "email_address": "lakshmi.chopra327@yahoo.com",
+   "phone_number": "+91-96800-21379",
+   "last_updated": "2025-10-17T11:43:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52106",
+   "full_name": "Michael Davis",
+   "location": "Delhi",
+   "email_address": "michael.davis104@corp.example",
+   "phone_number": "+91-94618-95744",
+   "last_updated": "2025-06-18T05:18:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52115",
+   "full_name": "Lakshmi S Taylor",
+   "location": "London",
+   "email_address": "lakshmi.taylor525@yahoo.com",
+   "phone_number": "(470) 572-0423",
+   "last_updated": "2025-02-17T00:23:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52121",
+   "full_name": "Nikhil Iyer",
+   "location": "london",
+   "email_address": "nikhil.iyer402@yahoo.com",
+   "phone_number": "(443) 480-6861",
+   "last_updated": "2025-10-24T08:00:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52133",
+   "full_name": "Anjali Garcia",
+   "location": "hyderabad",
+   "email_address": "anjali.garcia369@outlook.com",
+   "phone_number": "+91-92970-85238",
+   "last_updated": "2025-04-25T18:23:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52140",
+   "full_name": "Karan Kapoor",
+   "location": "Poona",
+   "email_address": "Karan.kapoor757@yahoo.com",
+   "phone_number": "+91-90946-52447",
+   "last_updated": "2025-09-18T00:31:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52143",
+   "full_name": "Ritu A Joshi",
+   "location": "Kolkata",
+   "email_address": "Ritu.joshi951@corp.example",
+   "phone_number": "9145656741",
+   "last_updated": "2025-09-18T03:49:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52150",
+   "full_name": "Ritu Kulkarni",
+   "location": "Delhi",
+   "email_address": "ritu.kulkarni514@corp.example",
+   "phone_number": null,
+   "last_updated": "2025-03-27T03:07:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52156",
+   "full_name": "Jessica V Menon",
+   "location": "San Francisco",
+   "email_address": "jessica.menon735@corp.example",
+   "phone_number": "(441) 470-0894",
+   "last_updated": "2025-02-23T06:21:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52165",
+   "full_name": "Gaurav Menon",
+   "location": "Bangalore",
+   "email_address": "gaurav.menon272@yahoo.com",
+   "phone_number": "9819614221",
+   "last_updated": "2025-01-15T02:46:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52172",
+   "full_name": "Jessica D Anderson",
+   "location": "Kolkata",
+   "email_address": null,
+   "phone_number": "+91-96755-22886",
+   "last_updated": "2025-04-03T01:36:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52177",
+   "full_name": "Rohan J Mehta",
+   "location": "Calcutta",
+   "email_address": "rohan.mehta347@gmail.com",
+   "phone_number": "9180939663",
+   "last_updated": "2025-07-27T02:45:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52186",
+   "full_name": "Divya J Anderson",
+   "location": "Delhi",
+   "email_address": "divya.anderson866@yahoo.com",
+   "phone_number": "+91-93381-40642",
+   "last_updated": "2025-11-05T22:27:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52193",
+   "full_name": "Ritu Singh",
+   "location": "London",
+   "email_address": "ritu.singh730@gmail.com",
+   "phone_number": "+1 498 493 3415",
+   "last_updated": "2025-11-14T06:28:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52201",
+   "full_name": "KAVYA MENON",
+   "location": "San Francisco",
+   "email_address": "kavya.menon24@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-04-22T19:41:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52207",
+   "full_name": "Nisha J Johnson",
+   "location": "London",
+   "email_address": "nisha.johnson610@gmail.com",
+   "phone_number": "+91-98717-34558",
+   "last_updated": "2025-06-21T17:51:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52218",
+   "full_name": "S. Mehta",
+   "location": "Poona",
+   "email_address": null,
+   "phone_number": "+91-99803-20846",
+   "last_updated": "2025-02-08T16:50:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52233",
+   "full_name": "A. Das",
+   "location": "Madras",
+   "email_address": "Ananya.das170@outlook.com",
+   "phone_number": "9180733438",
+   "last_updated": "2025-03-02T08:45:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52247",
+   "full_name": "John Menon",
+   "location": "Mumbai",
+   "email_address": "john.menon314@gmail.com",
+   "phone_number": "9256071512",
+   "last_updated": "2025-06-19T01:59:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52260",
+   "full_name": "Ravi Chopra",
+   "location": "hyderabad",
+   "email_address": "ravi.chopra85@outlook.com",
+   "phone_number": "9721894863",
+   "last_updated": "2025-05-07T09:34:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52261",
+   "full_name": "Manish Davis",
+   "location": "Pune",
+   "email_address": "Manish.davis22@yahoo.com",
+   "phone_number": "+91-98662-62201",
+   "last_updated": "2025-01-28T00:10:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52273",
+   "full_name": "Nisha Johnson",
+   "location": "Bombay",
+   "email_address": "Nisha.johnson389@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-01-08T08:10:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52275",
+   "full_name": "OLIVIA CHOPRA",
+   "location": "Bombay",
+   "email_address": "Olivia.chopra788@yahoo.com",
+   "phone_number": "+91-93356-11923",
+   "last_updated": "2025-08-19T05:18:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52287",
+   "full_name": "Olivia Brown",
+   "location": "Bengaluru",
+   "email_address": "olivia.brown600@corp.example",
+   "phone_number": "9907263779",
+   "last_updated": "2025-07-19T22:44:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52293",
+   "full_name": "Ananya Chopra",
+   "location": "Bangalore",
+   "email_address": "ananya.chopra614@corp.example",
+   "phone_number": "9330693031",
+   "last_updated": "2025-05-02T23:36:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52306",
+   "full_name": "P. Chopra",
+   "location": "Bangalore",
+   "email_address": "priya.chopra776@gmail.com",
+   "phone_number": "9228298518",
+   "last_updated": "2025-09-06T18:50:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52316",
+   "full_name": "Rahul Patel",
+   "location": "San Francisco",
+   "email_address": "Rahul.patel872@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-10-08T04:39:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52318",
+   "full_name": "Ritu Kapoor",
+   "location": "Mumbai",
+   "email_address": "Ritu.kapoor469@corp.example",
+   "phone_number": "+91-98302-87313",
+   "last_updated": "2025-02-09T01:23:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52327",
+   "full_name": "Ananya Williams",
+   "location": "Bangalore",
+   "email_address": "ananya.williams89@outlook.com",
+   "phone_number": null,
+   "last_updated": "2025-09-13T13:00:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52339",
+   "full_name": "Daniel M Williams",
+   "location": "Bengaluru",
+   "email_address": "daniel.williams589@yahoo.com",
+   "phone_number": "9000260294",
+   "last_updated": "2025-03-09T16:18:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52350",
+   "full_name": "Manish Garcia",
+   "location": "Pune",
+   "email_address": "manish.garcia138@outlook.com",
+   "phone_number": "9505612727",
+   "last_updated": "2025-06-05T11:32:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52354",
+   "full_name": "D. Anderson",
+   "location": "Calcutta",
+   "email_address": "divya.anderson256@gmail.com",
+   "phone_number": "+91-98053-85503",
+   "last_updated": "2025-08-03T17:21:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52363",
+   "full_name": "KAVYA JOHNSON",
+   "location": "Mumbai",
+   "email_address": "Kavya.johnson166@gmail.com",
+   "phone_number": "9565518172",
+   "last_updated": "2025-04-07T10:43:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52372",
+   "full_name": "Shreya Iyer",
+   "location": "Calcutta",
+   "email_address": "shreya.iyer666@yahoo.com",
+   "phone_number": "9813340461",
+   "last_updated": "2025-02-17T22:38:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52376",
+   "full_name": "RITU KULKARNI",
+   "location": "Pune",
+   "email_address": "ritu.kulkarni630@yahoo.com",
+   "phone_number": "+91-96354-01349",
+   "last_updated": "2025-12-01T13:53:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52392",
+   "full_name": "Ananya Wilson",
+   "location": "New York",
+   "email_address": "ananya.wilson506@outlook.com",
+   "phone_number": null,
+   "last_updated": "2025-06-20T20:51:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52399",
+   "full_name": "EMILY JOSHI",
+   "location": "Mumbai",
+   "email_address": "Emily.joshi853@yahoo.com",
+   "phone_number": "+91-96313-55490",
+   "last_updated": "2025-06-28T06:43:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52414",
+   "full_name": "Nisha V Rao",
+   "location": "Poona",
+   "email_address": "nisha.rao64@gmail.com",
+   "phone_number": "9042558225",
+   "last_updated": "2025-08-06T10:40:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52421",
+   "full_name": "S. Menon",
+   "location": "Chennai",
+   "email_address": "sarah.menon171@gmail.com",
+   "phone_number": "9246033365",
+   "last_updated": "2025-09-20T15:40:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52435",
+   "full_name": "Ananya Kulkarni",
+   "location": "Bangalore",
+   "email_address": "ananya.kulkarni569@corp.example",
+   "phone_number": "9617723670",
+   "last_updated": "2025-06-15T21:35:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52445",
+   "full_name": "Harish Williams",
+   "location": "Bangalore",
+   "email_address": "Harish.williams892@corp.example",
+   "phone_number": "+91-90680-38285",
+   "last_updated": "2025-07-05T02:40:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52454",
+   "full_name": "Vikram Patel",
+   "location": "NYC",
+   "email_address": "vikram.patel489@outlook.com",
+   "phone_number": "+1 472 175 1345",
+   "last_updated": "2025-02-12T07:23:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52457",
+   "full_name": "Ananya Garcia",
+   "location": "Pune",
+   "email_address": "Ananya.garcia487@corp.example",
+   "phone_number": "+91-92808-07083",
+   "last_updated": "2025-06-27T21:10:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52469",
+   "full_name": "Gaurav Nair",
+   "location": "Delhi",
+   "email_address": "gaurav.nair667@outlook.com",
+   "phone_number": null,
+   "last_updated": "2025-08-20T02:57:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52477",
+   "full_name": "James Mehta",
+   "location": "Pune",
+   "email_address": "james.mehta871@gmail.com",
+   "phone_number": "9723459316",
+   "last_updated": "2025-07-22T02:47:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52482",
+   "full_name": "Karan Sharma",
+   "location": "Chennai",
+   "email_address": "karan.sharma369@corp.example",
+   "phone_number": "9175873933",
+   "last_updated": "2025-01-03T22:23:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52490",
+   "full_name": "Aditya Kapoor",
+   "location": "Poona",
+   "email_address": null,
+   "phone_number": null,
+   "last_updated": "2025-03-11T07:40:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52497",
+   "full_name": "KARAN RAO",
+   "location": "delhi",
+   "email_address": "Karan.rao848@gmail.com",
+   "phone_number": "+91-99497-78862",
+   "last_updated": "2025-09-24T06:28:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52504",
+   "full_name": "Neha Johnson",
+   "location": "Calcutta",
+   "email_address": "neha.johnson124@outlook.com",
+   "phone_number": "+91-92282-95023",
+   "last_updated": "2025-06-26T01:33:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52517",
+   "full_name": "PRIYA KAPOOR",
+   "location": "Delhi",
+   "email_address": null,
+   "phone_number": "+91-92618-64891",
+   "last_updated": "2025-04-18T14:38:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52533",
+   "full_name": "Neha Bose",
+   "location": "Bangalore",
+   "email_address": "Neha.bose376@outlook.com",
+   "phone_number": "+91-90973-50775",
+   "last_updated": "2025-03-27T09:06:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52540",
+   "full_name": "Olivia Joshi",
+   "location": "Kolkata",
+   "email_address": "olivia.joshi805@yahoo.com",
+   "phone_number": "9138662355",
+   "last_updated": "2025-08-16T14:20:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52554",
+   "full_name": "Ravi Brown",
+   "location": "london",
+   "email_address": "ravi.brown466@outlook.com",
+   "phone_number": "(485) 565-2702",
+   "last_updated": "2025-06-14T23:59:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52561",
+   "full_name": "S. Reddy",
+   "location": "San Francisco",
+   "email_address": null,
+   "phone_number": "+1 433 935 4421",
+   "last_updated": "2025-09-16T16:49:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52562",
+   "full_name": "N. Iyer",
+   "location": "london",
+   "email_address": "nisha.iyer204@gmail.com",
+   "phone_number": "(486) 840-1021",
+   "last_updated": "2025-09-17T16:48:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52569",
+   "full_name": "Rahul Gupta",
+   "location": "Hyderabad",
+   "email_address": "Rahul.gupta236@yahoo.com",
+   "phone_number": "9300111327",
+   "last_updated": "2025-07-26T18:41:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52583",
+   "full_name": "ARJUN WILLIAMS",
+   "location": "delhi",
+   "email_address": "Arjun.williams54@outlook.com",
+   "phone_number": "+91-95587-23980",
+   "last_updated": "2025-04-02T20:19:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52595",
+   "full_name": "Laura Das",
+   "location": "Kolkata",
+   "email_address": "laura.das303@gmail.com",
+   "phone_number": "9417119237",
+   "last_updated": "2025-11-13T11:03:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52602",
+   "full_name": "Siddharth S Williams",
+   "location": "London",
+   "email_address": "siddharth.williams96@corp.example",
+   "phone_number": "+1 462 039 3173",
+   "last_updated": "2025-09-02T02:55:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52608",
+   "full_name": "Nikhil Bose",
+   "location": "Bombay",
+   "email_address": "nikhil.bose535@outlook.com",
+   "phone_number": "9030384379",
+   "last_updated": "2025-08-08T09:42:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52616",
+   "full_name": "Isha P Mehta",
+   "location": "delhi",
+   "email_address": "isha.mehta319@outlook.com",
+   "phone_number": "9203754658",
+   "last_updated": "2025-09-08T03:02:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52629",
+   "full_name": "Aditya Joshi",
+   "location": "New York",
+   "email_address": "aditya.joshi123@outlook.com",
+   "phone_number": "(484) 111-9667",
+   "last_updated": "2025-01-02T19:45:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52636",
+   "full_name": "MANISH ANDERSON",
+   "location": "New York",
+   "email_address": "manish.anderson685@yahoo.com",
+   "phone_number": "(457) 658-7590",
+   "last_updated": "2025-01-05T16:56:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52650",
+   "full_name": "Laura S Smith",
+   "location": "Calcutta",
+   "email_address": "laura.smith88@yahoo.com",
+   "phone_number": "+91-91004-28115",
+   "last_updated": "2025-07-15T08:19:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52658",
+   "full_name": "VARUN WILLIAMS",
+   "location": "New Delhi",
+   "email_address": "Varun.williams854@corp.example",
+   "phone_number": "9326655137",
+   "last_updated": "2025-08-20T02:22:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52664",
+   "full_name": "Ananya Patel",
+   "location": "New York",
+   "email_address": "ananya.patel266@corp.example",
+   "phone_number": null,
+   "last_updated": "2025-03-30T08:37:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52673",
+   "full_name": "Vikram Smith",
+   "location": "Mumbai",
+   "email_address": "vikram.smith347@yahoo.com",
+   "phone_number": "9487295525",
+   "last_updated": "2025-07-07T15:35:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52677",
+   "full_name": "Daniel R Iyer",
+   "location": "Chennai",
+   "email_address": "Daniel.iyer842@gmail.com",
+   "phone_number": "+91-99504-90053",
+   "last_updated": "2025-02-28T00:54:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52684",
+   "full_name": "Divya Menon",
+   "location": "london",
+   "email_address": "divya.menon309@outlook.com",
+   "phone_number": "(456) 641-3069",
+   "last_updated": "2025-08-18T01:23:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52694",
+   "full_name": "S. Wilson",
+   "location": "Pune",
+   "email_address": "sneha.wilson176@yahoo.com",
+   "phone_number": "9485664238",
+   "last_updated": "2025-09-11T15:22:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52707",
+   "full_name": "Sarah Rao",
+   "location": "BANGALORE",
+   "email_address": "sarah.rao66@gmail.com",
+   "phone_number": "9500351917",
+   "last_updated": "2025-11-07T03:02:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52712",
+   "full_name": "Aditya Kulkarni",
+   "location": "Pune",
+   "email_address": "aditya.kulkarni656@corp.example",
+   "phone_number": "+91-97649-75545",
+   "last_updated": "2025-05-12T20:09:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52725",
+   "full_name": "Harish Iyer",
+   "location": "Mumbai",
+   "email_address": "harish.iyer473@corp.example",
+   "phone_number": "9261284851",
+   "last_updated": "2025-09-25T10:46:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52732",
+   "full_name": "Gaurav Anderson",
+   "location": "Hyderabad",
+   "email_address": null,
+   "phone_number": "+91-96261-63545",
+   "last_updated": "2025-08-13T14:46:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52737",
+   "full_name": "Isha Chopra",
+   "location": "delhi",
+   "email_address": "isha.chopra560@gmail.com",
+   "phone_number": "9968220819",
+   "last_updated": "2025-05-21T15:36:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52746",
+   "full_name": "Sneha V Iyer",
+   "location": "SF",
+   "email_address": "Sneha.iyer213@gmail.com",
+   "phone_number": "+1 438 728 3227",
+   "last_updated": "2025-03-23T02:19:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52752",
+   "full_name": "Laura N Nair",
+   "location": "Chennai",
+   "email_address": null,
+   "phone_number": "(443) 638-7010",
+   "last_updated": "2025-06-05T05:09:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52769",
+   "full_name": "Olivia Garcia",
+   "location": "Poona",
+   "email_address": "olivia.garcia609@yahoo.com",
+   "phone_number": "9680707118",
+   "last_updated": "2025-07-02T04:42:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52776",
+   "full_name": "Meera A Joshi",
+   "location": "Madras",
+   "email_address": "meera.joshi472@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-06-17T07:41:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52783",
+   "full_name": "LAKSHMI KAPOOR",
+   "location": "New York",
+   "email_address": "lakshmi.kapoor166@yahoo.com",
+   "phone_number": "+1 412 395 1842",
+   "last_updated": "2025-06-01T01:44:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52786",
+   "full_name": "Ravi M Kulkarni",
+   "location": "New York",
+   "email_address": "ravi.kulkarni788@corp.example",
+   "phone_number": "(447) 837-9828",
+   "last_updated": "2025-01-17T16:32:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52798",
+   "full_name": "Siddharth Patel",
+   "location": "Bangalore",
+   "email_address": "siddharth.patel361@corp.example",
+   "phone_number": null,
+   "last_updated": "2025-09-03T20:43:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52803",
+   "full_name": "Tanvi D Sharma",
+   "location": "Hyderabad",
+   "email_address": "tanvi.sharma43@corp.example",
+   "phone_number": "+91-98669-42802",
+   "last_updated": "2025-09-06T19:55:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52813",
+   "full_name": "Jessica Anderson",
+   "location": "hyderabad",
+   "email_address": "Jessica.anderson335@yahoo.com",
+   "phone_number": "+91-92886-24120",
+   "last_updated": "2025-07-16T09:43:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52819",
+   "full_name": "Ravi Kulkarni",
+   "location": "Hyderabad",
+   "email_address": "ravi.kulkarni508@outlook.com",
+   "phone_number": "9805885715",
+   "last_updated": "2025-03-06T18:39:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52823",
+   "full_name": "David S Williams",
+   "location": "Bombay",
+   "email_address": null,
+   "phone_number": "9561580454",
+   "last_updated": "2025-04-19T00:58:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52834",
+   "full_name": "Karan J Garcia",
+   "location": "Bengaluru",
+   "email_address": "karan.garcia387@gmail.com",
+   "phone_number": "9330224330",
+   "last_updated": "2025-10-07T10:34:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52842",
+   "full_name": "Kavya Miller",
+   "location": "london",
+   "email_address": "kavya.miller894@yahoo.com",
+   "phone_number": "+1 424 010 2100",
+   "last_updated": "2025-08-05T04:03:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52851",
+   "full_name": "Karan Reddy",
+   "location": "Bangalore",
+   "email_address": "karan.reddy475@yahoo.com",
+   "phone_number": "9239535165",
+   "last_updated": "2025-03-25T13:34:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52861",
+   "full_name": "Daniel Singh",
+   "location": "Pune",
+   "email_address": null,
+   "phone_number": "(402) 222-5078",
+   "last_updated": "2025-05-23T03:12:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52867",
+   "full_name": "James Johnson",
+   "location": "NYC",
+   "email_address": "James.johnson810@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-11-08T18:27:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52873",
+   "full_name": "Meera Chopra",
+   "location": "Delhi",
+   "email_address": "meera.chopra180@corp.example",
+   "phone_number": "9088056396",
+   "last_updated": "2025-04-12T04:14:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52879",
+   "full_name": "Emily A Chopra",
+   "location": "hyderabad",
+   "email_address": "emily.chopra979@yahoo.com",
+   "phone_number": "9634390955",
+   "last_updated": "2025-06-06T07:05:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52889",
+   "full_name": "M. Anderson",
+   "location": "New Delhi",
+   "email_address": "manish.anderson626@outlook.com",
+   "phone_number": "+91-99874-17026",
+   "last_updated": "2025-03-10T23:10:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52895",
+   "full_name": "Harish A Bose",
+   "location": "london",
+   "email_address": "harish.bose929@outlook.com",
+   "phone_number": "+1 486 019 2164",
+   "last_updated": "2025-02-01T12:10:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52907",
+   "full_name": "Sarah Mehta",
+   "location": "London",
+   "email_address": "sarah.mehta943@corp.example",
+   "phone_number": "+1 447 567 1024",
+   "last_updated": "2025-04-05T04:03:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52915",
+   "full_name": "Gaurav Johnson",
+   "location": "San Francisco",
+   "email_address": "Gaurav.johnson755@yahoo.com",
+   "phone_number": "+91-96348-07701",
+   "last_updated": "2025-10-29T10:09:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52923",
+   "full_name": "Amit Mehta",
+   "location": "Bangalore",
+   "email_address": "amit.mehta476@corp.example",
+   "phone_number": "+91-94592-21284",
+   "last_updated": "2025-01-07T08:48:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-52930",
+   "full_name": "KARAN GUPTA",
+   "location": "New York",
+   "email_address": "karan.gupta929@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-01-30T00:34:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52934",
+   "full_name": "Varun Williams",
+   "location": "Madras",
+   "email_address": "varun.williams876@corp.example",
+   "phone_number": "+91-91675-06377",
+   "last_updated": "2025-11-12T01:12:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52942",
+   "full_name": "Aditya Singh",
+   "location": "San Fran",
+   "email_address": "aditya.singh165@gmail.com",
+   "phone_number": "(456) 227-7749",
+   "last_updated": "2025-10-09T08:59:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52948",
+   "full_name": "VIKRAM JOHNSON",
+   "location": "New Delhi",
+   "email_address": "vikram.johnson510@outlook.com",
+   "phone_number": null,
+   "last_updated": "2025-04-21T06:08:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52956",
+   "full_name": "David Brown",
+   "location": "hyderabad",
+   "email_address": "david.brown561@yahoo.com",
+   "phone_number": "+91-90537-14759",
+   "last_updated": "2025-11-21T16:38:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52967",
+   "full_name": "R. Miller",
+   "location": "hyderabad",
+   "email_address": "Ravi.miller203@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-10-17T10:44:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52971",
+   "full_name": "P. Johnson",
+   "location": "SF",
+   "email_address": "pooja.johnson73@yahoo.com",
+   "phone_number": "+1 481 314 1390",
+   "last_updated": "2025-09-17T03:11:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-52983",
+   "full_name": "Aditya R Gupta",
+   "location": "Bangalore",
+   "email_address": "aditya.gupta928@yahoo.com",
+   "phone_number": "+91-93149-85660",
+   "last_updated": "2025-02-18T14:05:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52992",
+   "full_name": "Gaurav Garcia",
+   "location": "Pune",
+   "email_address": "gaurav.garcia435@gmail.com",
+   "phone_number": "+91-98265-00069",
+   "last_updated": "2025-11-13T17:19:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-52996",
+   "full_name": "David Gupta",
+   "location": "San Fran",
+   "email_address": "David.gupta381@outlook.com",
+   "phone_number": "(425) 548-2222",
+   "last_updated": "2025-12-11T14:30:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53007",
+   "full_name": "Ananya Brown",
+   "location": "New Delhi",
+   "email_address": "ananya.brown816@gmail.com",
+   "phone_number": "9489918767",
+   "last_updated": "2025-02-05T22:42:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53017",
+   "full_name": "LAURA JOSHI",
+   "location": "Madras",
+   "email_address": "laura.joshi488@gmail.com",
+   "phone_number": "+91-90783-09231",
+   "last_updated": "2025-11-13T03:50:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53024",
+   "full_name": "Kavya J Taylor",
+   "location": "Hyderabad",
+   "email_address": "kavya.taylor340@gmail.com",
+   "phone_number": "9164187322",
+   "last_updated": "2025-01-09T02:36:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53046",
+   "full_name": "Neha J Kulkarni",
+   "location": "Hyderabad",
+   "email_address": "neha.kulkarni4@yahoo.com",
+   "phone_number": "+91-91361-84553",
+   "last_updated": "2025-05-20T16:30:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53058",
+   "full_name": "EMILY RAO",
+   "location": "Kolkata",
+   "email_address": "emily.rao39@corp.example",
+   "phone_number": "+91-96121-10834",
+   "last_updated": "2025-02-16T07:17:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53060",
+   "full_name": "D. Smith",
+   "location": "Pune",
+   "email_address": "david.smith697@corp.example",
+   "phone_number": "9317974197",
+   "last_updated": "2025-08-22T02:09:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53079",
+   "full_name": "Nisha Wilson",
+   "location": "Delhi",
+   "email_address": null,
+   "phone_number": "+91-95642-77202",
+   "last_updated": "2025-04-13T04:08:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53080",
+   "full_name": "Varun Wilson",
+   "location": "delhi",
+   "email_address": "varun.wilson442@yahoo.com",
+   "phone_number": "9411613020",
+   "last_updated": "2025-04-30T18:01:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53087",
+   "full_name": "Kavya Kapoor",
+   "location": "San Francisco",
+   "email_address": "Kavya.kapoor605@outlook.com",
+   "phone_number": "(497) 983-4837",
+   "last_updated": "2025-10-22T18:29:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53100",
+   "full_name": "Rohan Menon",
+   "location": "London",
+   "email_address": null,
+   "phone_number": "(448) 280-6692",
+   "last_updated": "2025-04-01T17:26:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53111",
+   "full_name": "Jessica J Garcia",
+   "location": "New York",
+   "email_address": "Jessica.garcia33@outlook.com",
+   "phone_number": "+1 453 754 7515",
+   "last_updated": "2025-04-21T09:57:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53118",
+   "full_name": "Siddharth Anderson",
+   "location": "hyderabad",
+   "email_address": null,
+   "phone_number": "9048055606",
+   "last_updated": "2025-01-22T10:39:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53134",
+   "full_name": "A. Garcia",
+   "location": "Calcutta",
+   "email_address": "amit.garcia135@outlook.com",
+   "phone_number": "+91-97462-52225",
+   "last_updated": "2025-09-09T11:07:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53140",
+   "full_name": "S. Davis",
+   "location": "hyderabad",
+   "email_address": "sneha.davis874@yahoo.com",
+   "phone_number": "+91-90206-63258",
+   "last_updated": "2025-07-02T07:10:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53146",
+   "full_name": "Ananya J Singh",
+   "location": "london",
+   "email_address": "ananya.singh451@corp.example",
+   "phone_number": "+1 440 662 6051",
+   "last_updated": "2025-06-14T17:29:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53155",
+   "full_name": "Emily Nair",
+   "location": "London",
+   "email_address": "Emily.nair696@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-05-26T10:08:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53167",
+   "full_name": "Pooja Kulkarni",
+   "location": "hyderabad",
+   "email_address": "pooja.kulkarni319@corp.example",
+   "phone_number": "+91-90315-63635",
+   "last_updated": "2025-01-23T10:21:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53171",
+   "full_name": "DAVID MILLER",
+   "location": "Mumbai",
+   "email_address": "david.miller39@outlook.com",
+   "phone_number": "+91-97770-06739",
+   "last_updated": "2025-02-23T03:11:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53181",
+   "full_name": "GAURAV CHOPRA",
+   "location": "Delhi",
+   "email_address": "Gaurav.chopra562@corp.example",
+   "phone_number": "+91-91471-47301",
+   "last_updated": "2025-11-17T10:31:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53203",
+   "full_name": "Divya J Kapoor",
+   "location": "london",
+   "email_address": "divya.kapoor780@gmail.com",
+   "phone_number": "+1 451 585 2515",
+   "last_updated": "2025-02-13T23:21:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53208",
+   "full_name": "Daniel Sharma",
+   "location": "Chennai",
+   "email_address": "daniel.sharma980@outlook.com",
+   "phone_number": "+91-96023-87564",
+   "last_updated": "2025-03-10T17:42:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53224",
+   "full_name": "Ravi Anderson",
+   "location": "BANGALORE",
+   "email_address": "ravi.anderson203@yahoo.com",
+   "phone_number": "9224829285",
+   "last_updated": "2025-04-14T19:41:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53233",
+   "full_name": "Tanvi A Johnson",
+   "location": "London",
+   "email_address": "Tanvi.johnson138@corp.example",
+   "phone_number": "+1 412 444 3899",
+   "last_updated": "2025-04-03T17:56:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53242",
+   "full_name": "NISHA GARCIA",
+   "location": "Poona",
+   "email_address": "Nisha.garcia996@yahoo.com",
+   "phone_number": "9128009371",
+   "last_updated": "2025-06-03T02:17:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53252",
+   "full_name": "Varun Rao",
+   "location": "Chennai",
+   "email_address": "varun.rao884@yahoo.com",
+   "phone_number": "+91-95590-25511",
+   "last_updated": "2025-08-07T19:41:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53259",
+   "full_name": "Ritu Wilson",
+   "location": "Delhi",
+   "email_address": "Ritu.wilson124@gmail.com",
+   "phone_number": "9444137948",
+   "last_updated": "2025-01-19T03:03:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53265",
+   "full_name": "Sneha Wilson",
+   "location": "Poona",
+   "email_address": "sneha.wilson294@yahoo.com",
+   "phone_number": "+91-91879-92687",
+   "last_updated": "2025-04-26T17:30:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53271",
+   "full_name": "Olivia Mehta",
+   "location": "Pune",
+   "email_address": "olivia.mehta962@yahoo.com",
+   "phone_number": "+91-94832-46031",
+   "last_updated": "2025-06-30T19:13:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53279",
+   "full_name": "JAMES ANDERSON",
+   "location": "San Francisco",
+   "email_address": "james.anderson378@corp.example",
+   "phone_number": "(458) 709-5632",
+   "last_updated": "2025-01-21T06:12:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53283",
+   "full_name": "Anjali Wilson",
+   "location": "Delhi",
+   "email_address": "anjali.wilson935@corp.example",
+   "phone_number": "+91-98262-78333",
+   "last_updated": "2025-05-04T11:05:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53292",
+   "full_name": "HARISH ANDERSON",
+   "location": "Poona",
+   "email_address": "harish.anderson923@gmail.com",
+   "phone_number": "9451746993",
+   "last_updated": "2025-01-13T22:06:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53309",
+   "full_name": "O. Bose",
+   "location": "Madras",
+   "email_address": "Olivia.bose855@corp.example",
+   "phone_number": "9126282536",
+   "last_updated": "2025-05-19T01:53:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53319",
+   "full_name": "Priya Mehta",
+   "location": "London",
+   "email_address": "Priya.mehta455@gmail.com",
+   "phone_number": "+1 418 634 9392",
+   "last_updated": "2025-06-20T10:51:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53328",
+   "full_name": "Sarah Reddy",
+   "location": "New York",
+   "email_address": "sarah.reddy492@gmail.com",
+   "phone_number": "9424810903",
+   "last_updated": "2025-09-24T19:29:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53345",
+   "full_name": "D. Reddy",
+   "location": "Mumbai",
+   "email_address": "Daniel.reddy773@yahoo.com",
+   "phone_number": "+91-91517-70335",
+   "last_updated": "2025-04-03T07:25:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53346",
+   "full_name": "John Taylor",
+   "location": "San Francisco",
+   "email_address": "john.taylor398@corp.example",
+   "phone_number": "+1 463 461 9876",
+   "last_updated": "2025-12-11T07:23:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53357",
+   "full_name": "Shreya Taylor",
+   "location": "delhi",
+   "email_address": "shreya.taylor488@outlook.com",
+   "phone_number": "9663083793",
+   "last_updated": "2025-07-15T04:44:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53366",
+   "full_name": "Nikhil Reddy",
+   "location": "Calcutta",
+   "email_address": "nikhil.reddy82@outlook.com",
+   "phone_number": "9004723724",
+   "last_updated": "2025-07-08T11:41:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53371",
+   "full_name": "Pooja J Nair",
+   "location": "Mumbai",
+   "email_address": "pooja.nair659@corp.example",
+   "phone_number": "9406758935",
+   "last_updated": "2025-10-26T05:11:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53377",
+   "full_name": "Rohan Iyer",
+   "location": "Pune",
+   "email_address": "rohan.iyer687@gmail.com",
+   "phone_number": "+91-90448-21114",
+   "last_updated": "2025-11-07T08:32:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53392",
+   "full_name": "Laura J Rao",
+   "location": "hyderabad",
+   "email_address": null,
+   "phone_number": "9766884190",
+   "last_updated": "2025-02-19T18:43:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53398",
+   "full_name": "Manish Mehta",
+   "location": "Kolkata",
+   "email_address": "manish.mehta158@corp.example",
+   "phone_number": "+91-99452-98262",
+   "last_updated": "2025-12-12T17:09:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53407",
+   "full_name": "Neha A Reddy",
+   "location": "Kolkata",
+   "email_address": "Neha.reddy575@gmail.com",
+   "phone_number": "9109749711",
+   "last_updated": "2025-09-18T03:19:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53427",
+   "full_name": "Varun Davis",
+   "location": "London",
+   "email_address": "varun.davis419@outlook.com",
+   "phone_number": "+1 401 161 9394",
+   "last_updated": "2025-07-11T22:54:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53433",
+   "full_name": "Suresh K Gupta",
+   "location": "Mumbai",
+   "email_address": null,
+   "phone_number": "9479548481",
+   "last_updated": "2025-07-04T15:54:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53437",
+   "full_name": "Shreya Chopra",
+   "location": "hyderabad",
+   "email_address": "shreya.chopra349@yahoo.com",
+   "phone_number": "9158844536",
+   "last_updated": "2025-08-27T07:11:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53448",
+   "full_name": "DIVYA WILLIAMS",
+   "location": "Kolkata",
+   "email_address": "Divya.williams613@yahoo.com",
+   "phone_number": "9749328280",
+   "last_updated": "2025-03-02T10:58:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53451",
+   "full_name": "Manish Garcia",
+   "location": "Poona",
+   "email_address": "manish.garcia180@outlook.com",
+   "phone_number": "9936721412",
+   "last_updated": "2025-03-13T10:06:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53466",
+   "full_name": "Nikhil Das",
+   "location": "Delhi",
+   "email_address": null,
+   "phone_number": "+91-98587-01318",
+   "last_updated": "2025-05-09T18:42:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53478",
+   "full_name": "Sarah Anderson",
+   "location": "San Francisco",
+   "email_address": "sarah.anderson275@corp.example",
+   "phone_number": "+1 454 952 8221",
+   "last_updated": "2025-01-06T01:17:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53480",
+   "full_name": "Harish V Smith",
+   "location": "hyderabad",
+   "email_address": null,
+   "phone_number": "9182283544",
+   "last_updated": "2025-05-17T15:51:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53488",
+   "full_name": "Divya Mehta",
+   "location": "Calcutta",
+   "email_address": "divya.mehta405@gmail.com",
+   "phone_number": "9367076013",
+   "last_updated": "2025-11-22T01:56:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53500",
+   "full_name": "Harish Iyer",
+   "location": "London",
+   "email_address": "Harish.iyer908@gmail.com",
+   "phone_number": "+1 409 782 6287",
+   "last_updated": "2025-05-20T14:55:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53518",
+   "full_name": "Sarah Smith",
+   "location": "Hyderabad",
+   "email_address": "sarah.smith105@gmail.com",
+   "phone_number": "9444687777",
+   "last_updated": "2025-01-14T18:15:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53524",
+   "full_name": "J. Reddy",
+   "location": "BANGALORE",
+   "email_address": "John.reddy706@yahoo.com",
+   "phone_number": "9323237535",
+   "last_updated": "2025-07-03T03:32:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53537",
+   "full_name": "Kavya A Bose",
+   "location": "Mumbai",
+   "email_address": "kavya.bose238@yahoo.com",
+   "phone_number": "9963547660",
+   "last_updated": "2025-03-01T04:36:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53548",
+   "full_name": "Rahul P Joshi",
+   "location": "Chennai",
+   "email_address": "Rahul.joshi39@corp.example",
+   "phone_number": null,
+   "last_updated": "2025-02-02T20:53:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53549",
+   "full_name": "VIKRAM BROWN",
+   "location": "Mumbai",
+   "email_address": "vikram.brown388@outlook.com",
+   "phone_number": "9646917886",
+   "last_updated": "2025-08-04T05:07:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53562",
+   "full_name": "Anjali P Reddy",
+   "location": "New York City",
+   "email_address": "anjali.reddy415@gmail.com",
+   "phone_number": "(468) 901-9740",
+   "last_updated": "2025-05-10T21:35:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53574",
+   "full_name": "E. Kapoor",
+   "location": "london",
+   "email_address": "emily.kapoor557@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-10-24T18:08:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53582",
+   "full_name": "Lakshmi Miller",
+   "location": "Poona",
+   "email_address": null,
+   "phone_number": "+91-90250-30243",
+   "last_updated": "2025-02-27T00:32:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53587",
+   "full_name": "Siddharth K Wilson",
+   "location": "London",
+   "email_address": "siddharth.wilson722@outlook.com",
+   "phone_number": "+1 492 137 8652",
+   "last_updated": "2025-10-26T03:44:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53600",
+   "full_name": "Arjun Joshi",
+   "location": "Delhi",
+   "email_address": null,
+   "phone_number": "9624809178",
+   "last_updated": "2025-02-07T23:15:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53616",
+   "full_name": "I. Joshi",
+   "location": "delhi",
+   "email_address": "Isha.joshi724@corp.example",
+   "phone_number": "9974498229",
+   "last_updated": "2025-09-01T15:06:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53625",
+   "full_name": "Meera Rao",
+   "location": "Bengaluru",
+   "email_address": "Meera.rao712@gmail.com",
+   "phone_number": "+91-93404-51478",
+   "last_updated": "2025-10-03T00:22:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53632",
+   "full_name": "James V Reddy",
+   "location": "Kolkata",
+   "email_address": "james.reddy96@outlook.com",
+   "phone_number": "9223101612",
+   "last_updated": "2025-11-06T04:45:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53638",
+   "full_name": "Olivia N Davis",
+   "location": "New York City",
+   "email_address": "Olivia.davis54@corp.example",
+   "phone_number": "+1 410 653 3965",
+   "last_updated": "2025-03-16T03:29:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53641",
+   "full_name": "Varun Menon",
+   "location": "Kolkata",
+   "email_address": "varun.menon717@yahoo.com",
+   "phone_number": "9146441365",
+   "last_updated": "2025-02-14T17:07:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53651",
+   "full_name": "S. Mehta",
+   "location": "Pune",
+   "email_address": "Suresh.mehta885@corp.example",
+   "phone_number": "+91-96911-71976",
+   "last_updated": "2025-02-15T10:51:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53655",
+   "full_name": "Anjali Singh",
+   "location": "Madras",
+   "email_address": "Anjali.singh405@gmail.com",
+   "phone_number": "9828630765",
+   "last_updated": "2025-05-01T04:57:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53666",
+   "full_name": "Ananya P Johnson",
+   "location": "Kolkata",
+   "email_address": "Ananya.johnson652@gmail.com",
+   "phone_number": null,
+   "last_updated": "2025-09-21T07:19:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53672",
+   "full_name": "NISHA CHOPRA",
+   "location": "Hyderabad",
+   "email_address": null,
+   "phone_number": "+91-94806-04875",
+   "last_updated": "2025-04-19T06:29:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53684",
+   "full_name": "O. Miller",
+   "location": "Kolkata",
+   "email_address": "olivia.miller444@outlook.com",
+   "phone_number": "9131481976",
+   "last_updated": "2025-10-28T08:09:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53692",
+   "full_name": "Harish Bose",
+   "location": "Madras",
+   "email_address": "Harish.bose648@yahoo.com",
+   "phone_number": "9988654657",
+   "last_updated": "2025-10-14T18:35:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53697",
+   "full_name": "Amit Chopra",
+   "location": "Mumbai",
+   "email_address": "amit.chopra577@yahoo.com",
+   "phone_number": "+91-92054-13374",
+   "last_updated": "2025-03-21T11:35:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53721",
+   "full_name": "Siddharth Singh",
+   "location": "delhi",
+   "email_address": "siddharth.singh191@corp.example",
+   "phone_number": "+91-92752-96813",
+   "last_updated": "2025-05-15T22:10:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53726",
+   "full_name": "Sarah Davis",
+   "location": "BANGALORE",
+   "email_address": "Sarah.davis281@yahoo.com",
+   "phone_number": "+91-98563-95007",
+   "last_updated": "2025-05-15T17:26:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53738",
+   "full_name": "Rahul Brown",
+   "location": "London",
+   "email_address": null,
+   "phone_number": "(486) 573-6893",
+   "last_updated": "2025-06-09T13:23:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53750",
+   "full_name": "Amit M Chopra",
+   "location": "hyderabad",
+   "email_address": "amit.chopra790@yahoo.com",
+   "phone_number": "+91-97044-27934",
+   "last_updated": "2025-03-24T00:13:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53757",
+   "full_name": "A. Williams",
+   "location": "Pune",
+   "email_address": "anjali.williams189@yahoo.com",
+   "phone_number": "9650145392",
+   "last_updated": "2025-09-01T00:26:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53765",
+   "full_name": "Daniel Wilson",
+   "location": "Hyderabad",
+   "email_address": "daniel.wilson293@gmail.com",
+   "phone_number": "+91-99214-48647",
+   "last_updated": "2025-11-18T10:43:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53779",
+   "full_name": "RAHUL SMITH",
+   "location": "Delhi",
+   "email_address": "Rahul.smith922@outlook.com",
+   "phone_number": null,
+   "last_updated": "2025-06-08T21:42:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53792",
+   "full_name": "ISHA CHOPRA",
+   "location": "New Delhi",
+   "email_address": null,
+   "phone_number": "9349133303",
+   "last_updated": "2025-05-09T15:51:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53806",
+   "full_name": "Emily N Iyer",
+   "location": "Hyderabad",
+   "email_address": "emily.iyer88@outlook.com",
+   "phone_number": "9172882189",
+   "last_updated": "2025-02-11T12:06:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53808",
+   "full_name": "David Nair",
+   "location": "london",
+   "email_address": "david.nair311@yahoo.com",
+   "phone_number": "+1 457 175 6350",
+   "last_updated": "2025-05-22T10:17:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53815",
+   "full_name": "Anjali Mehta",
+   "location": "New York",
+   "email_address": "Anjali.mehta204@gmail.com",
+   "phone_number": "+1 439 152 1385",
+   "last_updated": "2025-02-24T04:18:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53828",
+   "full_name": "Kavya V Bose",
+   "location": "Poona",
+   "email_address": "kavya.bose107@gmail.com",
+   "phone_number": "9677454803",
+   "last_updated": "2025-12-13T11:45:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53833",
+   "full_name": "Isha Patel",
+   "location": "london",
+   "email_address": "Isha.patel210@outlook.com",
+   "phone_number": "+1 463 118 0920",
+   "last_updated": "2025-06-01T02:04:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53840",
+   "full_name": "Anjali Kulkarni",
+   "location": "Poona",
+   "email_address": "anjali.kulkarni964@outlook.com",
+   "phone_number": "9069480427",
+   "last_updated": "2025-03-04T05:21:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53849",
+   "full_name": "Pooja P Rao",
+   "location": "london",
+   "email_address": "Pooja.rao151@gmail.com",
+   "phone_number": "+1 442 765 0660",
+   "last_updated": "2025-11-08T00:13:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53856",
+   "full_name": "Vikram N Chopra",
+   "location": "Calcutta",
+   "email_address": "vikram.chopra977@gmail.com",
+   "phone_number": "9277228628",
+   "last_updated": "2025-06-09T02:28:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53861",
+   "full_name": "Divya V Singh",
+   "location": "Bangalore",
+   "email_address": "Divya.singh88@yahoo.com",
+   "phone_number": "9759188828",
+   "last_updated": "2025-02-19T12:14:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53867",
+   "full_name": "Rohan Sharma",
+   "location": "Chennai",
+   "email_address": "Rohan.sharma95@outlook.com",
+   "phone_number": "9531062017",
+   "last_updated": "2025-01-03T12:46:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53882",
+   "full_name": "Emily A Reddy",
+   "location": "NYC",
+   "email_address": "Emily.reddy750@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-05-24T00:20:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53900",
+   "full_name": "Anjali Kulkarni",
+   "location": "hyderabad",
+   "email_address": null,
+   "phone_number": "+91-90390-20475",
+   "last_updated": "2025-11-10T23:16:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53918",
+   "full_name": "Meera Iyer",
+   "location": "Bangalore",
+   "email_address": "meera.iyer435@yahoo.com",
+   "phone_number": "+91-97979-21906",
+   "last_updated": "2025-02-15T14:23:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53938",
+   "full_name": "James Reddy",
+   "location": "Chennai",
+   "email_address": "james.reddy330@yahoo.com",
+   "phone_number": "9489284494",
+   "last_updated": "2025-12-11T13:40:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53954",
+   "full_name": "Lakshmi M Das",
+   "location": "Calcutta",
+   "email_address": "lakshmi.das874@corp.example",
+   "phone_number": "9250642853",
+   "last_updated": "2025-10-05T12:17:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-53961",
+   "full_name": "Divya Nair",
+   "location": "New York",
+   "email_address": "divya.nair132@outlook.com",
+   "phone_number": null,
+   "last_updated": "2025-03-09T01:33:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-53970",
+   "full_name": "M. Davis",
+   "location": "london",
+   "email_address": "michael.davis810@gmail.com",
+   "phone_number": "(419) 002-9481",
+   "last_updated": "2025-04-23T18:10:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53980",
+   "full_name": "L. Mehta",
+   "location": "San Francisco",
+   "email_address": "laura.mehta248@corp.example",
+   "phone_number": "(457) 044-1658",
+   "last_updated": "2025-11-23T14:09:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53986",
+   "full_name": "Vikram R Wilson",
+   "location": "Pune",
+   "email_address": "Vikram.wilson204@outlook.com",
+   "phone_number": "9449130196",
+   "last_updated": "2025-07-24T16:19:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-53994",
+   "full_name": "H. Gupta",
+   "location": "hyderabad",
+   "email_address": "harish.gupta670@corp.example",
+   "phone_number": "9432884291",
+   "last_updated": "2025-07-12T02:29:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-54003",
+   "full_name": "Isha J Sharma",
+   "location": "San Francisco",
+   "email_address": "isha.sharma248@outlook.com",
+   "phone_number": "+1 487 286 9720",
+   "last_updated": "2025-10-22T10:25:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-54008",
+   "full_name": "Kavya Sharma",
+   "location": "Delhi",
+   "email_address": "kavya.sharma666@outlook.com",
+   "phone_number": "9090224418",
+   "last_updated": "2025-11-14T05:09:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-54014",
+   "full_name": "Daniel Miller",
+   "location": "hyderabad",
+   "email_address": "daniel.miller160@outlook.com",
+   "phone_number": "9227276224",
+   "last_updated": "2025-02-08T11:27:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54034",
+   "full_name": "J. Iyer",
+   "location": "Bengaluru",
+   "email_address": "john.iyer149@outlook.com",
+   "phone_number": "9555277054",
+   "last_updated": "2025-06-17T12:52:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54040",
+   "full_name": "Nikhil Reddy",
+   "location": "Kolkata",
+   "email_address": "nikhil.reddy764@outlook.com",
+   "phone_number": "9586588957",
+   "last_updated": "2025-12-11T20:50:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-54048",
+   "full_name": "Rohan A Patel",
+   "location": "Bangalore",
+   "email_address": "rohan.patel821@outlook.com",
+   "phone_number": "9360084882",
+   "last_updated": "2025-04-28T22:22:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-54065",
+   "full_name": "Meera M Das",
+   "location": "Delhi",
+   "email_address": "meera.das545@yahoo.com",
+   "phone_number": "+91-98967-40354",
+   "last_updated": "2025-10-22T21:39:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54075",
+   "full_name": "Tanvi Johnson",
+   "location": "hyderabad",
+   "email_address": "tanvi.johnson153@gmail.com",
+   "phone_number": "9765907017",
+   "last_updated": "2025-05-20T03:19:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-54083",
+   "full_name": "Kavya Brown",
+   "location": "Chennai",
+   "email_address": "kavya.brown410@outlook.com",
+   "phone_number": "9471788794",
+   "last_updated": "2025-05-19T03:21:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-54093",
+   "full_name": "Gaurav Johnson",
+   "location": "Chennai",
+   "email_address": "Gaurav.johnson356@corp.example",
+   "phone_number": "+91-96161-85286",
+   "last_updated": "2025-09-24T15:21:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54096",
+   "full_name": "Neha Rao",
+   "location": "hyderabad",
+   "email_address": "Neha.rao247@yahoo.com",
+   "phone_number": null,
+   "last_updated": "2025-02-12T08:33:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-54105",
+   "full_name": "David S Williams",
+   "location": "London",
+   "email_address": "David.williams745@outlook.com",
+   "phone_number": "(427) 774-6017",
+   "last_updated": "2025-10-18T14:06:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54114",
+   "full_name": "Isha S Miller",
+   "location": "New York",
+   "email_address": null,
+   "phone_number": "+1 423 459 9150",
+   "last_updated": "2025-08-15T08:32:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54117",
+   "full_name": "Michael Menon",
+   "location": "Hyderabad",
+   "email_address": "michael.menon397@gmail.com",
+   "phone_number": "+91-95542-20917",
+   "last_updated": "2025-06-29T16:43:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54128",
+   "full_name": "JOHN RAO",
+   "location": "Mumbai",
+   "email_address": "john.rao960@gmail.com",
+   "phone_number": "9536845480",
+   "last_updated": "2025-04-10T16:15:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-54134",
+   "full_name": "Varun Singh",
+   "location": "BANGALORE",
+   "email_address": null,
+   "phone_number": "+91-99869-40560",
+   "last_updated": "2025-04-10T12:13:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54143",
+   "full_name": "M. Sharma",
+   "location": "London",
+   "email_address": "manish.sharma377@gmail.com",
+   "phone_number": "+1 403 887 1951",
+   "last_updated": "2025-01-18T02:11:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-54148",
+   "full_name": "MANISH MENON",
+   "location": "Bangalore",
+   "email_address": null,
+   "phone_number": null,
+   "last_updated": "2025-09-05T02:57:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-54164",
+   "full_name": "Daniel Brown",
+   "location": "Madras",
+   "email_address": "daniel.brown304@corp.example",
+   "phone_number": null,
+   "last_updated": "2025-03-25T17:25:00",
+   "segment": "enterprise"
+  },
+  {
+   "cust_no": "C-54166",
+   "full_name": "P. Williams",
+   "location": "hyderabad",
+   "email_address": "priya.williams867@outlook.com",
+   "phone_number": "+91-90064-33917",
+   "last_updated": "2025-01-17T11:43:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54173",
+   "full_name": "Arjun Miller",
+   "location": "BANGALORE",
+   "email_address": null,
+   "phone_number": "+91-93317-91565",
+   "last_updated": "2025-11-02T12:25:00",
+   "segment": "premium"
+  },
+  {
+   "cust_no": "C-54188",
+   "full_name": "Vikram Patel",
+   "location": "hyderabad",
+   "email_address": "vikram.patel765@yahoo.com",
+   "phone_number": "+91-92196-77629",
+   "last_updated": "2025-11-24T01:29:00",
+   "segment": "retail"
+  },
+  {
+   "cust_no": "C-54198",
+   "full_name": "Anjali Gupta",
+   "location": "Pune",
+   "email_address": "Anjali.gupta953@corp.example",
+   "phone_number": "+91-98198-25539",
+   "last_updated": "2025-11-24T00:56:00",
+   "segment": "enterprise"
+  }
+ ]
+}

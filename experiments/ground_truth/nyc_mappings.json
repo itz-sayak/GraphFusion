@@ -1,0 +1,12 @@
+{
+  "description": "Hand-authored attribute correspondences for the NYC mobility scenario. Boroughs are counties (Kings = Brooklyn, New York County = Manhattan, ...), so census county names correspond to borough attributes.",
+  "column_matches": [
+    ["yellow_tripdata_sample::PULocationID", "taxi_zone_lookup::LocationID"],
+    ["yellow_tripdata_sample::DOLocationID", "taxi_zone_lookup::LocationID"],
+    ["taxi_zone_lookup::Borough", "nta_demographics::geographic_area_borough"],
+    ["taxi_zone_lookup::Zone", "nta_demographics::geographic_area_neighborhood_tabulation_area_nta_name"],
+    ["nta_demographics::geographic_area_2010_census_fips_county_code", "census_acs_nyc_counties::county"],
+    ["taxi_zone_lookup::Borough", "census_acs_nyc_counties::NAME"],
+    ["nta_demographics::geographic_area_borough", "census_acs_nyc_counties::NAME"]
+  ]
+}

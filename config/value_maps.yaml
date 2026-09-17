@@ -1,0 +1,43 @@
+# Reference value canonicalisation. Each domain is applied to a column pair
+# only when doing so increases measured value overlap (data-driven choice).
+domains:
+  indian_cities:
+    bangalore: bengaluru
+    bombay: mumbai
+    madras: chennai
+    calcutta: kolkata
+    new delhi: delhi
+    gurgaon: gurugram
+    poona: pune
+  us_cities:
+    new york city: new york
+    nyc: new york
+    la: los angeles
+    sf: san francisco
+    san fran: san francisco
+  nyc_boroughs:
+    kings: brooklyn
+    kings county: brooklyn
+    richmond: staten island
+    richmond county: staten island
+    new york county: manhattan
+    bronx county: bronx
+    queens county: queens
+  countries:
+    usa: united states
+    us: united states
+    united states of america: united states
+    uk: united kingdom
+    great britain: united kingdom
+    bharat: india
+# Which semantic types each domain applies to. A composite normaliser
+# "semantic:<TYPE>" applies all domains of that type together.
+domain_semantic_types:
+  indian_cities: CITY
+  us_cities: CITY
+  countries: COUNTRY
+  nyc_boroughs: BOROUGH
+# Suffix patterns stripped by the "geo" normaliser (regex, applied after lowercasing)
+geo_suffixes:
+  - ',\s*(ny|new york|ca|california|india)$'
+  - '\s+county$'

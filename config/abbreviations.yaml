@@ -1,0 +1,83 @@
+# Abbreviation expansion used by name normalisation (Cupid-style thesaurus).
+abbreviations:
+  cust: customer
+  cus: customer
+  cst: customer
+  "no": number
+  num: number
+  nbr: number
+  nr: number
+  id: identifier
+  ident: identifier
+  amt: amount
+  qty: quantity
+  dt: date
+  ts: timestamp
+  addr: address
+  tel: phone
+  ph: phone
+  mob: mobile
+  fname: first_name
+  lname: last_name
+  dob: birth_date
+  pu: pickup
+  do: dropoff
+  loc: location
+  desc: description
+  cat: category
+  txn: transaction
+  trx: transaction
+  tx: transaction
+  ord: order
+  prod: product
+  pct: percent
+  pop: population
+  geo: geographic
+  nta: neighborhood_tabulation_area
+  fips: fips
+  zip: zipcode
+  postcode: zipcode
+  st: state
+  ctry: country
+  cnty: county
+  boro: borough
+  dist: distance
+  pax: passenger
+  emp: employee
+  dept: department
+  mgr: manager
+  yr: year
+  mo: month
+  curr: currency
+  ccy: currency
+  upd: updated
+  crt: created
+  cnt: count
+  avg: average
+  med: median
+  inc: income
+  hh: household
+# Synonym concept sets: tokens in the same set are semantically equivalent.
+synonyms:
+  - [customer, client, buyer, consumer, cust, shopper, account_holder]
+  - [identifier, id, key, code, number, "no", uid, ref, reference]
+  - [name, full_name, fullname, title, label]
+  - [city, town, location, municipality, locality, place, city_name]
+  - [amount, spent, total, value, price, cost, fare, sum, purchase, payment]
+  - [date, day, time, timestamp, datetime, when, created, updated]
+  - [email, mail, email_address, e_mail]
+  - [phone, telephone, mobile, cell, contact_number]
+  - [country, nation, ctry]
+  - [zipcode, zip, postal, postcode, pincode]
+  - [borough, boro, county, district]
+  - [zone, area, neighborhood, neighbourhood, region, tabulation]
+  - [population, pop, residents, inhabitants]
+  - [income, earnings, salary, wage]
+  - [transaction, txn, order, sale, purchase]
+  - [quantity, qty, count, units]
+  - [currency, ccy, curr]
+  - [pickup, pu, origin, start, source]
+  - [dropoff, do, destination, end, dest]
+  - [distance, dist, length, miles]
+  - [latitude, lat]
+  - [longitude, lon, lng, long]

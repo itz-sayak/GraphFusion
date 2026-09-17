@@ -1,0 +1,32 @@
+{
+  "training_seed": 7777,
+  "scenarios": 36,
+  "per_level": 12,
+  "features": [
+    "name_similarity",
+    "datatype_similarity",
+    "semantic_similarity",
+    "value_overlap",
+    "distribution_similarity",
+    "pattern_similarity",
+    "cardinality_similarity",
+    "jaccard",
+    "containment_max",
+    "containment_min",
+    "base_score",
+    "transitive_support",
+    "structural_support",
+    "exclusivity",
+    "semantic_type_compat",
+    "uniqueness_max",
+    "uniqueness_min",
+    "distinct_ratio",
+    "both_numeric",
+    "same_semantic_type"
+  ],
+  "examples": 5249,
+  "positives": 442,
+  "cv": "GroupKFold(5) by scenario",
+  "oof_auc": 0.9998,
+  "oof_brier": 0.0021
+}
