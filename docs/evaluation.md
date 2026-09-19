@@ -158,10 +158,10 @@ Default acceptance threshold 0.55; P/R/F1 micro-averaged per set; best F1 = mean
 
 | identifier format | scenarios | fully correct | missed relationships | extra relationships | wrong N:1 direction | false identifier links | discovery (s) |
 |---|---|---|---|---|---|---|---|
-| uuid_hex | 20 | 20 | 0 | 0 | 0 | 0 | 0.74 |
-| uuid_dashed | 20 | 20 | 0 | 0 | 0 | 0 | 0.73 |
-| prefixed | 20 | 20 | 0 | 0 | 0 | 0 | 0.86 |
-| integer | 20 | 20 | 0 | 0 | 0 | 0 | 0.97 |
+| uuid_hex | 20 | 20 | 0 | 0 | 0 | 0 | 0.15 |
+| uuid_dashed | 20 | 20 | 0 | 0 | 0 | 0 | 0.13 |
+| prefixed | 20 | 20 | 0 | 0 | 0 | 0 | 0.11 |
+| integer | 20 | 20 | 0 | 0 | 0 | 0 | 0.12 |
 
 ---
 
@@ -175,11 +175,11 @@ Seeds: [7, 11, 23] (600 entities, ~1,000 customer records per seed).
 |---|---|---|---|---|
 | Exact e-mail | 1.000 | 0.872 | 0.932 | 0.00 |
 | Fuzzy name+city | 0.795 | 0.822 | 0.808 | 0.01 |
-| FS old prior + correlation (t=0.9) | 0.999 | 0.997 | 0.998 | 0.17 |
-| FS + components (t=0.9) | 1.000 | 0.978 | 0.989 | 0.15 |
-| FS + correlation (t=0.9) | 1.000 | 0.977 | 0.988 | 0.14 |
-| FS + components (t=0.5) | 0.996 | 0.998 | 0.997 | 0.15 |
-| FS + correlation (t=0.5) | 0.999 | 0.996 | 0.997 | 0.14 |
+| FS old prior + correlation (t=0.9) | 0.999 | 0.997 | 0.998 | 0.14 |
+| FS + components (t=0.9) | 1.000 | 0.978 | 0.989 | 0.13 |
+| FS + correlation (t=0.9) | 1.000 | 0.977 | 0.988 | 0.16 |
+| FS + components (t=0.5) | 0.996 | 0.998 | 0.997 | 0.13 |
+| FS + correlation (t=0.5) | 0.999 | 0.996 | 0.997 | 0.15 |
 
 ## End-to-end integration (mean over seeds)
 
@@ -192,8 +192,8 @@ Seeds: [7, 11, 23] (600 entities, ~1,000 customer records per seed).
 | duplicate_reduction | 1.0 | 0.0 |
 | integration_accuracy | 0.9995 | 0.0 |
 | true_orphan_rate | 0.0208 | 0.0208 |
-| runtime_s | 2.0633 | — |
-| peak_rss_mb | 274.8333 | — |
+| runtime_s | 1.7633 | — |
+| peak_rss_mb | 282.2333 | — |
 
 Naive baseline: shared column names between sales and customers: none — without schema matching nothing can be joined.
 
@@ -217,7 +217,7 @@ Linking each order to the correct contact:
 
 | approach | linkable_orders | linked | correct | wrong | precision | recall |
 |---|---|---|---|---|---|---|
-| Direct A↔C (shared abbreviated names) | 3576 | 4000 | 0 | 4000 | 0.000 | 0.000 |
+| Direct A↔C (shared abbreviated names) | 3576 | 0 | 0 | 0 | 0.000 | 0.000 |
 | Graph route A→B→C (system) | 3576 | 3402 | 3402 | 0 | 1.000 | 0.951 |
 
 ## Real-world counterpart (NYC)
@@ -386,6 +386,33 @@ Column-match recall on the planted vocabulary correspondence (no static value ma
 | months | on | 1 | 1 | 0 | 1 | 1 | lookup 0.76 |
 | negative_control | off | 0 | 0 | 0 | 0 | 0 | none |
 | negative_control | on | 0 | 0 | 0 | 1 | 0 | none |
+
+---
+
+## Unseen public schemas
+
+Published foreign keys are the ground truth; nothing in the system was tuned on these databases.
+
+| database | tables | rows | published FKs found | extra links | merge root | root is a fact table | grain kept | lookup match rates correct | validation | seconds |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Northwind | 8 | 3202 | 6/7 | 1 | order-details | yes | yes | 6/6 | passed | 4.2 |
+| Chinook | 11 | 15607 | 9/10 | 1 | InvoiceLine | yes | yes | 8/8 | passed | 3.1 |
+| Olist | 9 | 1550922 | 7/7 | 2 | order_items | yes | yes | 4/4 | passed | 70.0 |
+
+## Northwind
+
+* missed: orders.shipVia -> shippers.shipperID
+* extra links: shippers - suppliers (entity_resolution)
+
+## Chinook
+
+* missed: Customer.SupportRepId -> Employee.EmployeeId
+* extra links: Genre - Playlist (entity_resolution)
+
+## Olist
+
+* missed: none
+* extra links: customers - geolocation (aggregate_lookup), geolocation - sellers (aggregate_lookup)
 
 ---
 

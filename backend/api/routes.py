@@ -101,8 +101,7 @@ def upload(files: list[UploadFile] = File(...), session: Session = Depends(deps.
                     if size > MAX_UPLOAD_BYTES:
                         raise ToolArgumentError(f"{name} exceeds the upload limit")
                     out.write(chunk)
-            art = session.add_file(dest, source_name=name)
-            loaded.append(art.summary())
+            loaded.extend(a.summary() for a in session.add_files(dest, source_name=name))
         except DFGError as exc:
             errors.append({"file": name, "error": exc.message})
             dest.unlink(missing_ok=True)
@@ -119,7 +118,7 @@ def load_path(req: LoadPathRequest, session: Session = Depends(deps.get_session)
             errors.append({"file": p, "error": "path must be an existing file inside data/"})
             continue
         try:
-            loaded.append(session.add_file(target).summary())
+            loaded.extend(a.summary() for a in session.add_files(target))
         except DFGError as exc:
             errors.append({"file": p, "error": exc.message})
     return {"session_id": session.session_id, "datasets": loaded, "errors": errors}

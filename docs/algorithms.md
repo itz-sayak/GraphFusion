@@ -8,6 +8,9 @@ Every algorithm below is used for one specific job, with the reason it fits. Mat
 * **Semantic types** (ID, NAME, EMAIL, PHONE, DATE, DATETIME, CITY, COUNTRY, ZIPCODE, CURRENCY, CURRENCY_CODE, LATITUDE, LONGITUDE, CATEGORY, FREE_TEXT, NUMERIC) combine regex/gazetteer rates on a reservoir sample, statistical signatures (range, uniqueness, length), physical type and name hints. Value evidence dominates, so `col_7` full of e-mails is EMAIL. Measure tokens (population, percent, median…) veto ID.
 * **Coordinated bottom-k sketches.** DuckDB keeps the k distinct normalised values with the smallest `hash(value)`. Because all columns share the hash, samples are coordinated and overlap estimates stay unbiased (the KMV idea behind LSH Ensemble / JOSIE). They are exact when a column has ≤ k distinct values.
 * **Day-first detection.** A column is day-first if any value only parses day-first (e.g. `23/04/2024`).
+* **Malformed CSV repair** (`ingestion/csv_repair.py`). Triggered only when the sniffer reads a delimited file as one column. The delimiter is the candidate giving the header's field count on the most rows. Each column gets a value-class profile (int / num / date / text) from the well-formed rows. A short row is padded; a row with k extra fields is rebuilt by merging k+1 adjacent fields into one text column. Every merge position is scored 2·(fields fitting their column's class) + 1 + 0.5·(merged fields starting with a space), and ties are counted as ambiguous. Northwind: 209 rows rebuilt, 0 ambiguous.
+* **Null markers.** `NULL` and `\N` (SQL exports) are read as missing values, so such columns still type as dates or integers.
+* **SQLite.** Every table becomes its own dataset, named after the table.
 
 ## 2. Schema matching (`backend/matching/`)
 
@@ -43,6 +46,10 @@ Candidate pairs: text columns from different datasets with complete sketches (3�
 * **Row agreement:** attribute pairs of key-joined tables are compared on ≤ 20K sampled joined rows with the match's normaliser (numeric tolerance, shared timestamp precision); agreement < 0.5 rejects the pair.
 * **Uniqueness rules:** 1:1 entity merges need both keys ≥ 0.999 unique; when both sides pass the 0.98 key threshold, the less unique side is the reference.
 * **Sibling removal:** an X—Y link is dropped when both columns reference the same strictly unique key elsewhere (fan-trap avoidance).
+* **Chance overlap of integer ranges:** when the key is dense on [l, h] and a reference's containment is no more than the share of its own range inside [l, h] (+0.05), the overlap is uninformative. The link then needs name support: a shared content word (camelCase/snake split, singular; *id, key, code, no* ignored) with the key column or with the key's table. This applies to lookups, key merges and aggregated lookups.
+* **Alternate keys vs roles:** references from several fact columns to one key column are roles; references to several different columns of one dimension are one link, keyed on the best identifier (ID type, score, uniqueness), and the rest become attribute matches.
+* **Shared attributes:** an aggregated lookup on a column unique on neither side needs one table to be aggregatable, i.e. keyless or at least half quantities.
+* **Record linkage gate:** at least one discriminative field (name, e-mail, phone) must share ≥ 2% of values across the two tables.
 * **Schema map layout:** directed relationship graph → cycle breaking at the weakest edge → longest-path layering → barycenter ordering, one block per component.
 
 ## 4. Graph algorithms (`backend/graph/algorithms.py`)
@@ -65,7 +72,8 @@ Candidate pairs: text columns from different datasets with complete sketches (3�
 
 ## 6. Merge planning and execution (`backend/merge/`)
 
-* **Root** = largest dataset that is never a lookup dimension (or the dataset of a pinned primary key).
+* **Root** = the dataset that keeps the most datasets un-aggregated: for each candidate, count the datasets reachable through same-entity joins and lookups whose fact side is the parent. Ties go to a dataset that is never a lookup dimension, then to the larger one; a pinned primary key overrides. On a star schema this is the fact table. The previous rule (largest non-dimension) rooted Olist at 1M geolocation points.
+* **Join statistics** use each attachment's own match flag; flags of nested joins are carried as ordinary child columns.
 * **Orientation**: a lookup whose fact side is the child becomes `reverse_aggregate`; ER/key-merge edges become entity groups anchored at the member closest to the root.
 * **Roles**: `role_for(PULocationID, LocationID) = pickup` (tokens of the reference minus tokens of the key, ≤ 2 tokens).
 * **Projection**: a static tree of column specs with internal view names; identical subtrees (the zone table under both roles) share one spec and are computed once.

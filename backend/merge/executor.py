@@ -196,7 +196,8 @@ class MergeExecutor:
         pk = self._keyed(parent, key["parent_column"], key["normalizer"], "__pk")
         ck = self._keyed(child, key["child_column"], key["normalizer"], "__ck")
         out = self._tmp("j")
-        matched_col = next(c for c in att.columns if c.source_column == "__matched__")
+        # the attachment's own flag; flags of nested joins are carried along as ordinary child columns
+        matched_col = next(c for c in att.columns if c.source_column == "__matched__" and c.child_view_name is None)
         child_cols = set(self._columns(ck))
 
         if att.kind == "lookup":
@@ -514,7 +515,7 @@ class MergeExecutor:
                 select.append(f"{quote_ident(c.view_name)} AS {quote_ident(c.output)}")
         for sc in sorted(c for c in cols if c.startswith("__src_")):
             select.append(f"{quote_ident(sc)} AS {quote_ident('_src_' + sc[len('__src_'):].replace('.', '__') + '_row')}")
-        conf_terms = [f"CASE WHEN {quote_ident(c.view_name)} THEN {att.confidence!r} END" for att in spec.attachments for c in att.columns if c.source_column == "__matched__" and c.view_name in cols]
+        conf_terms = [f"CASE WHEN {quote_ident(c.view_name)} THEN CAST({att.confidence!r} AS DOUBLE) END" for att in spec.attachments for c in att.columns if c.source_column == "__matched__" and c.view_name in cols]
         if conf_terms:
             select.append(f"CAST(list_min([{', '.join(conf_terms)}]) AS DOUBLE) AS _match_confidence")
         link_terms, rel_terms = [], []
@@ -524,7 +525,8 @@ class MergeExecutor:
             if conf is None:
                 link_terms.append(f"COALESCE(TRY_CAST({quote_ident(v)} AS DOUBLE), 1.0)")
             else:
-                rel_terms.append(f"CASE WHEN {quote_ident(v)} THEN {conf!r} ELSE 1.0 END")
+                # DOUBLE, not DECIMAL literals: a product over many joins would exceed DECIMAL's 38-digit scale
+                rel_terms.append(f"CASE WHEN {quote_ident(v)} THEN CAST({conf!r} AS DOUBLE) ELSE CAST(1.0 AS DOUBLE) END")
         # record-level link uncertainty (independent across rows) vs schema-level relationship confidence (shared by all rows)
         select.append(f"CAST({' * '.join(link_terms) if link_terms else '1.0'} AS DOUBLE) AS _match_probability")
         if rel_terms:

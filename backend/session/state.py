@@ -142,6 +142,20 @@ class Session:
             self._event("dataset_loaded", dataset_id=art.dataset_id)
             return art
 
+    def add_files(self, path: str | Path, source_name: str | None = None) -> list[DatasetArtifact]:
+        """Ingest a file; a SQLite database with several tables becomes one dataset per table."""
+        from backend.core.models import SourceType
+        from backend.ingestion.detect import detect_format
+        from backend.ingestion.readers import list_sqlite_tables
+
+        path = Path(path)
+        if detect_format(path) == SourceType.SQLITE:
+            tables = list_sqlite_tables(path)
+            if len(tables) > 1:
+                name = source_name or path.name
+                return [self.add_file(path, source_name=f"{name} : {t}", options={"table": t}) for t in tables]
+        return [self.add_file(path, source_name=source_name)]
+
     def add_rest(self, url: str, source_name: str, params: dict[str, Any] | None = None, page_size: int | None = None) -> DatasetArtifact:
         with self.lock:
             art = ingest_rest(self.workspace, url, source_name, set(self.artifacts), params, page_size)

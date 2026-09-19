@@ -54,9 +54,9 @@
   },
   "direct_matching": {
     "linkable_orders": 3576,
-    "linked": 4000,
+    "linked": 0,
     "correct": 0,
-    "wrong": 4000,
+    "wrong": 0,
     "precision": 0.0,
     "recall": 0.0,
     "direct_relationship_found": []

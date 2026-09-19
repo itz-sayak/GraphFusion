@@ -32,7 +32,7 @@
         "tp": 454,
         "predicted": 456,
         "truth": 455,
-        "seconds": 0.146,
+        "seconds": 0.153,
         "reduction_ratio": 0.991297,
         "candidate_pairs": 4391
       },
@@ -45,7 +45,7 @@
         "tp": 445,
         "predicted": 445,
         "truth": 455,
-        "seconds": 0.117,
+        "seconds": 0.133,
         "reduction_ratio": 0.991297,
         "candidate_pairs": 4391
       },
@@ -58,7 +58,7 @@
         "tp": 445,
         "predicted": 445,
         "truth": 455,
-        "seconds": 0.127,
+        "seconds": 0.168,
         "reduction_ratio": 0.991297,
         "candidate_pairs": 4391
       },
@@ -71,7 +71,7 @@
         "tp": 455,
         "predicted": 459,
         "truth": 455,
-        "seconds": 0.139,
+        "seconds": 0.135,
         "reduction_ratio": 0.991297,
         "candidate_pairs": 4391
       },
@@ -84,7 +84,7 @@
         "tp": 454,
         "predicted": 456,
         "truth": 455,
-        "seconds": 0.126,
+        "seconds": 0.136,
         "reduction_ratio": 0.991297,
         "candidate_pairs": 4391
       },
@@ -119,7 +119,7 @@
         "tp": 440,
         "predicted": 440,
         "truth": 440,
-        "seconds": 0.227,
+        "seconds": 0.128,
         "reduction_ratio": 0.991164,
         "candidate_pairs": 4204
       },
@@ -132,7 +132,7 @@
         "tp": 435,
         "predicted": 435,
         "truth": 440,
-        "seconds": 0.146,
+        "seconds": 0.126,
         "reduction_ratio": 0.991164,
         "candidate_pairs": 4204
       },
@@ -145,7 +145,7 @@
         "tp": 435,
         "predicted": 435,
         "truth": 440,
-        "seconds": 0.153,
+        "seconds": 0.134,
         "reduction_ratio": 0.991164,
         "candidate_pairs": 4204
       },
@@ -158,7 +158,7 @@
         "tp": 440,
         "predicted": 440,
         "truth": 440,
-        "seconds": 0.169,
+        "seconds": 0.128,
         "reduction_ratio": 0.991164,
         "candidate_pairs": 4204
       },
@@ -171,7 +171,7 @@
         "tp": 440,
         "predicted": 440,
         "truth": 440,
-        "seconds": 0.167,
+        "seconds": 0.164,
         "reduction_ratio": 0.991164,
         "candidate_pairs": 4204
       },
@@ -195,7 +195,7 @@
         "tp": 376,
         "predicted": 472,
         "truth": 467,
-        "seconds": 0.006
+        "seconds": 0.007
       },
       {
         "method": "fs_correlation_oldprior",
@@ -206,7 +206,7 @@
         "tp": 464,
         "predicted": 464,
         "truth": 467,
-        "seconds": 0.139,
+        "seconds": 0.134,
         "reduction_ratio": 0.991372,
         "candidate_pairs": 4449
       },
@@ -219,7 +219,7 @@
         "tp": 452,
         "predicted": 452,
         "truth": 467,
-        "seconds": 0.181,
+        "seconds": 0.132,
         "reduction_ratio": 0.991372,
         "candidate_pairs": 4449
       },
@@ -232,7 +232,7 @@
         "tp": 450,
         "predicted": 450,
         "truth": 467,
-        "seconds": 0.136,
+        "seconds": 0.169,
         "reduction_ratio": 0.991372,
         "candidate_pairs": 4449
       },
@@ -245,7 +245,7 @@
         "tp": 464,
         "predicted": 466,
         "truth": 467,
-        "seconds": 0.147,
+        "seconds": 0.133,
         "reduction_ratio": 0.991372,
         "candidate_pairs": 4449
       },
@@ -258,7 +258,7 @@
         "tp": 462,
         "predicted": 462,
         "truth": 467,
-        "seconds": 0.135,
+        "seconds": 0.14,
         "reduction_ratio": 0.991372,
         "candidate_pairs": 4449
       }
@@ -276,42 +276,42 @@
         "precision": 0.7954,
         "recall": 0.8217,
         "f1": 0.8083,
-        "seconds": 0.0067
+        "seconds": 0.007
       },
       {
         "method": "fs_correlation_oldprior",
         "precision": 0.9985,
         "recall": 0.9971,
         "f1": 0.9978,
-        "seconds": 0.1707
+        "seconds": 0.1383
       },
       {
         "method": "fs_components",
         "precision": 1.0,
         "recall": 0.9782,
         "f1": 0.989,
-        "seconds": 0.148
+        "seconds": 0.1303
       },
       {
         "method": "fs_correlation",
         "precision": 1.0,
         "recall": 0.9767,
         "f1": 0.9882,
-        "seconds": 0.1387
+        "seconds": 0.157
       },
       {
         "method": "fs_components@0.5",
         "precision": 0.9957,
         "recall": 0.9979,
         "f1": 0.9967,
-        "seconds": 0.1517
+        "seconds": 0.132
       },
       {
         "method": "fs_correlation@0.5",
         "precision": 0.9985,
         "recall": 0.9957,
         "f1": 0.9971,
-        "seconds": 0.1427
+        "seconds": 0.1467
       }
     ]
   },
@@ -320,7 +320,7 @@
       {
         "system": {
           "seed": 7,
-          "system": "DataFusionGraph",
+          "system": "GraphFusion",
           "match_coverage": 0.9024,
           "row_match_rate": 0.98,
           "unmatched_ratio": 0.02,
@@ -328,8 +328,8 @@
           "duplicate_reduction": 1.0,
           "integration_accuracy": 0.9986,
           "true_orphan_rate": 0.02,
-          "runtime_s": 2.08,
-          "peak_rss_mb": 257.3
+          "runtime_s": 2.17,
+          "peak_rss_mb": 261.5
         },
         "naive": {
           "seed": 7,
@@ -349,7 +349,7 @@
       {
         "system": {
           "seed": 11,
-          "system": "DataFusionGraph",
+          "system": "GraphFusion",
           "match_coverage": 0.8845,
           "row_match_rate": 0.979,
           "unmatched_ratio": 0.021,
@@ -357,8 +357,8 @@
           "duplicate_reduction": 1.0,
           "integration_accuracy": 1.0,
           "true_orphan_rate": 0.021,
-          "runtime_s": 2.0,
-          "peak_rss_mb": 277.9
+          "runtime_s": 1.53,
+          "peak_rss_mb": 290.7
         },
         "naive": {
           "seed": 11,
@@ -378,7 +378,7 @@
       {
         "system": {
           "seed": 23,
-          "system": "DataFusionGraph",
+          "system": "GraphFusion",
           "match_coverage": 0.8929,
           "row_match_rate": 0.9787,
           "unmatched_ratio": 0.0213,
@@ -386,8 +386,8 @@
           "duplicate_reduction": 1.0,
           "integration_accuracy": 1.0,
           "true_orphan_rate": 0.0213,
-          "runtime_s": 2.11,
-          "peak_rss_mb": 289.3
+          "runtime_s": 1.59,
+          "peak_rss_mb": 294.5
         },
         "naive": {
           "seed": 23,
@@ -413,8 +413,8 @@
       "duplicate_reduction": 1.0,
       "integration_accuracy": 0.9995,
       "true_orphan_rate": 0.0208,
-      "runtime_s": 2.0633,
-      "peak_rss_mb": 274.8333
+      "runtime_s": 1.7633,
+      "peak_rss_mb": 282.2333
     }
   }
 }

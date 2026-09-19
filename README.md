@@ -108,7 +108,7 @@ backend/
 frontend/     Next.js 14 · TypeScript · Tailwind · React Flow
 scripts/      sample data generator, public-data downloaders, headless demo
 experiments/  ablation, entity-resolution evaluation, graph experiment, LLM command benchmark, performance benchmark
-tests/        22 test modules (unit, integration, API, end-to-end)
+tests/        24 test modules (unit, integration, API, end-to-end)
 config/       weights & thresholds, value maps, abbreviations/thesaurus, glossary, FX rates
 docs/         architecture, algorithms, math, API, evaluation, limitations
 ```
@@ -121,7 +121,8 @@ Every algorithm in the system, the problem it solves, and where it lives:
 
 | # | Problem | Algorithm | Module | Why this one |
 |---|---|---|---|---|
-| 1 | Lossless CSV typing | Two-pass type promotion (all values must cast, integer-literal regex) | `ingestion/readers.py` | Sample-based sniffers fail on mixed date formats and silently round `11.5` to `12` |
+| 1 | Lossless CSV typing | Two-pass type promotion (all values must cast, integer-literal regex); `NULL` / `\N` are missing values | `ingestion/readers.py` | Sample-based sniffers fail on mixed date formats and silently round `11.5` to `12` |
+| 1a | Malformed CSV repair | Delimiter by consistent field counts; extra fields merged back into one text column, position chosen by type consistency with the well-formed rows (+ ", " cue) | `ingestion/csv_repair.py` | An unquoted comma in an address made DuckDB read Northwind `orders.csv` as one column |
 | 2 | Scalable value overlap | Coordinated bottom-$`k`$ (KMV) sketches + MinHash | `profiling/sketches.py` | $`O(k)`$ memory per column; unbiased Jaccard/containment estimates |
 | 3 | Semantic types | Regex/gazetteer rates + statistical signatures + name priors, argmax | `profiling/semantic_types.py` | Value evidence dominates names |
 | 4 | Candidate column pairs | MinHash **LSH Ensemble** (containment) ∪ name-token index ∪ semantic buckets | `matching/candidates.py` | Sub-quadratic; containment finds small keys from large FK columns |
@@ -210,9 +211,15 @@ Algorithm PLAN-STRUCTURE(G, mode)
   T ← KRUSKAL-MAXIMUM-SPANNING-TREE(H[main])
   for each edge (u,v) ∈ H[main] \ T:
       report excluded, with replacing path in T and its reliability ρ
-  root ← pinned-key dataset, else largest dataset never on the dimension side of a lookup
+  root ← pinned-key dataset, else argmax over datasets d of
+         ( |PRESERVED(d)|, d never a lookup dimension, rows(d) )
   BFS from root; orient each edge (parent → child) and assign an operation (§8)
+
+PRESERVED(d) = datasets reachable from d through same-entity joins and lookups whose fact side is the parent
+               (no reverse lookup or aggregated lookup on the way: those collapse a table to another's key)
 ```
+
+**Why this root.** The output keeps the root's grain, and every table reached only through aggregation is summarised. The root is therefore the table that keeps the most tables *un*-aggregated. In a star schema that is the fact table, which references every dimension. A large reference table that joins only through aggregation, like Olist's 1M zip-code geolocation points, is not chosen merely for its size. Before this rule the planner took "the largest table that is never a lookup dimension". On Olist that produced one row per geolocation point (1,000,163 rows) with customers and orders aggregated into each point, so order totals were counted once per point in the zip code. Now: one row per order item (112,650).
 
 ### 5.4 Schema map (what the Graph tab shows)
 
@@ -463,6 +470,19 @@ Profile-level signals can make two different things look alike. On the real Olis
 | **1:1 needs strict uniqueness** | `graph/relationships.py` | `entity_merge_uniqueness: 0.999` on both keys; a key with repeats is a many-to-one reference |
 | **The referenced side is the more unique side** | `graph/relationships.py` | when both columns pass the 0.98 key threshold, the less unique one is the reference |
 | **No sibling joins (fan trap)** | `relationships.drop_implied_sibling_links` | an X—Y link where both columns reference the same strictly unique key Z.z is removed: X and Y connect through Z |
+| **Overlapping integer ranges are not evidence** | `relationships.chance_overlap`, `name_support` | when an integer reference's containment in a dense key range is no more than the ranges alone produce (below), the link needs name support: a shared content word with the key (`PULocationID` → `LocationID`) or with the key's table (`shipVia` → `shippers`); *id, key, code, no* do not count |
+| **Alternate keys are not roles** | `relationships.infer_relationships` | several fact columns referencing the *same* key column are roles (pickup / dropoff); references to *different* columns of one table (`customerID`, `address`, `companyName`) are one link: the best identifier is the key, the others are attribute matches |
+| **A shared attribute is not a join between two entity tables** | `relationships._aggregatable` | an aggregated lookup on a column unique on neither side (state, country, job title) needs one side to be a keyless reference table (geolocation points) or mostly quantities (demographics per borough) |
+| **Record linkage needs recurring identifying values** | `relationships.infer_relationships` | two tables are linked probabilistically only if some name / e-mail / phone field shares ≥ 2% of its values (`merge.entity_min_shared_values`) |
+
+Chance overlap of integer columns. With the key $`t`$ dense on $`[l, h]`$ ($`\text{distinct}(t) \ge 0.9\,(h-l+1)`$) and the reference $`r`$ spread over $`[l_r, h_r]`$:
+
+```math
+\mathbb{E}[\text{containment}(r, t)] = \frac{\max\big(0,\ \min(h, h_r) - \max(l, l_r) + 1\big)}{h_r - l_r + 1},
+\qquad \text{uninformative} \iff \text{containment}(r, t) \le \mathbb{E}[\cdot] + 0.05
+```
+
+Auto-increment keys (`categoryID` 1..8, `employeeID` 1..9, `AlbumId` 1..347, `InvoiceId` 1..412) always overlap this way, so without name support they are never linked. Real references with the same range (`products.categoryID` → `categories.categoryID`) pass on their names.
 
 ```math
 \text{agreement}(x, y) = \frac{\lvert\{(r, s) \in R \bowtie_{k} S : \nu(r.x) = \nu(s.y)\}\rvert}{\lvert\{(r, s) \in R \bowtie_{k} S : r.x \neq \bot,\ s.y \neq \bot\}\rvert}
@@ -1185,7 +1205,7 @@ The UI asks for a token when the backend answers 401 and keeps it in the browser
 ### 12.6 Tests, demos and type checks
 
 ```bash
-pytest                                             # 144 tests, offline (~2–3 min)
+pytest                                             # 152 tests, offline (~2–3 min)
 pytest tests/test_schema_robustness.py -q          # one module
 python scripts/run_demo.py --sample --quiet        # headless conversation + artifact checks → "PASS"
 python scripts/run_demo.py --nyc --quiet           # needs scripts/download_demo_data.py first
@@ -1208,6 +1228,8 @@ python experiments/run_er_thresholds.py            # record-link thresholds per 
 python experiments/run_field_dependence.py         # lift between comparison fields → field_dependence.md
 python experiments/run_er_scaling.py               # ER at 2K–100K entities → er_scaling.md (--no-refine: baseline)
 python experiments/run_crosswalk.py                # LLM value crosswalks on/off → crosswalk.md (spends a few LLM tokens)
+python scripts/download_unseen_schemas.py          # Northwind (CSV) + Chinook (SQLite) → data/raw/
+python experiments/run_unseen_schemas.py           # published FKs vs discovered, root, grain, match rates → unseen_schemas.md
 python experiments/run_llm_eval.py --providers mock groq   # → llm_eval*.png (spends Groq tokens; --replot)
 python experiments/benchmark.py                    # 100K / 500K / 1M rows → benchmark_*.png
 ```
@@ -1400,14 +1422,29 @@ The remaining real misses need world knowledge (Manhattan ↔ New York County) o
 
 **Field dependence** (§7.6, `run_field_dependence.py`): lift 0.996–1.000 for all field pairs, so the log-linear extension was not adopted.
 
-**Relationship inference on unseen schemas** (§6.9, `experiments/run_schema_robustness.py`): 80 generated schemas with meaningless names (UUID hex, UUID with dashes, prefixed codes, integers × 20 seeds): **80/80 fully correct** (0 missed, 0 extra, 0 wrong N:1 direction, 0 false identifier links). On the real Olist data (8 tables, 551K rows) the inferred relationships match the published schema: items → orders, products, sellers; payments and reviews → orders (N:1); customers ↔ orders (1:1); products → category translation.
+**Unseen public databases** (`experiments/run_unseen_schemas.py`, data via `scripts/download_unseen_schemas.py`). Three databases the system was never tuned on, loaded whole with default settings. Their **published** foreign keys are the ground truth, used only for scoring:
+
+| Database | Tables | Rows | Published FKs found | Extra links | Merge root | Grain kept | Lookup match rates = ground truth | Validation |
+|---|---|---|---|---|---|---|---|---|
+| Northwind (CSV, orders) | 8 | 3,202 | **6/7** | 1 | order-details (fact) | yes | 6/6 | passed |
+| Chinook (SQLite, music store) | 11 | 15,607 | **9/10** | 1 | InvoiceLine (fact) | yes | 8/8 | passed |
+| Olist (CSV, e-commerce) | 9 | 1,550,922 | **7/7** | 2 | order_items (fact) | yes | 4/4 | passed |
+
+- **Before the fixes this run prompted:** Northwind **1/7** found (3 of its CSVs were read as a single column), Chinook 6/10 with **12 false links** between small integer keys, and Olist rooted at geolocation.
+- **Every join in the three merge plans is a published foreign key.** The one addition is Olist's zip code → geolocation aggregate, which is useful.
+- **Misses:** `orders.shipVia → shippers.shipperID` and `Customer.SupportRepId → Employee.EmployeeId`. Neither name refers to the other table, and the values are 1..3 and 3..5 inside dense 1..n keys, so no evidence exists in the data.
+- **Remaining extra links** are probabilistic "same kind of entity" candidates: shippers ~ suppliers (one shared phone number) and Genre ~ Playlist (shared names such as "Classical"). Record linkage only fuses records above the record-link threshold.
+
+**Relationship inference on generated schemas** (§6.9, `experiments/run_schema_robustness.py`): 80 generated schemas with meaningless names (UUID hex, UUID with dashes, prefixed codes, integers × 20 seeds): **80/80 fully correct** (0 missed, 0 extra, 0 wrong N:1 direction, 0 false identifier links). On the real Olist data (8 tables, 551K rows) the inferred relationships match the published schema: items → orders, products, sellers; payments and reviews → orders (N:1); customers ↔ orders (1:1); products → category translation.
 
 **Graph experiment**: orders must be linked to marketing contacts. Orders share only abbreviated buyer names with contacts ("R. Sharma"), but they reference accounts by a zero-padded code, and accounts share e-mails with contacts.
 
 | Approach | Correct | Wrong | Precision | Recall |
 |---|---|---|---|---|
-| Direct matching orders ↔ contacts | 0 | 4,000 | 0.000 | 0.000 |
+| Direct matching orders ↔ contacts | 0 | 0 (was 4,000) | — | 0.000 |
 | **Graph route orders → accounts → contacts (Dijkstra, MST)** | 3,402 | 0 | **1.000** | **0.951** |
+
+The direct baseline used to link all 4,000 orders to wrong contacts through probabilistic name matching. Since record linkage requires some identifying value to recur exactly (§6.9), abbreviated names alone no longer create a link, so it now links none. The graph route is unchanged.
 
 Full tables, plots and methodology: [docs/evaluation.md](docs/evaluation.md).
 
@@ -1434,7 +1471,7 @@ What was run during development, what it showed, and what was changed as a resul
 
 | What | How | Result |
 |---|---|---|
-| Test suite | `pytest` (22 modules: ingestion, profiler, schema matching, learned matcher, value crosswalks, entity resolution, adaptive blocking, calibration, active learning, graph, merge, bitemporal history, conflicts, provenance, uncertainty and scenarios, validation, LLM agent, rate limiting, schema robustness, session persistence and auth, API, end-to-end) | **144 passed**, exit code 0 |
+| Test suite | `pytest` (24 modules: ingestion, CSV repair and multi-table SQLite, profiler, schema matching, learned matcher, value crosswalks, entity resolution, adaptive blocking, calibration, active learning, graph, merge, bitemporal history, conflicts, provenance, uncertainty and scenarios, validation, LLM agent, rate limiting, schema robustness, unseen-schema rules, root choice, session persistence and auth, API, end-to-end) | **152 passed**, exit code 0 |
 | Sample end-to-end conversation | `python scripts/run_demo.py --sample` | PASS: 3,000 rows, 16/16 validation checks, all 7 required artifacts |
 | Real NYC end-to-end conversation | `python scripts/run_demo.py --nyc` | PASS: 500,000 rows, 19/19 validation checks, merge in ~2 s |
 | Real data correctness | Manhattan pickups vs published figures | 2010 population **1,585,873** (exact Census count); ACS population 1,629,477; median household income $103,931 |
@@ -1448,7 +1485,8 @@ What was run during development, what it showed, and what was changed as a resul
 | Encoder test | `run_ablation.py` (H, I), `run_schema_robustness.py --encoder …`, Olist inference | no gain on sample/NYC/Olist/robustness; fabricated hard −0.018 / −0.033 → not adopted |
 | New features end to end | `run_demo.py --sample` / `--nyc` after the changes; history, review queue and aggregate probed on the sample merge | PASS; `temporal_consistency` passes; NYC rows carry `_relationship_confidence` and $`p = 1`$ (key lookups only) |
 | Groq rate-limit control | live requests to read headers per model; 5-turn conversations on the sample data, back to back, with per-turn token accounting | 2.3K–4.2K tokens per turn (was ~7.5K); chained request ran both tools; no rule-parser fallbacks; one 55 s wait when all three models were minute-limited |
-| Olist e-commerce data (testing) | `python scripts/download_olist.py`, then load all 9 CSVs (1.55M rows) → discover → plan → merge | keys found: customer_id, order_id (payments, items, reviews), product_id, seller_id, category name, zip-code prefix; merge validation passed; **but** see §19.3 (root table) and 92 s discovery |
+| Olist e-commerce data (testing) | `python scripts/download_olist.py`, then load all 9 CSVs (1.55M rows) → discover → plan → merge | keys found: customer_id, order_id (payments, items, reviews), product_id, seller_id, category name, zip-code prefix; after the root fix one row per order item (112,650), every item matched to its order, product and seller; validation passed |
+| Unseen public databases | `run_unseen_schemas.py` on Northwind (8 CSVs), Chinook (11-table SQLite), Olist | FKs 6/7, 9/10, 7/7; root a fact table and grain kept in all three; every lookup match rate equals the DuckDB ground truth; after the changes: 80/80 generated schemas, graph experiment route unchanged, entity-resolution evaluation identical, both demos PASS |
 | Command reference (§12) | every curl / PowerShell / npm / pytest command in §12 run against the live backend (Groq qwen3.8-27b) and frontend | all succeed; walkthrough on the sample data: 3,000 rows, validation passed, 30 conflicts, 54 history rows, CSV download 3,001 lines |
 | Persisted sessions | live: session `persist-live` (sample data, merge) → backend restarted → `/sessions/current`, `/integration/output`, `/integration/history` | restored: 3 datasets, merge active, 3,000 rows, 54 history rows with `recorded_at`; listed by `GET /sessions` |
 | Multi-user auth | live backend with `DFG_API_TOKENS=alice:…,bob:…` | no token → 401, `/health` 200; alice creates a session (200); bob gets 404 for it and an empty session list; `?token=` works |
@@ -1507,7 +1545,12 @@ Earlier provider (kept for reference): NVIDIA NIM `moonshotai/kimi-k3` produced 
 | live rate-limit test | "Only merge matches above 95%, then merge them" ran only `set_preferences`: the follow-up round had no tools | follow-up rounds keep the selected tools |
 | live rate-limit test | the fallback model ran `set_preferences` + `execute_merge` while answering "Show me conflicts" (carried over from the previous turn) | follow-up rounds offer data-changing tools only if the current message asks for a change; prompt rule 8 |
 | live rate-limit test | a daily 429 made the limiter book the server's 198K tokens into its own 24 h window, blocking the model for a day although Groq's window is rolling | the 429's retry time is the only block; nothing is added to the local window |
-| Olist smoke test | planner chose the 1M-row geolocation lookup as the root table, so the output has one row per geolocation record; the natural grain is order items | **open**: root choice prefers the largest dataset that is never a lookup target; see §20 |
+| Olist smoke test / user report | planner chose the 1M-row geolocation lookup as the root table: one row per geolocation point, customers and orders aggregated into it, order values repeated per point | root = the dataset that keeps the most tables un-aggregated (§5.3); Olist now 112,650 rows at order-item grain |
+| user report (Olist output check) | the report said 1,627 items had no product and 303 no order, but every item had both | a lookup with its own nested lookup took the *nested* join's match flag for its statistics (and never wrote its own `_match_*` column); the attachment's own flag is now used. Test: 900/900 matched instead of 647/900 |
+| unseen-schema test (Northwind) | 3 of 8 CSVs read as a single column (DuckDB sniffer gives up on rows with an unquoted comma in the address), so their keys could not match anything | CSV repair (§4, 1a): 209 rows rebuilt, 0 ambiguous; `NULL` / `\N` read as missing (dates and integers now typed) |
+| unseen-schema test (Chinook) | a SQLite upload ingested only its first table (1 of 11) | one dataset per table (`Session.add_files`, upload and load-path) |
+| unseen-schema tests | small integer keys linked as the same entity (`categoryID = employeeID`, `AlbumId = InvoiceId`: 12 false links on Chinook); `customerID`, `address`, `companyName` treated as three roles, which crashed the merge; employees joined to customers by state | range-aware chance overlap + name support; alternate keys vs roles; shared attributes only aggregate keyless or quantity tables; record linkage needs recurring identifying values (§6.9) |
+| unseen-schema test (Northwind merge) | `_relationship_confidence` failed with a DECIMAL scale overflow once 7 joins were chained | confidences multiplied as DOUBLE |
 | user report (Olist upload) | after removing the sample data and uploading 8 Olist files, "merge all of it" answered "The merge is already complete" with the old sample report: the old merge stayed *active*, the state summary told the model so, and the model copied the report from chat history without calling a tool | adding or removing a dataset marks earlier merges `outdated`; the state summary says a new merge is needed; earlier assistant turns reach the model only as "ran: tool(ok)" plus a short excerpt; if an explicitly requested action gets a text-only answer, the model is asked once more to call the tool. Live re-run: `execute_merge` called, 8 datasets → 112,650 rows (one per order item), validation passed |
 | user report (Olist graph review) | the schema map showed `orders.customer_id` ↔ `reviews.review_id` (0 shared values), `order_estimated_delivery_date` ↔ `review_creation_date` (1.5% row agreement), reviews ↔ orders as 1:1 (551 repeated orders), sibling links payments ↔ reviews and items ↔ payments, and hash ids typed as free text | token-identifier typing; identifier value-overlap veto before alignment; row-level agreement check on key joins; strict uniqueness for 1:1; sibling-link removal (§6.9). Olist now matches its published schema |
 | robustness test (generated schemas) | prefixed codes: the identifier normaliser stripped `OR-`/`PR-`/`RV-` prefixes, faking 99% overlap between different id systems; integer keys: a 99.5%-unique child reference became the dimension of its own parent | identifier normaliser skipped for disjoint code prefixes; the more unique side is the referenced side. 80/80 generated schemas correct |
@@ -1548,7 +1591,10 @@ The main ones are below; the full list is in [docs/limitations.md](docs/limitati
 * **Overlapping files of the same table are joined, not appended.** Uploading two exports with the same schema (e.g. two months) links them as entities or lookups instead of stacking them. There is no union/append step yet.
 * **Only single-column keys are detected.** Composite keys (e.g. Olist `order_items` = `order_id` + `order_item_id`) are not recognised, so such tables show no 🔑 key.
 * **Row-level verification needs a key join.** Attribute correspondences inside aggregated lookups and probabilistic entity links are not checked row by row. Pairs with fewer than 30 comparable joined rows stay unverified.
-* **Root-table choice on star/snowflake schemas.** On Olist the planner rooted the merge at the 1M-row geolocation lookup (reached only through aggregate lookups) instead of order items, the table that references orders, products and sellers. The root heuristic (largest dataset never used as a lookup dimension) does not consider how many foreign keys a table holds. `primary_key` can pin the root as a workaround.
+* **References named after neither the key nor its table are missed when their values are small integers** (Northwind `shipVia` → shippers, Chinook `SupportRepId` → employees): overlap between dense 1..n ranges is no evidence, and nothing else links them. The user can approve the mapping.
+* **Record linkage is not attempted without exactly recurring identifying values.** Two tables whose only common evidence is abbreviated or misspelt names are not linked directly (they can still be linked through a third table, §17).
+* **CSV repair is a heuristic.** A row with extra fields is rebuilt by type consistency; when two adjacent text columns fit equally well the choice is counted as ambiguous in `metadata.csv_repair`. The original file is always kept.
+* **When there are several fact tables, one is chosen** (Chinook: invoice lines over playlist tracks); the other is aggregated onto it. `primary_key` pins the other grain.
 * **Discovery time grows with the number of tables:** 9 Olist tables (1.55M rows) took 92 s to discover, versus ~3 s for the 4 NYC sources.
 * Docker images were not built on the development machine.
 
@@ -1561,7 +1607,8 @@ Implemented from the earlier lists, each kept only where measurement showed an i
 - **value crosswalks**, the evidence-based answer to the misses a contrastive encoder would not fix (§6.10);
 - **adaptive block refinement** for single-machine ER scaling (§7.1);
 - **persisted sessions** and optional **multi-user bearer-token auth** (§3, §12);
-- **bitemporal history** (`as_known_at`, §9.4) and **schema-level scenario analysis** (§9.5).
+- **bitemporal history** (`as_known_at`, §9.4) and **schema-level scenario analysis** (§9.5);
+- **fact-table root choice** (§5.3), found wrong on Olist and fixed.
 
 Assessed and not adopted, with evidence: contrastive/pretrained column encoders (no gain on real data, −0.02 to −0.03 F1 on hard fabricated schemas, 2× slower; §17), term-frequency adjustment and small-label recalibration (§7.6), log-linear field-interaction terms (field lift ≈ 1.0; §7.6).
 
@@ -1572,7 +1619,7 @@ What remains:
 * **Union/append** of same-schema files instead of joining them, and **composite keys** (`order_id` + `order_item_id`).
 * **Crosswalk scoring for subset vocabularies** (few values mapped into a much larger vocabulary), and a user-editable crosswalk review step in the UI.
 * **Shared session store** (PostgreSQL or a DuckDB file) for several backend workers, with versioned state migration; proper identity (OIDC) instead of static tokens.
-* Planner root choice on star schemas that weighs foreign-key count, and faster discovery for many-table schemas.
+* Faster discovery for many-table schemas, and one output per fact table when a schema has several (galaxy schemas).
 
 ---
 

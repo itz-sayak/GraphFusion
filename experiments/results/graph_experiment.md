@@ -14,7 +14,7 @@ Linking each order to the correct contact:
 
 | approach | linkable_orders | linked | correct | wrong | precision | recall |
 |---|---|---|---|---|---|---|
-| Direct A↔C (shared abbreviated names) | 3576 | 4000 | 0 | 4000 | 0.000 | 0.000 |
+| Direct A↔C (shared abbreviated names) | 3576 | 0 | 0 | 0 | 0.000 | 0.000 |
 | Graph route A→B→C (system) | 3576 | 3402 | 3402 | 0 | 1.000 | 0.951 |
 
 ## Real-world counterpart (NYC)

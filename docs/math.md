@@ -28,6 +28,26 @@ Dijkstra is exact for non-negative costs, so it returns the maximum-reliability 
 
 With linear costs `Σ (1 − c_i)`, ranking does not follow reliability. Three hops of 0.8 cost 0.60 (ρ = 0.512), while a direct 0.45 edge costs 0.55 (ρ = 0.45). Linear costs choose the direct edge; `−log` costs (0.669 vs 0.799) choose the more reliable path. `tests/test_graph.py::test_neglog_and_linear_costs_disagree_where_documented` asserts this.
 
+## Chance overlap of integer keys
+
+For a key column $`t`$ dense on $`[l, h]`$ ($`\text{distinct}(t) \ge 0.9\,(h - l + 1)`$) and a reference $`r`$ spread over $`[l_r, h_r]`$, the containment expected from the ranges alone is
+
+```math
+\mathbb{E}[\text{cont}(r, t)] = \frac{\max\big(0,\ \min(h, h_r) - \max(l, l_r) + 1\big)}{h_r - l_r + 1}
+```
+
+An observed containment $`\le \mathbb{E} + 0.05`$ carries no evidence, and the link then needs name support.
+
+## Root choice
+
+With $`T`$ the spanning tree and $`\mathrm{keeps}(u \to v)`$ true for same-entity joins and for lookups whose fact side is $`u`$,
+
+```math
+\mathrm{root} = \arg\max_{d}\ \Big( \big|\{v : \text{every edge on the } T\text{-path } d \leadsto v \text{ keeps the grain}\}\big|,\ [d \notin \text{dims}],\ \text{rows}(d) \Big)
+```
+
+(lexicographic). Every other dataset is aggregated on the way, so the root minimises the number of summarised tables.
+
 ## Merge structure
 
 Among the relationships above the mode threshold, the join structure is the maximum spanning forest

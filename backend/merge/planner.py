@@ -5,9 +5,15 @@
 3. Maximum spanning tree per component → acyclic join structure with the
    highest total confidence (redundant, weaker relationships are listed as
    excluded together with the stronger route that replaces them).
-4. Root = finest grain: a dataset that is never the dimension side of a
-   lookup (the largest such). Rooting there preserves e.g. trip-level
-   granularity; a user-pinned primary identifier overrides the choice.
+4. Root = the grain that keeps the most data un-aggregated: for every
+   candidate, orient the tree from it and count the datasets reachable
+   through N:1 lookups and same-entity joins alone (no aggregation on the
+   way). The root maximises that count; ties go to a dataset that is never a
+   lookup dimension, then to the larger one. A star schema's fact table wins
+   (it references every dimension), a trip table stays at trip grain, and a
+   large reference table that only joins through aggregation (e.g. zip-code
+   geolocation points) is never chosen merely for its size. A user-pinned
+   primary identifier overrides the choice.
 5. Orient the tree from the root. A lookup whose fact side is the *child*
    would change the grain, so it becomes an aggregation (child aggregated to
    the key before joining). Entity-resolution / shared-key edges form entity
@@ -57,6 +63,27 @@ def _pk_dataset(primary_key: str | None, profiles: dict[str, DatasetProfile]) ->
     if not hits:
         raise ToolArgumentError(f"Primary identifier {primary_key!r} does not exist in any loaded dataset")
     return hits[0]
+
+
+def _preserved_datasets(forest: nx.Graph, rel_by_pair: dict, root: str) -> int:
+    """Datasets whose rows join a plan rooted at ``root`` without being aggregated.
+
+    An edge keeps the grain when it is a same-entity join, or a lookup whose fact (many) side is the parent.
+    Reverse lookups and aggregated lookups collapse the child to the parent's key, and everything below them.
+    """
+    seen, stack = {root}, [root]
+    while stack:
+        parent = stack.pop()
+        for child in forest.neighbors(parent):
+            if child in seen:
+                continue
+            r = rel_by_pair[frozenset((parent, child))]
+            keeps = r.join_kind in (JoinKind.ENTITY_RESOLUTION, JoinKind.ENTITY_KEY_MERGE) or (
+                r.join_kind == JoinKind.LOOKUP and r.evidence.get("fact") == parent)
+            if keeps:
+                seen.add(child)
+                stack.append(child)
+    return len(seen)
 
 
 def build_plan(
@@ -116,9 +143,7 @@ def build_plan(
     if pk:
         root = pk[0]
     else:
-        facts = [d for d in main if d not in dims]
-        pool = facts or main
-        root = max(pool, key=lambda d: (artifacts[d].row_count, d))
+        root = max(main, key=lambda d: (_preserved_datasets(forest, rel_by_pair, d), d not in dims, artifacts[d].row_count, d))
 
     # ------------------------------------------------------------ orientation
     depth = {root: 0}

@@ -44,7 +44,7 @@ curl -X POST http://localhost:8000/demo/nyc
 
 | | |
 |---|---|
-| `POST /datasets/upload` | multipart `files`; returns loaded summaries and per-file errors |
+| `POST /datasets/upload` | multipart `files`; returns loaded summaries and per-file errors. A SQLite file with several tables loads one dataset per table; a CSV the sniffer cannot split is repaired (`metadata.csv_repair`) |
 | `POST /datasets/load-path` | `{"paths": [...]}` relative to `data/` (traversal rejected) |
 | `POST /datasets/load-url` | `{"url", "name", "params"?, "page_size"?}` JSON REST source (optional) |
 | `POST /demo/{sample\|nyc}` | load a demo scenario |

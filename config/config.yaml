@@ -104,6 +104,7 @@ merge:
   attribute_verify_sample: 20000
   lookup_min_containment: 0.80
   entity_min_overlap: 0.30
+  entity_min_shared_values: 0.02   # record linkage needs this share of an identifying field (name/e-mail/phone) to recur across the tables
   vendor_prefixes: [tpep, lpep]
   base_currency: USD
 

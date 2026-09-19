@@ -1,0 +1,537 @@
+[
+  {
+    "database": "Northwind",
+    "tables": 8,
+    "rows": 3202,
+    "published_fks": 7,
+    "found": 6,
+    "missed": [
+      "orders.shipVia -> shippers.shipperID"
+    ],
+    "extra_links": [
+      {
+        "left": "shippers",
+        "right": "suppliers",
+        "kind": "entity_resolution",
+        "confidence": 0.586,
+        "dimension": "",
+        "keys": [
+          "shippers.companyName = suppliers.companyName",
+          "shippers.phone = suppliers.phone"
+        ]
+      }
+    ],
+    "root": "order-details",
+    "root_is_fact": true,
+    "output_rows": 2155,
+    "root_rows": 2155,
+    "grain_kept": true,
+    "validation": true,
+    "joins": [
+      {
+        "join": "orders <- customers",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "orders <- employees",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "order-details <- orders",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "products <- categories",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "products <- suppliers",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "order-details <- products",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      }
+    ],
+    "links": [
+      {
+        "left": "customers",
+        "right": "orders",
+        "kind": "lookup",
+        "confidence": 1.0,
+        "dimension": "customers",
+        "keys": [
+          "customers.customerID = orders.customerID"
+        ]
+      },
+      {
+        "left": "order-details",
+        "right": "products",
+        "kind": "lookup",
+        "confidence": 0.916,
+        "dimension": "products",
+        "keys": [
+          "order-details.productID = products.productID"
+        ]
+      },
+      {
+        "left": "order-details",
+        "right": "orders",
+        "kind": "lookup",
+        "confidence": 0.912,
+        "dimension": "orders",
+        "keys": [
+          "order-details.orderID = orders.orderID"
+        ]
+      },
+      {
+        "left": "products",
+        "right": "suppliers",
+        "kind": "lookup",
+        "confidence": 0.908,
+        "dimension": "suppliers",
+        "keys": [
+          "products.supplierID = suppliers.supplierID"
+        ]
+      },
+      {
+        "left": "employees",
+        "right": "orders",
+        "kind": "lookup",
+        "confidence": 0.893,
+        "dimension": "employees",
+        "keys": [
+          "employees.employeeID = orders.employeeID"
+        ]
+      },
+      {
+        "left": "categories",
+        "right": "products",
+        "kind": "lookup",
+        "confidence": 0.878,
+        "dimension": "categories",
+        "keys": [
+          "categories.categoryID = products.categoryID"
+        ]
+      },
+      {
+        "left": "shippers",
+        "right": "suppliers",
+        "kind": "entity_resolution",
+        "confidence": 0.586,
+        "dimension": "",
+        "keys": [
+          "shippers.companyName = suppliers.companyName",
+          "shippers.phone = suppliers.phone"
+        ]
+      }
+    ],
+    "seconds": {
+      "load": 2.0,
+      "discover": 1.8,
+      "merge": 0.4
+    }
+  },
+  {
+    "database": "Chinook",
+    "tables": 11,
+    "rows": 15607,
+    "published_fks": 10,
+    "found": 9,
+    "missed": [
+      "Customer.SupportRepId -> Employee.EmployeeId"
+    ],
+    "extra_links": [
+      {
+        "left": "Genre",
+        "right": "Playlist",
+        "kind": "entity_resolution",
+        "confidence": 0.553,
+        "dimension": "",
+        "keys": [
+          "Genre.Name = Playlist.Name"
+        ]
+      }
+    ],
+    "root": "InvoiceLine",
+    "root_is_fact": true,
+    "output_rows": 2240,
+    "root_rows": 2240,
+    "grain_kept": true,
+    "validation": true,
+    "joins": [
+      {
+        "join": "Invoice <- Customer",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "InvoiceLine <- Invoice",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "Album <- Artist",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "Track <- Album",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "Track <- Genre",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "Track <- MediaType",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "PlaylistTrack <- Playlist",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "Track <- PlaylistTrack",
+        "kind": "aggregate",
+        "reported": 1.0,
+        "truth": null,
+        "ok": null
+      },
+      {
+        "join": "InvoiceLine <- Track",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      }
+    ],
+    "links": [
+      {
+        "left": "Customer",
+        "right": "Invoice",
+        "kind": "lookup",
+        "confidence": 0.954,
+        "dimension": "Customer",
+        "keys": [
+          "Customer.CustomerId = Invoice.CustomerId"
+        ]
+      },
+      {
+        "left": "Invoice",
+        "right": "InvoiceLine",
+        "kind": "lookup",
+        "confidence": 0.912,
+        "dimension": "Invoice",
+        "keys": [
+          "Invoice.InvoiceId = InvoiceLine.InvoiceId"
+        ]
+      },
+      {
+        "left": "PlaylistTrack",
+        "right": "Track",
+        "kind": "lookup",
+        "confidence": 0.912,
+        "dimension": "Track",
+        "keys": [
+          "PlaylistTrack.TrackId = Track.TrackId"
+        ]
+      },
+      {
+        "left": "Album",
+        "right": "Track",
+        "kind": "lookup",
+        "confidence": 0.909,
+        "dimension": "Album",
+        "keys": [
+          "Album.AlbumId = Track.AlbumId"
+        ]
+      },
+      {
+        "left": "Genre",
+        "right": "Track",
+        "kind": "lookup",
+        "confidence": 0.897,
+        "dimension": "Genre",
+        "keys": [
+          "Genre.GenreId = Track.GenreId"
+        ]
+      },
+      {
+        "left": "Album",
+        "right": "Artist",
+        "kind": "lookup",
+        "confidence": 0.892,
+        "dimension": "Artist",
+        "keys": [
+          "Album.ArtistId = Artist.ArtistId"
+        ]
+      },
+      {
+        "left": "InvoiceLine",
+        "right": "Track",
+        "kind": "lookup",
+        "confidence": 0.886,
+        "dimension": "Track",
+        "keys": [
+          "InvoiceLine.TrackId = Track.TrackId"
+        ]
+      },
+      {
+        "left": "Playlist",
+        "right": "PlaylistTrack",
+        "kind": "lookup",
+        "confidence": 0.869,
+        "dimension": "Playlist",
+        "keys": [
+          "Playlist.PlaylistId = PlaylistTrack.PlaylistId"
+        ]
+      },
+      {
+        "left": "MediaType",
+        "right": "Track",
+        "kind": "lookup",
+        "confidence": 0.855,
+        "dimension": "MediaType",
+        "keys": [
+          "MediaType.MediaTypeId = Track.MediaTypeId"
+        ]
+      },
+      {
+        "left": "Genre",
+        "right": "Playlist",
+        "kind": "entity_resolution",
+        "confidence": 0.553,
+        "dimension": "",
+        "keys": [
+          "Genre.Name = Playlist.Name"
+        ]
+      }
+    ],
+    "seconds": {
+      "load": 1.5,
+      "discover": 1.2,
+      "merge": 0.4
+    }
+  },
+  {
+    "database": "Olist",
+    "tables": 9,
+    "rows": 1550922,
+    "published_fks": 7,
+    "found": 7,
+    "missed": [],
+    "extra_links": [
+      {
+        "left": "customers",
+        "right": "geolocation",
+        "kind": "aggregate_lookup",
+        "confidence": 0.775,
+        "dimension": "customers",
+        "keys": [
+          "customers.customer_zip_code_prefix = geolocation.geolocation_zip_code_prefix"
+        ]
+      },
+      {
+        "left": "geolocation",
+        "right": "sellers",
+        "kind": "aggregate_lookup",
+        "confidence": 0.745,
+        "dimension": "sellers",
+        "keys": [
+          "geolocation.geolocation_state = sellers.seller_state"
+        ]
+      }
+    ],
+    "root": "order_items",
+    "root_is_fact": true,
+    "output_rows": 112650,
+    "root_rows": 112650,
+    "grain_kept": true,
+    "validation": true,
+    "joins": [
+      {
+        "join": "orders <- order_payments",
+        "kind": "aggregate",
+        "reported": 1.0,
+        "truth": null,
+        "ok": null
+      },
+      {
+        "join": "orders <- order_reviews",
+        "kind": "aggregate",
+        "reported": 0.9923,
+        "truth": null,
+        "ok": null
+      },
+      {
+        "join": "customers <- geolocation",
+        "kind": "aggregate",
+        "reported": 0.9972,
+        "truth": null,
+        "ok": null
+      },
+      {
+        "join": "order_items <- orders",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "products <- product_category_name_translation",
+        "kind": "lookup",
+        "reported": 0.9811,
+        "truth": 0.9811,
+        "ok": true
+      },
+      {
+        "join": "order_items <- products",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      },
+      {
+        "join": "order_items <- sellers",
+        "kind": "lookup",
+        "reported": 1.0,
+        "truth": 1.0,
+        "ok": true
+      }
+    ],
+    "links": [
+      {
+        "left": "order_reviews",
+        "right": "orders",
+        "kind": "lookup",
+        "confidence": 1.0,
+        "dimension": "orders",
+        "keys": [
+          "order_reviews.order_id = orders.order_id"
+        ]
+      },
+      {
+        "left": "order_items",
+        "right": "sellers",
+        "kind": "lookup",
+        "confidence": 1.0,
+        "dimension": "sellers",
+        "keys": [
+          "order_items.seller_id = sellers.seller_id"
+        ]
+      },
+      {
+        "left": "order_items",
+        "right": "products",
+        "kind": "lookup",
+        "confidence": 1.0,
+        "dimension": "products",
+        "keys": [
+          "order_items.product_id = products.product_id"
+        ]
+      },
+      {
+        "left": "order_payments",
+        "right": "orders",
+        "kind": "lookup",
+        "confidence": 1.0,
+        "dimension": "orders",
+        "keys": [
+          "order_payments.order_id = orders.order_id"
+        ]
+      },
+      {
+        "left": "customers",
+        "right": "orders",
+        "kind": "entity_key_merge",
+        "confidence": 1.0,
+        "dimension": "",
+        "keys": [
+          "customers.customer_id = orders.customer_id"
+        ]
+      },
+      {
+        "left": "order_items",
+        "right": "orders",
+        "kind": "lookup",
+        "confidence": 0.999,
+        "dimension": "orders",
+        "keys": [
+          "order_items.order_id = orders.order_id"
+        ]
+      },
+      {
+        "left": "products",
+        "right": "product_category_name_translation",
+        "kind": "lookup",
+        "confidence": 0.928,
+        "dimension": "product_category_name_translation",
+        "keys": [
+          "products.product_category_name = product_category_name_translation.product_category_name"
+        ]
+      },
+      {
+        "left": "customers",
+        "right": "geolocation",
+        "kind": "aggregate_lookup",
+        "confidence": 0.775,
+        "dimension": "customers",
+        "keys": [
+          "customers.customer_zip_code_prefix = geolocation.geolocation_zip_code_prefix"
+        ]
+      },
+      {
+        "left": "geolocation",
+        "right": "sellers",
+        "kind": "aggregate_lookup",
+        "confidence": 0.745,
+        "dimension": "sellers",
+        "keys": [
+          "geolocation.geolocation_state = sellers.seller_state"
+        ]
+      }
+    ],
+    "seconds": {
+      "load": 11.3,
+      "discover": 48.0,
+      "merge": 10.7
+    }
+  }
+]

@@ -4,7 +4,7 @@
 
 | identifier format | scenarios | fully correct | missed relationships | extra relationships | wrong N:1 direction | false identifier links | discovery (s) |
 |---|---|---|---|---|---|---|---|
-| uuid_hex | 20 | 20 | 0 | 0 | 0 | 0 | 0.74 |
-| uuid_dashed | 20 | 20 | 0 | 0 | 0 | 0 | 0.73 |
-| prefixed | 20 | 20 | 0 | 0 | 0 | 0 | 0.86 |
-| integer | 20 | 20 | 0 | 0 | 0 | 0 | 0.97 |
+| uuid_hex | 20 | 20 | 0 | 0 | 0 | 0 | 0.15 |
+| uuid_dashed | 20 | 20 | 0 | 0 | 0 | 0 | 0.13 |
+| prefixed | 20 | 20 | 0 | 0 | 0 | 0 | 0.11 |
+| integer | 20 | 20 | 0 | 0 | 0 | 0 | 0.12 |

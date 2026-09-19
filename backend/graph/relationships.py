@@ -16,6 +16,7 @@ relationship.
 """
 from __future__ import annotations
 
+import re
 from collections import defaultdict
 
 from backend.core.models import ColumnMatch, ColumnProfile, DataType, DatasetProfile, DatasetRelationship, JoinKind, SemanticType
@@ -46,6 +47,76 @@ def effective_uniqueness(col: ColumnProfile, profile: DatasetProfile) -> float:
     non_null = profile.row_count - col.null_count
     denom = max(1, non_null - profile.duplicate_rows)
     return min(1.0, col.unique_count / denom) if non_null else 0.0
+
+
+_KEY_WORDS = {"id", "key", "code", "no", "num", "nr", "fk", "pk", "ref"}
+
+
+def _name_tokens(name: str) -> set[str]:
+    """Content words of a column or table name: camelCase / snake_case / digits split, key words dropped, singular."""
+    words = re.findall(r"[A-Z]+(?![a-z])|[A-Z]?[a-z]+|\d+", name)
+    out = set()
+    for w in (w.lower() for w in words):
+        if w in _KEY_WORDS or w.isdigit():
+            continue
+        if w.endswith("ies") and len(w) > 4:
+            w = w[:-3] + "y"
+        elif w.endswith("s") and not w.endswith("ss") and len(w) > 3:
+            w = w[:-1]
+        out.add(w)
+    return out
+
+
+def _tokens_agree(a: set[str], b: set[str]) -> bool:
+    return any(x == y or (min(len(x), len(y)) >= 4 and (x.startswith(y) or y.startswith(x))) for x in a for y in b)
+
+
+def chance_overlap(ref: ColumnProfile, tgt: ColumnProfile, observed: float) -> bool:
+    """True when the observed containment of ``ref`` in ``tgt`` is what their integer ranges alone produce.
+
+    Auto-increment keys fill 1..n densely, so any two of them overlap: with ``tgt`` dense on [lo, hi], a column
+    spread over [rlo, rhi] is expected to be contained to the extent the ranges intersect. An overlap no larger
+    than that carries no evidence that the columns refer to the same things."""
+    if ref.data_type != DataType.INTEGER or tgt.data_type != DataType.INTEGER:
+        return False
+    try:
+        lo, hi, rlo, rhi = int(tgt.min), int(tgt.max), int(ref.min), int(ref.max)
+    except (TypeError, ValueError):
+        return False
+    span, rspan = hi - lo + 1, rhi - rlo + 1
+    if span <= 0 or rspan <= 0 or tgt.unique_count < 0.9 * span:
+        return False
+    expected = max(0, min(hi, rhi) - max(lo, rlo) + 1) / rspan
+    return expected > 0 and observed <= expected + 0.05
+
+
+def name_support(ref: ColumnProfile, tgt: ColumnProfile, tgt_dataset: str) -> bool:
+    """The reference shares a content word with the key it points to (PULocationID → LocationID), or with the
+    table that holds it (shipVia → shippers). Generic words (id, key, code, no) do not count."""
+    ref_t = _name_tokens(ref.name)
+    return _tokens_agree(ref_t, _name_tokens(tgt.name)) or _tokens_agree(ref_t, _name_tokens(tgt_dataset))
+
+
+def _uninformative(m: ColumnMatch, ca: ColumnProfile, cb: ColumnProfile, da: str, db: str) -> bool:
+    """Both directions of an integer correspondence overlap only by range and neither name points to the other."""
+    ev = m.evidence
+    return (chance_overlap(ca, cb, ev.containment_left) and not name_support(ca, cb, db)) and (
+        chance_overlap(cb, ca, ev.containment_right) and not name_support(cb, ca, da))
+
+
+def _has_key(profile: DatasetProfile, key_unique: float) -> bool:
+    """The table identifies its rows with a column of its own (an entity table, not a keyless reference table)."""
+    return profile.row_count > 1 and any(
+        c.semantic_type not in _MEASURES and c.data_type != DataType.FLOAT and effective_uniqueness(c, profile) >= key_unique for c in profile.columns)
+
+
+def _aggregatable(profile: DatasetProfile, key_unique: float) -> bool:
+    """Summarising the table by a grouping attribute yields meaningful figures: it has no key of its own, or most
+    of its columns are quantities."""
+    if not _has_key(profile, key_unique):
+        return True
+    measures = sum(1 for c in profile.columns if c.semantic_type in (SemanticType.NUMERIC, SemanticType.CURRENCY))
+    return measures >= 0.5 * len(profile.columns)
 
 
 def infer_relationships(profiles: dict[str, DatasetProfile], matches: list[ColumnMatch], config: dict) -> list[DatasetRelationship]:
@@ -79,6 +150,8 @@ def infer_relationships(profiles: dict[str, DatasetProfile], matches: list[Colum
             # a reference into a unique key (either direction)
             for ref, tgt, cont, dim in ((ca, cb, ev.containment_left, db), (cb, ca, ev.containment_right, da)):
                 tgt_profile = pb if tgt is cb else pa
+                if chance_overlap(ref, tgt, cont) and not name_support(ref, tgt, dim):
+                    continue  # two surrogate-key ranges overlap by construction; without name evidence it is no link
                 if effective_uniqueness(tgt, tgt_profile) >= key_unique and tgt.unique_count > 1 and (ref.semantic_type in _KEYISH or verified_fk):
                     coverage = row_weighted_coverage(ref, tgt, ev.normalizer)
                     cov = coverage if coverage is not None else cont
@@ -96,6 +169,19 @@ def infer_relationships(profiles: dict[str, DatasetProfile], matches: list[Colum
                 weaker = da if ua < ub else db
                 del lookups_by_dim[weaker]
         for dim, items in lookups_by_dim.items():
+            # several fact columns referencing the *same* key column are roles (pickup / dropoff → LocationID);
+            # references to *different* columns of the dimension (customerID, address, companyName) describe one
+            # link: the best identifier is the key, the others are matching attributes
+            by_key: dict[str, list] = defaultdict(list)
+            for it in items:
+                by_key[it[0].right.column if dim == db else it[0].left.column].append(it)
+            if len(by_key) > 1:
+                dprof = pb if dim == db else pa
+
+                def key_rank(col: str) -> tuple:
+                    c = dprof.column(col)
+                    return (c.semantic_type == SemanticType.ID, max(it[0].score for it in by_key[col]), effective_uniqueness(c, dprof))
+                items = by_key[max(by_key, key=key_rank)]
             both_unique = all(
                 effective_uniqueness(pa.column(m.left.column), pa) >= entity_unique and effective_uniqueness(pb.column(m.right.column), pb) >= entity_unique
                 for m, _, _ in items
@@ -114,7 +200,9 @@ def infer_relationships(profiles: dict[str, DatasetProfile], matches: list[Colum
         # probabilistic entity resolution: descriptive, discriminative correspondences
         descriptive = [m for m in ms if pa.column(m.left.column).semantic_type not in _MEASURES]
         discriminative = [m for m in descriptive if pa.column(m.left.column).semantic_type in _DISCRIMINATIVE or pb.column(m.right.column).semantic_type in _DISCRIMINATIVE]
-        if len(descriptive) >= 2 and discriminative:
+        # two tables describe common entities only if some identifying value (name, e-mail, phone) actually recurs
+        shared = max((max(m.evidence.containment_left, m.evidence.containment_right) for m in discriminative), default=0.0)
+        if len(descriptive) >= 2 and discriminative and shared >= float(merge_cfg.get("entity_min_shared_values", 0.02)):
             top = sorted((m.score for m in descriptive), reverse=True)[:3]
             both_entity_like = min(pa.row_count, pb.row_count) > 0 and max(pa.row_count, pb.row_count) / max(1, min(pa.row_count, pb.row_count)) < 20
             if both_entity_like:
@@ -125,7 +213,13 @@ def infer_relationships(profiles: dict[str, DatasetProfile], matches: list[Colum
         if not lookups_by_dim:
             for m in ms:
                 ca, cb = pa.column(m.left.column), pb.column(m.right.column)
-                if ca.semantic_type in _MEASURES or cb.semantic_type in _MEASURES:
+                if ca.semantic_type in _MEASURES or cb.semantic_type in _MEASURES or _uninformative(m, ca, cb, da, db):
+                    continue
+                # an attribute unique on neither side (state, country, job title) joins two tables only if summarising
+                # one of them by it means something: a keyless reference table (geolocation points per zip) or a
+                # table of quantities (demographics per borough). Two tables of described entities merely share it.
+                shared_attribute = max(effective_uniqueness(ca, pa), effective_uniqueness(cb, pb)) < key_unique
+                if shared_attribute and not (_aggregatable(pa, key_unique) or _aggregatable(pb, key_unique)):
                     continue
                 cov_ab = row_weighted_coverage(ca, cb, m.evidence.normalizer)
                 cov_ba = row_weighted_coverage(cb, ca, m.evidence.normalizer)

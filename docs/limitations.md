@@ -26,6 +26,9 @@
 ## Relationship inference
 
 * Only single-column keys are detected; composite keys are not.
+* Small-integer references named after neither the key nor its table are missed (Northwind `shipVia`, Chinook `SupportRepId`): overlap of dense 1..n ranges is treated as no evidence.
+* Probabilistic links between tables of the same kind of entity can still appear when a few identifying values recur by coincidence (Northwind shippers ~ suppliers via one phone number; Chinook Genre ~ Playlist via shared names). Records are only fused above the record-link threshold.
+* Tables whose only common evidence is abbreviated or misspelt names are not linked directly (record linkage needs ≥ 2% exactly recurring identifying values); a route through a third table still works.
 * Row-level verification of attribute correspondences needs a key join (lookup or 1:1); aggregated lookups and probabilistic entity links are not verified row by row, and pairs with < 30 comparable joined rows stay unverified.
 * The identifier veto rejects genuinely related identifier systems that share no values (e.g. an old and a new customer numbering without a crosswalk); linking those needs a mapping table.
 * The robustness generator (`experiments/run_schema_robustness.py`) was written alongside the rules and uses one star-schema shape; it guards known failure modes rather than proving general correctness.
@@ -35,7 +38,8 @@
 * Two files with the same schema (e.g. monthly exports) are treated as related datasets and joined, not appended; a union step is not implemented.
 
 * One integration tree per plan: datasets outside the main connected component are reported and left unmerged, not merged separately.
-* The root table is the largest dataset never used as a lookup dimension. On Olist this picked the 1M-row geolocation table (joined only by aggregate lookups on zip prefix and state) instead of order items, so the output grain was wrong for analysis. Pinning `primary_key` works around it; a foreign-key-count criterion would fix it.
+* With several fact tables (Chinook invoice lines and playlist tracks) one grain is chosen, the one keeping more tables un-aggregated; the other fact table is aggregated onto it. Pin `primary_key` for the other grain.
+* CSV repair of rows with unquoted delimiters is heuristic (type consistency plus the ", " cue); ambiguous choices are counted in the dataset metadata, and the original file is kept.
 * Discovery on 9 Olist tables (1.55M rows) took 92 s; candidate generation and scoring grow with the number of table pairs.
 * Aggregation functions are chosen from names and types (sum for counts/amounts, avg for rates/medians). Values constant within a group pass through, but a genuinely non-additive measure with a count-like name could be summed wrongly. The `_sum`/`_avg` suffix makes the choice visible.
 * Currency conversion uses a static, dated rate table rather than historical rates at transaction time.

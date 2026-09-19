@@ -22,6 +22,7 @@ from backend.core.models import SourceType
 from backend.storage.duck import connect, quote_ident, quote_literal
 
 LARGE_JSON_BYTES = 256 * 1024 * 1024
+NULL_SQL = r"'', 'NULL', '\N'"  # empty, and the null markers of SQL exports
 
 
 def write_parquet(source_type: SourceType, src: Path, dest: Path, options: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -74,11 +75,26 @@ def _csv(src: Path, dest: Path, options: dict[str, Any]) -> dict[str, Any]:
     promotions: dict[str, str] = {}
     with connect() as con:
         cols = [r[0] for r in con.execute(f"DESCRIBE SELECT * FROM {reader}").fetchall()]
+    if len(cols) == 1 and not delim and not options.get("_repaired"):
+        # the sniffer collapsed a delimited file into one column: usually ragged rows (a delimiter inside an
+        # unquoted text value). Rebuild a well-formed file and read that instead.
+        from backend.ingestion.csv_repair import needs_repair, repair
+
+        d = needs_repair(src)
+        if d:
+            fixed = dest.with_name(dest.stem + ".repaired.csv")
+            try:
+                stats = repair(src, fixed, d)
+                meta = _csv(fixed, dest, {**options, "delimiter": ",", "_repaired": True})
+            finally:
+                fixed.unlink(missing_ok=True)
+            return {**meta, "csv_repair": stats}
+    with connect() as con:
         if cols:
             checks: list[str] = []
             for c in cols:
                 q = quote_ident(c)
-                nn = f"{q} IS NOT NULL AND trim({q}) <> ''"
+                nn = f"{q} IS NOT NULL AND trim({q}) NOT IN ({NULL_SQL})"
                 checks += [
                     # TRY_CAST('11.5' AS BIGINT) rounds instead of failing, so require an integer literal
                     f"bool_and(regexp_matches(trim({q}), '^-?[0-9]+$') AND TRY_CAST({q} AS BIGINT) IS NOT NULL AND NOT regexp_matches(trim({q}), '^-?0[0-9]')) FILTER (WHERE {nn})",
@@ -100,8 +116,10 @@ def _csv(src: Path, dest: Path, options: dict[str, Any]) -> dict[str, Any]:
         select = []
         for c in cols:
             q = quote_ident(c)
-            text = f"NULLIF(trim({q}), '')"
-            select.append(f"CAST({text} AS {promotions[c]}) AS {q}" if c in promotions else f"{q} AS {q}")
+            if c in promotions:
+                select.append(f"CAST(CASE WHEN trim({q}) IN ({NULL_SQL}) THEN NULL ELSE trim({q}) END AS {promotions[c]}) AS {q}")
+            else:  # SQL-export null markers (NULL, \N) are missing values; other text is kept as written
+                select.append(f"CASE WHEN {q} IN ({NULL_SQL}) THEN NULL ELSE {q} END AS {q}")
         con.execute(f"COPY (SELECT {', '.join(select) or '*'} FROM {reader}) TO {quote_literal(dest.as_posix())} (FORMAT parquet)")
     return {"reader": "duckdb.read_csv(lossless)", "promoted_types": promotions}
 

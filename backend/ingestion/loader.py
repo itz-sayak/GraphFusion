@@ -49,7 +49,9 @@ def ingest_file(
     path = Path(path)
     source_name = source_name or path.name
     source_type = detect_format(path)
-    dataset_id = make_dataset_id(source_name, existing_ids)
+    table = (options or {}).get("table")
+    # a table of a multi-table source (SQLite) is its own dataset, named after the table
+    dataset_id = make_dataset_id(f"{table}.table" if table else source_name, existing_ids)
 
     raw_copy, checksum = workspace.preserve_original(path, dataset_id)
     dest = workspace.processed_path(dataset_id)
