@@ -16,16 +16,16 @@ User: Merge them, but only matches above 95% and prefer the most recent values.
 
 1. [Problem statement](#1-problem-statement)
 2. [Motivation](#2-motivation)
-3. [Architecture](#3-architecture)
-4. [Algorithms](#4-algorithms)
+3. [Architecture](#3-architecture) (3.1 module reference, 3.2 user interface)
+4. [Algorithms](#4-algorithms) (4.1 machine learning)
 5. [Graph formulation](#5-graph-formulation) (5.4 schema map)
 6. [Schema matching](#6-schema-matching) (6.9 robustness rules, 6.10 value crosswalks)
 7. [Entity resolution](#7-entity-resolution) (7.1 adaptive blocking, 7.6 calibrated probabilities)
 8. [Merge planner](#8-merge-planner)
 9. [Conflict resolution and provenance](#9-conflict-resolution-and-provenance) (9.4 bitemporal history, 9.5 uncertainty and scenarios)
 10. [Chatbot architecture](#10-chatbot-architecture) (10.1 rate limits)
-11. [Installation](#11-installation)
-12. [Running locally: command reference](#12-running-locally-command-reference)
+11. [Installation](#11-installation) (11.1 configuration, 11.2 environment variables, 11.3 reference data)
+12. [Running locally: command reference](#12-running-locally-command-reference) (12.9 output files)
 13. [Running with Docker](#13-running-with-docker)
 14. [Downloading demo data](#14-downloading-demo-data)
 15. [Running the real-world example](#15-running-the-real-world-example)
@@ -115,6 +115,67 @@ docs/         architecture, algorithms, math, API, evaluation, limitations
 
 Details: [docs/architecture.md](docs/architecture.md).
 
+### 3.1 Module reference
+
+Every backend module and what it is responsible for (`backend/`):
+
+| Module | Responsibility |
+|---|---|
+| `main.py` | FastAPI app: CORS, request logging, optional bearer-token auth, session persistence after every successful mutating request |
+| `config.py` | Environment settings (`DFG_*`, API keys) and the YAML algorithm configuration |
+| `logging_conf.py` | Structured logging (structlog), console or JSON (`DFG_LOG_JSON`) |
+| **api/** `routes.py` · `deps.py` · `schemas.py` | REST endpoints (§16); session resolution and ownership; request/response models |
+| **core/** `models.py` · `values.py` · `errors.py` | Shared domain models (artifacts, profiles, matches, relationships, plans); value normalisers (basic, identifier, digits, person name, semantic maps, runtime crosswalks); typed errors mapped to 404 / 409 / 422 / 502 |
+| **ingestion/** `detect.py` | Format detection by extension and content sniffing (CSV, JSON, JSONL, Parquet, XLSX, SQLite) |
+| `ingestion/loader.py` | Builds a `DatasetArtifact`: read-only raw copy + SHA-256, normalised Parquet, schema, row count; one dataset per SQLite table |
+| `ingestion/readers.py` | Format readers streaming into Parquet; lossless two-pass CSV typing; `NULL` / `\N` as missing; flattening of nested JSON |
+| `ingestion/csv_repair.py` | Rebuilds CSVs with unquoted delimiters inside text (§4, 1a) |
+| **profiling/** `stats.py` · `profiler.py` | DuckDB column statistics (nulls, distinct, min/max, top values, lengths, duplicate rows); orchestration |
+| `profiling/semantic_types.py` | 16 semantic types from value signatures, gazetteers and name hints |
+| `profiling/sketches.py` | Coordinated bottom-k value sketches and MinHash signatures for overlap estimation |
+| **matching/** `normalize.py` · `name_sim.py` | Cupid-style name normalisation (tokenisation, abbreviation expansion); lexical name similarity |
+| `matching/type_sim.py` · `dist_sim.py` · `value_sim.py` | Datatype / semantic-type compatibility; distribution, cardinality and pattern similarity; value overlap under the best normaliser, chance-adjusted for integers |
+| `matching/embeddings.py` | Semantic signal: thesaurus concepts + semantic type + embedding cosine (TF-IDF default, Sentence-Transformers optional) |
+| `matching/candidates.py` · `scorer.py` | Candidate column pairs (LSH Ensemble, name tokens, semantic buckets); the weighted 7-signal score |
+| `matching/similarity_flooding.py` · `aligner.py` · `matcher.py` | Graph refinement; Hungarian 1:1 alignment with FK re-admission and identifier veto; the matching pipeline |
+| `matching/learned.py` · `crosswalk.py` | Optional learned column matcher (§4.1, §6.8); LLM-proposed value crosswalks (§6.10) |
+| **entity_resolution/** `blocking.py` · `comparators.py` | Standard / token / sorted-neighbourhood blocking with adaptive refinement; per-field agreement levels |
+| `entity_resolution/fellegi_sunter.py` · `clustering.py` · `resolver.py` | Fellegi–Sunter model with rule-blocked EM and calibrated prior; correlation clustering (GAEC); orchestration, review queue, labels |
+| **graph/** `schema_graph.py` · `algorithms.py` | The integration graph; components, maximum spanning tree, Dijkstra / Yen routes |
+| `graph/relationships.py` · `verification.py` | Typed dataset relationships and the robustness rules (§6.9); row-level agreement checks |
+| `graph/schema_map.py` · `serialize.py` · `explain.py` | Schema map for the Graph tab (§5.4); graph JSON and React-Flow views; evidence explanations for matches, relationships and routes |
+| **merge/** `modes.py` · `planner.py` | Merge modes and effective thresholds; the merge plan (§5.3, §8) |
+| `merge/projection.py` · `canonical.py` · `transforms.py` | Static output schema with lineage; canonical column names and roles; date / currency transformations in SQL |
+| `merge/executor.py` · `temporal.py` | DuckDB execution (lookups, aggregations, entity fusion, match flags, probabilities); effective-dated history |
+| **conflicts/** `strategies.py` | Eight conflict-resolution strategies, including truth discovery (§9.1) |
+| **provenance/** `tracker.py` · `uncertainty.py` | Column / row / cell lineage and W3C PROV-JSON; uncertainty-aware aggregates and scenarios (§9.5) |
+| **validation/** `validators.py` · `quality_report.py` | Post-merge integrity checks (§9.3); the data quality report |
+| **storage/** `workspace.py` · `duck.py` · `exports.py` | Per-session directory layout; DuckDB connections and quoting; the export bundle (§12.9) |
+| **session/** `state.py` | `Session` (every operation the API and tools call), persistence, `SessionRegistry` |
+| **llm/** `base.py` · `factory.py` · `providers/` | Provider interface; provider selection and failover wiring; Groq / NVIDIA NIM / xAI / OpenAI-compatible / Ollama (`openai_compat.py`), Anthropic, and the offline mock |
+| `llm/agent.py` · `tools.py` · `tool_selection.py` | Agent loop; the 28-tool registry with argument validation and deterministic renderers; relevance-based tool selection |
+| `llm/rate_limit.py` · `nl_fallback.py` | Predictive rate limiter (§10.1); rule-based parser used offline or when every model is rate-limited |
+
+### 3.2 User interface
+
+`frontend/` is a Next.js 14 app. Every panel reads the same session through `lib/api.ts` (with the `X-Session-ID` header, and a bearer token when auth is on). `lib/store.tsx` holds the shared state; `lib/types.ts` holds the API types.
+
+| Part | What it shows and does |
+|---|---|
+| Header (`Header.tsx`) | Project name, active LLM provider and model, token sign-in when the backend answers 401 |
+| Dataset sidebar (`DatasetSidebar.tsx`) | Upload (drag and drop, several files at once), the dataset list with rows and columns, remove, merges with status (active / undone / outdated), restart and error notices |
+| Chat (`ChatPanel.tsx`) | Conversation with the agent; suggested requests; each reply shows which tools ran and their rendered results |
+| **Graph** (`tabs/GraphView.tsx`) | Schema map: *Column links* (tables with key / reference / linked columns and column-to-column links) or *Dataset overview*; filters (join keys, shared attributes, candidates, all columns, used in merge plan), min-confidence slider, search, full screen, minimap, side panel listing every relationship with cardinality and confidence |
+| **Schema** (`tabs/SchemaView.tsx`) | Per-dataset profile (types, semantic types, nulls, distinct values, ranges) and a 12-row preview |
+| **Mappings** (`tabs/MappingsView.tsx`) | Every accepted and rejected column correspondence with its evidence (the 7 signals, overlap, row agreement); approve / reject; scorer switch; retrain the learned matcher on the decisions |
+| **Merge plan** (`tabs/PlanView.tsx`) | Generate the plan; ordered steps, joins, keys, entity groups, thresholds, relationships not used and why; execute |
+| **Conflicts** (`tabs/ConflictsView.tsx`) | Conflicting values per entity and attribute with the chosen value and reason; the attribute-history timeline of an entity |
+| **Review** (`tabs/ReviewView.tsx`) | Active learning: uncertain and random entity pairs side by side; label *Same entity* / *Different*; re-run the merge with the labels |
+| **Output** (`tabs/OutputView.tsx`) | Paged unified dataset, validation checks, data quality report, export downloads, undo |
+| **Provenance** (`tabs/ProvenanceView.tsx`) | Per output column: derivation path, ultimate sources, transformations; the full lineage report |
+| Evidence panel (`EvidencePanel.tsx`) | Opens on a clicked column, table or link and explains the decision |
+| Layout and shared pieces (`Workspace.tsx`, `ui.tsx`) | The tab bar and panel layout; badges, confidence bars and tones, buttons, empty and error states, number formatting |
+
 ## 4. Algorithms
 
 Every algorithm in the system, the problem it solves, and where it lives:
@@ -147,6 +208,23 @@ Every algorithm in the system, the problem it solves, and where it lives:
 | 23 | Uncertain aggregates | **Bernoulli uncertainty propagation**: $`\sum p x`$, $`\sum p(1-p)x^2`$, normal interval | `provenance/uncertainty.py` | Shows how much of a figure rests on uncertain links (§9.5) |
 
 Research grounding: Aurum (ICDE'18), D3L (ICDE'20), Valentine (ICDE'21), Similarity Flooding (ICDE'02), Cupid (VLDB'01), LSH Ensemble (VLDB'16), JOSIE (SIGMOD'19), Fellegi–Sunter (JASA 1969), Merge/Purge sorted neighbourhood (SIGMOD'95), GAEC (ICCV'15), Bleiholder & Naumann data fusion (CSUR'08), Dong et al. truth discovery (VLDB'09), W3C PROV-O, Platt scaling (1999) and isotonic calibration (Zadrozny & Elkan, KDD'02), active learning for ER (Sarawagi & Bhamidipaty, KDD'02), probabilistic databases (Dalvi & Suciu, VLDB'04), temporal data models (Snodgrass). More detail: [docs/algorithms.md](docs/algorithms.md), [docs/math.md](docs/math.md).
+
+### 4.1 Machine learning in GraphFusion
+
+Where a model is learned from data, which kind it is, and whether it is on by default:
+
+| Component | Model | Learned from | Default | Evidence |
+|---|---|---|---|---|
+| **Record linkage** (§7.2–7.3) | **Fellegi–Sunter**: a two-class latent mixture over discrete comparison vectors, with conditional independence given the class; $`m`$ and the match prior $`\lambda`$ are learned by **EM** (rule-blocked), $`u`$ from random pairs | unlabelled record pairs (unsupervised) | on | sample F1 0.997; held-out sparse data F1 0.942; calibration error 0.093 → 0.016 after the prior fix (§7.6) |
+| **Active learning** (§7.5) | Uncertainty sampling (margin to the threshold, clustering disagreement) mixed with 30% random sampling; labels become must-link / cannot-link constraints; random labels recalibrate the weights by **semi-supervised Platt scaling** $`\sigma(aW + b)`$ | user labels (human in the loop) | on when labels exist | F1 0.909 → 0.954 with 100 labels (hybrid); calibrating on uncertainty-sampled labels collapsed recall (negative result) |
+| **Learned column matcher** (§6.8) | **Gradient-boosted trees** (`HistGradientBoostingClassifier`) over 20 pair features, **isotonic calibration** (`CalibratedClassifierCV`) | fabricated benchmark (36 scenarios) + the user's approve/reject decisions (weight 10) | off (`scorer: weighted`) | out-of-fold AUC 0.9998 but NYC F1 0.400 vs 0.769 for the weighted score: overfits the generator, so it stays optional |
+| **Semantic column signal** (§6.2) | Character 3–5-gram **TF-IDF** embeddings of "name, semantic type, top values", cosine similarity, fitted per session | the session's own columns | on | no download, deterministic |
+| Sentence encoders | `all-MiniLM-L6-v2`, `bge-small-en-v1.5` (Sentence-Transformers) in place of TF-IDF | pretrained | off (tested) | no gain on real data, −0.02 to −0.03 F1 on hard fabricated schemas, 2× slower (§17) |
+| **LLM agent** (§10) | Tool-calling LLM (Groq `qwen/qwen3.8-27b`, failover `gpt-oss-120b` / `gpt-oss-20b`) | pretrained, used as is | on with a key | tool accuracy 0.950 and 0 unsafe actions on 40 requests |
+| **Value crosswalks** (§6.10) | The LLM proposes value mappings; the data verifies them | pretrained LLM + data checks | on with a real LLM | 0/3 → 3/3 vocabularies; negative control rejected |
+| Term-frequency adjustment, log-linear interaction terms | Winkler TF-weighted $`u`$; field-interaction terms | — | off (tested) | TF worsened calibration; field lift 0.996–1.000 made interactions pointless (§7.6) |
+
+Not machine learning, though sometimes mistaken for it: similarity flooding (a fixpoint over the match graph), Hungarian alignment and correlation clustering (combinatorial optimisation), and MinHash / LSH (randomised hashing).
 
 ## 5. Graph formulation
 
@@ -1024,6 +1102,70 @@ DFG_LLM_TIMEOUT=90                   # seconds per call before falling back to t
 NVIDIA_API_KEY=nvapi-...             # DFG_NIM_MODEL=moonshotai/kimi-k3
 ```
 
+### 11.1 Configuration reference (`config/config.yaml`)
+
+Every weight and threshold lives in `config/config.yaml` (path overridable with `DFG_CONFIG`); nothing in the algorithms is tuned to a dataset.
+
+| Section | Key | Default | Meaning |
+|---|---|---|---|
+| `engine` | `memory_limit` · `temp_directory` · `threads` | `2GB` · workspace `_duckdb_tmp` · all cores | DuckDB memory before spilling to disk; spill directory; threads |
+| `schema_matching` | `weights.*` | name .20, datatype .10, semantic .20, value_overlap .25, distribution .05, pattern .10, cardinality .10 | the 7-signal score (renormalised to 1) |
+| | `scorer` · `learned_model` | `weighted` · `models/column_matcher.joblib` | `weighted`, `learned` or `blend` |
+| | `min_candidate_score` | 0.35 | pairs below never enter the graph |
+| | `lsh_pair_threshold` · `lsh_threshold` · `minhash_permutations` · `max_distinct_sample` | 5000 · 0.3 · 128 · 20000 | switch to LSH candidates above 5,000 column pairs; sketch sizes |
+| | `flooding.*` | enabled, 10 iterations, ε 0.001, α 0.5, β 0.15, centre 0.6, γ 0.35 | similarity flooding (§6.4) |
+| | `alignment.*` | one_to_one, FK re-admission at containment ≥ 0.9, identifier_min_overlap 0.05 | Hungarian alignment and the identifier veto |
+| | `crosswalk.*` | enabled, 6 pairs, 80 / 400 values, coverage 0.5, injectivity 0.8, ≤ 20% hallucinated | value crosswalks (§6.10) |
+| `entity_resolution` | `blocking` · `max_block_size` · `refine_block_size` · `sorted_neighborhood_window` | standard + sorted_neighborhood + token · 2000 · 150 · 5 | blocking (§7.1) |
+| | `em_iterations` · `prior_match_rate` · `prior_population` · `term_frequency` | 25 · 0.01 · `all_pairs` · false | Fellegi–Sunter estimation and calibration (§7.6) |
+| | `clustering` · `cluster_link_threshold` | `correlation` · 0.5 | GAEC or connected components |
+| | `label_weight` · `label_calibration` · `calibration_label_weight` | 0 · `random_only` · 20 | how user labels enter (§7.5) |
+| `graph` | `path_cost` · `min_edge_confidence` | `neglog` · 0.30 | route cost $`-\log c`$ or $`1-c`$; weakest edge kept |
+| `thresholds` | `high` · `medium` | 0.90 · 0.70 | confidence bands |
+| `merge_modes` | `strict` / `balanced` / `permissive` | see §7.6 | `auto_merge`, `review`, `min_edge` (schema level); `entity_merge`, `entity_review` (record level) |
+| `merge` | `default_mode` · `default_conflict_strategy` · `base_currency` | balanced · majority_vote · USD | defaults |
+| | `key_uniqueness` · `entity_merge_uniqueness` | 0.98 · 0.999 | what counts as a key; 1:1 merge needs both keys strictly unique |
+| | `attribute_min_agreement` · `attribute_verify_sample` | 0.5 · 20000 | row-level verification (§6.9) |
+| | `lookup_min_containment` · `entity_min_overlap` · `entity_min_shared_values` | 0.80 · 0.30 · 0.02 | lookup coverage; key-merge overlap; recurring identifying values for record linkage |
+| | `vendor_prefixes` | `[tpep, lpep]` | prefixes stripped from output names |
+| `embeddings` | `backend` · `model` | `tfidf` · `all-MiniLM-L6-v2` | semantic signal encoder |
+| `llm` | `rate_limits.*` | safety 0.9, wait ≤ 20 s, per model 30 RPM / 1K RPD / 8K TPM / 200K TPD | §10.1 |
+| | `model_params.*` | qwen: temperature 0.2, top_p 0.95; gpt-oss: reasoning medium | per-model request parameters |
+| | `agent.*` | 3 rounds, 3 history turns, 400 / 1,500 chars, 12 tools, commentary auto | agent budget (§10.1) |
+
+### 11.2 Environment variables (`.env`)
+
+| Variable | Purpose |
+|---|---|
+| `DFG_LLM_PROVIDER` | `groq` · `nvidia_nim` · `xai_grok` · `openai_compat` · `anthropic` · `ollama` · `mock` |
+| `GROQ_API_KEY` · `DFG_GROQ_MODEL` · `DFG_GROQ_FALLBACK_MODELS` · `DFG_GROQ_REASONING_EFFORT` | Groq key, primary model, failover models, default reasoning effort |
+| `NVIDIA_API_KEY` · `DFG_NIM_MODEL` · `DFG_NIM_BASE_URL` · `DFG_NIM_REASONING_EFFORT` | NVIDIA NIM |
+| `XAI_API_KEY` · `DFG_GROK_MODEL` | xAI Grok |
+| `OPENAI_COMPAT_BASE_URL` · `OPENAI_COMPAT_API_KEY` · `OPENAI_COMPAT_MODEL` | any OpenAI-compatible endpoint |
+| `ANTHROPIC_API_KEY` · `DFG_ANTHROPIC_MODEL` | Anthropic |
+| `OLLAMA_BASE_URL` · `OLLAMA_MODEL` | local Ollama |
+| `DFG_LLM_TIMEOUT` | seconds per LLM call before the rule-based fallback |
+| `CENSUS_API_KEY` | optional live Census ACS download (a bundled snapshot is used otherwise) |
+| `DFG_WORKSPACE` · `DFG_CONFIG` | workspace directory; configuration file |
+| `DFG_LOG_LEVEL` · `DFG_LOG_JSON` | log level; JSON logs |
+| `DFG_CORS_ORIGINS` | allowed UI origins |
+| `DFG_EMBEDDING_BACKEND` | `tfidf` or `sentence_transformers` |
+| `DFG_API_TOKENS` | optional `user:token` pairs; enables authentication and per-user sessions |
+| `NEXT_PUBLIC_API_URL` (frontend) | API address baked into the UI build |
+
+API keys belong in `.env`, which is git-ignored; `.env.example` has empty placeholders only.
+
+### 11.3 Reference data (`config/`)
+
+| File | Contents | Used by |
+|---|---|---|
+| `abbreviations.yaml` | `abbreviations` (cust → customer, amt → amount, no → number, …) and `synonyms` concept sets (city ~ location ~ town, amount ~ spent ~ fare) | name normalisation and the thesaurus part of the semantic signal |
+| `value_maps.yaml` | `domains` (Indian and US city aliases, NYC boroughs ↔ counties, country names), `domain_semantic_types`, `geo_suffixes` | value normalisers; a domain is applied to a column pair only when it raises measured overlap |
+| `glossary.yaml` | readable names and descriptions for opaque column codes | schema map, name normalisation, canonical output names |
+| `fx_rates.yaml` | dated static rates to USD (`as_of`) | currency conversion; the original amount and currency are kept |
+
+All four are data, not code, so adding a domain, synonym or rate needs no code change.
+
 ## 12. Running locally: command reference
 
 Every command in this section was run against a live backend and frontend on Windows 11 (Git Bash and PowerShell 5.1) during development.
@@ -1248,6 +1390,25 @@ python experiments/benchmark.py                    # 100K / 500K / 1M rows → b
 | NYC demo button fails | NYC data not downloaded | `python scripts/download_demo_data.py` |
 | UI calls the wrong API host | `NEXT_PUBLIC_API_URL` is fixed at build time | rebuild the frontend with the right value |
 
+### 12.9 Output files of a merge
+
+Each merge writes to `workspace/sessions/<session>/merges/<merge_id>/` (downloadable via `GET /integration/export?file=…`):
+
+| File | Contents |
+|---|---|
+| `unified_dataset.parquet` · `.csv` | the integrated table: output columns plus `_record_id`, `_src_<dataset>_row`, `_match_<join>`, `_match_confidence`, `_match_probability`, `_relationship_confidence`, entity columns (`entity_id`, `_entity_confidence`, `_entity_sources`, `_has_conflict`) |
+| `entities_<group>.parquet` | one row per resolved entity: fused attributes, `_entity_confidence`, `_entity_sources`, `_entity_record_count`, `_has_conflict` |
+| `entity_history_<group>.parquet` | bitemporal attribute history (`valid_from`, `valid_to`, `is_current`, `timestamp_kind`, `recorded_at`) |
+| `conflicts.csv` | every conflicting value, the chosen value, the strategy and the reason |
+| `cell_provenance.parquet` | the source dataset, row and column of every fused cell |
+| `provenance.json` | column lineage and a W3C PROV-JSON document |
+| `schema_mapping.json` | accepted and rejected column correspondences with evidence |
+| `integration_graph.json` | the integration graph (datasets, columns, typed weighted edges) |
+| `merge_report.json` | plan, join statistics, entity-group statistics, source accuracy, warnings, preferences |
+| `data_quality_report.txt` | the human-readable quality report (rows, joins, coverage, validation) |
+
+Undone merges move to `merges/_undone/`; the source datasets' raw copies stay read-only in `raw/`.
+
 ## 13. Running with Docker
 
 ```bash
@@ -1260,6 +1421,19 @@ docker compose up --build
 > The Docker configuration is written but was **not built during development** because the Docker daemon wasn't running on the development machine. Everything else in this README was run and verified.
 
 ## 14. Downloading demo data
+
+Helper scripts (`scripts/`):
+
+| Script | Purpose |
+|---|---|
+| `bootstrap.sh` · `bootstrap.ps1` | one-shot setup: venv, dependencies, `.env`, sample data, `npm install` (`--with-nyc-data` / `-WithNycData` also downloads NYC) |
+| `make_sample_data.py` | seeded sample scenario (CRM, master data, POS) with injected difficulties and ground truth in `data/sample/ground_truth.json` |
+| `download_demo_data.py` | NYC TLC trips, taxi zones, NTA demographics, Census ACS (wraps `download_tlc_data.py`, `download_nyc_opendata.py`, `download_census_data.py`) |
+| `download_olist.py` · `download_unseen_schemas.py` | Olist e-commerce CSVs; Northwind CSVs and the Chinook SQLite database (testing only) |
+| `run_demo.py` | headless end-to-end conversation with artifact checks (`--sample`, `--nyc`, `--provider`) |
+| `_common.py` | shared download helper (streamed download to a temp file, up to 3 retries) |
+
+Experiment helpers: `experiments/common.py` (metrics, timing, memory, tables, chart palette) and `experiments/fabricator.py` (Valentine-style fabricated benchmark: vertical and horizontal splits, schema and instance noise, distractors).
 
 ```bash
 python scripts/download_demo_data.py               # default: 500,000-trip subset
